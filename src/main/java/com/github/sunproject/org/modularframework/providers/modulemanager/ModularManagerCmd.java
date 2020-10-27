@@ -38,10 +38,7 @@ public class ModularManagerCmd extends ModularCommand {
 					System.err.println("Error while trying to disable your module.");
 					e.printStackTrace();
 				}
-			} /*else if (getCommandArgs().contains("reloadExternalModuleManager")) {
-				System.out.println("Refreshing the external module manager ...");
-				ModularInit.getModuleManager().reloadPluginList();
-			}*/
+			}
 			else help();
 		}
 	}

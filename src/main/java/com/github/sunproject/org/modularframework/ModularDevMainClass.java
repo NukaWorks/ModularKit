@@ -1,10 +1,9 @@
 package com.github.sunproject.org.modularframework;
 
 import com.github.sunproject.org.modularframework.init.ModularInit;
-
 import java.util.Scanner;
 
-public class Main {
+class ModularDevMainClass {
 
 
     public static void main(String[] args) throws Exception {

@@ -1,6 +1,6 @@
 package com.github.sunproject.org.modularframework.configs;
 
-public class ModularConfig {
+public abstract class ModularConfig {
 
 	public String mineBootVersion, workSpaceDir;
 

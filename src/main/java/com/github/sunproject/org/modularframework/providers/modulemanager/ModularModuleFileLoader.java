@@ -74,7 +74,7 @@ public class ModularModuleFileLoader {
 		for (String moduleName : ModularModule.getModulesList().keySet()) {
 			if (!getModulesNameList().contains(moduleName)) {
 				System.out.println("Removing " + moduleName + " ...");
-				if (ModularDefaultConfig.getModularConfig().isEnableStopPluginIfManuallyDeleted()) {
+				if (ModularInit.getDefaultConfig().isEnableStopPluginIfManuallyDeleted()) {
 					try {
 						ModularInit.getModuleManager()
 								.disableModule(ModularInit.getModuleManager().getModuleByName(moduleName));

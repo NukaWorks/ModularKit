@@ -16,34 +16,28 @@ import java.io.IOException;
  */
 
 public class ModularInit {
+	// *** --[ Project Configuration ] -- ***
+	private static final String prjName = "MineBootFramework";
+	private static final String prjVBuildVersion = "1.1.5";
+
 
 	private static ModularModuleFileLoader pluginLoader;
-
 	private static ModularModuleManager pluginManager;
-
 	private static ModularFileWatcher pluginsFileWatcher;
-
-	private static final String prjName = "MineBootFramework";
-
-	private static String prjVBuildVersion = "1.0.2";
+	private static ModularDefaultConfig defaultConfig;
 
 	public static void initModular() throws IOException {
 		System.out.println("Initializing " + getPrjName() + " ...");
 
 		// MineBootAPI configuration init ...
-		ModularDefaultConfig.defaultConfig();
-
-		try {
-			ModularWorkSpaceBuilder.initDefaultWorkSpace();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+		defaultConfig = new ModularDefaultConfig();
+		ModularWorkSpaceBuilder.initDefaultWorkSpace();
 
 		pluginManager = new ModularModuleManager();
 //		pluginLoader = new MineBootModuleFileLoader();
 //		pluginLoader.startIndexation();
 
-		if (ModularDefaultConfig.getModularConfig().isEnableAutoReload()) {
+		if (getDefaultConfig().isEnableAutoReload()) {
 			pluginsFileWatcher = new ModularFileWatcher(getModuleLoader().getModulesDir().toPath(),
 					() -> System.out.println("Plugins changed !"));
 			pluginsFileWatcher.startFileWatcher();
@@ -80,5 +74,9 @@ public class ModularInit {
 
 	public static String getPrjName() {
 		return prjName;
+	}
+
+	public static ModularDefaultConfig getDefaultConfig() {
+		return defaultConfig;
 	}
 }
