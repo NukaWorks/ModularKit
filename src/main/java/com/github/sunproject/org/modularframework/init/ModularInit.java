@@ -1,13 +1,12 @@
 package com.github.sunproject.org.modularframework.init;
 
+import java.io.IOException;
+
 import com.github.sunproject.org.modularframework.configs.ModularDefaultConfig;
 import com.github.sunproject.org.modularframework.providers.ModularFileWatcher;
 import com.github.sunproject.org.modularframework.providers.ModularWorkSpaceBuilder;
 import com.github.sunproject.org.modularframework.providers.modulemanager.ModularModuleFileLoader;
 import com.github.sunproject.org.modularframework.providers.modulemanager.ModularModuleManager;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 /**
  * @since 1.0
@@ -38,7 +37,7 @@ public class ModularInit {
 //		pluginLoader.startIndexation();
 
 		if (getDefaultConfig().isEnableAutoReload()) {
-			pluginsFileWatcher = new ModularFileWatcher(getModuleLoader().getModulesDir().toPath(),
+			pluginsFileWatcher = new ModularFileWatcher(ModularModuleFileLoader.getModulesDir().toPath(),
 					() -> System.out.println("Plugins changed !"));
 			pluginsFileWatcher.startFileWatcher();
 		}
