@@ -5,7 +5,7 @@
 
 	<groupId>com.github.sunproject.org</groupId>
 	<artifactId>modularframework</artifactId>
-	<version>1.1.4</version>
+	<version>1.1.6</version>
 	<url>https://github.com/sunproject-org/modularframework</url>
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>The ModularFramework.</description>
@@ -56,7 +56,7 @@
 		<dependency>
 			<groupId>com.github.sunproject.org</groupId>
 			<artifactId>modularshell</artifactId>
-			<version>1.1.7</version>
+			<version>1.1.9</version>
 		</dependency>
 	</dependencies>
 
@@ -68,6 +68,11 @@
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
+					<archive>
+						<manifest>
+							<mainClass>com.github.sunproject.org.modularframework.ModularDevMainClass</mainClass>
+						</manifest>
+					</archive>
 				</configuration>
 				<executions>
 					<execution>

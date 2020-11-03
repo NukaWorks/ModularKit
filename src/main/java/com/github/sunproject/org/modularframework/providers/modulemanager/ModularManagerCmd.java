@@ -7,6 +7,8 @@ import com.diogonunes.jcolor.Attribute;
 import com.github.sunproject.org.modularframework.init.ModularInit;
 import com.github.sunproject.org.modularshell.ModularCommand;
 
+import java.util.Map;
+
 public class ModularManagerCmd extends ModularCommand {
 
 	public ModularManagerCmd() {
@@ -19,8 +21,7 @@ public class ModularManagerCmd extends ModularCommand {
 	private void exec() {
 		if (getCommandArgs() != null) {
 			if (getCommandArgs().contains("ls")) {
-				System.out.println(ModularModule.getModulesList());
-
+				listModules();
 			} else if (getCommandArgs().contains("infos")) {
 				moduleProperties(ModularInit.getModuleManager().getModuleByName(getCommandArgs().get(getCommandArgs().size() - 1)));
 			} else if (getCommandArgs().contains("enable")) {
@@ -37,10 +38,7 @@ public class ModularManagerCmd extends ModularCommand {
 					System.err.println("Error while trying to disable your module.");
 					e.printStackTrace();
 				}
-			} /*else if (getCommandArgs().contains("reloadExternalModuleManager")) {
-				System.out.println("Refreshing the external module manager ...");
-				ModularInit.getModuleManager().reloadPluginList();
-			}*/
+			}
 			else help();
 		}
 	}
@@ -54,15 +52,18 @@ public class ModularManagerCmd extends ModularCommand {
 	}
 
 	private void moduleProperties(ModularModule module) {
-		if (module != null) {
-			System.out.println(Ansi.colorize("Module author : ", new AnsiFormat(Attribute.TEXT_COLOR(69, 71, 74))) + module.getAuthor());
-			
-		} else {
-			System.err.println("Sorry, please give a valid module name for find that.");
-		}
-
+		if (module != null) System.out.println(Ansi.colorize("Module author : ", new AnsiFormat(Attribute.TEXT_COLOR(69, 71, 74))) + module.getAuthor());
+		else System.err.println("Sorry, please give a valid module name for find that.");
 	}
-	
+
+	private void listModules() {
+		for (Map.Entry<String, ModularModule> entryMod : ModularModule.getModulesList().entrySet()) {
+			ModularModule module = entryMod.getValue();
+			System.out.println(Ansi.colorize(module.getModuleName(), Attribute.TEXT_COLOR(252, 124, 5))
+					+ "@" + Ansi.colorize(module.getModuleVersion(), Attribute.CYAN_TEXT()));
+		}
+	}
+
 	private void enableModule(ModularModule module) throws Exception {
 		ModularInit.getModuleManager().enableModule(module);
 	}

@@ -1,12 +1,13 @@
 package com.github.sunproject.org.modularframework.utils;
 
 import com.github.sunproject.org.modularframework.configs.ModularDefaultConfig;
+import com.github.sunproject.org.modularframework.init.ModularInit;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 
 public class OSUtil {
-
+	private static ModularDefaultConfig defaultConfig = ModularInit.getDefaultConfig();
 	public enum OperatingSystem {
 		windows, macos, linux, unknown
 	}
@@ -46,10 +47,10 @@ public class OSUtil {
 	}
 
 	public static File getWorkSpacePath() throws FileNotFoundException {
-			return getLocalStorage(ModularDefaultConfig.getModularConfig().getWorkSpaceDir());
+			return getLocalStorage(defaultConfig.getWorkSpaceDir());
 	}
 
 	public static File getWorkSpacePath(String child) throws FileNotFoundException {
-			return getLocalStorage(ModularDefaultConfig.getModularConfig().getWorkSpaceDir() + "/" + child);
+			return getLocalStorage(defaultConfig.getWorkSpaceDir() + "/" + child);
 	}
 }
