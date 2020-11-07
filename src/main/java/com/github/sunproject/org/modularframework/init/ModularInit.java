@@ -1,8 +1,10 @@
 package com.github.sunproject.org.modularframework.init;
 
+import java.io.File;
 import java.io.IOException;
 
 import com.github.sunproject.org.modularframework.configs.ModularDefaultConfig;
+import com.github.sunproject.org.modularframework.logging.ModularLog;
 import com.github.sunproject.org.modularframework.providers.ModularFileWatcher;
 import com.github.sunproject.org.modularframework.providers.ModularWorkSpaceBuilder;
 import com.github.sunproject.org.modularframework.providers.modulemanager.ModularModuleFileLoader;
@@ -11,60 +13,58 @@ import com.github.sunproject.org.modularframework.providers.modulemanager.Modula
 /**
  * @since 1.0
  * @author sundev79 (sundev79.sunproject@gmail.com)
- * MineBootFramework Initialization class
+ * ModularFramework Initialization class
  */
 
 public class ModularInit {
+
 	// *** --[ Project Configuration ] -- ***
-	private static final String prjName = "MineBootFramework";
-	private static final String prjVBuildVersion = "1.1.5";
+	private static final String prjName = "ModularFramework";
+	private static final String prjVBuildVersion = "2.0.0";
+	// *** ------------------------------ ***
 
-
-	private static ModularModuleFileLoader pluginLoader;
-	private static ModularModuleManager pluginManager;
-	private static ModularFileWatcher pluginsFileWatcher;
+	private static ModularModuleFileLoader moduleFileLoader;
+	private static ModularModuleManager moduleManager;
+	private static ModularFileWatcher fileWatcher;
 	private static ModularDefaultConfig defaultConfig;
+	private static ModularWorkSpaceBuilder workSpaceBuilder;
+	private static ModularLog console;
+
 
 	public static void initModular() throws IOException {
-		System.out.println("Initializing " + getPrjName() + " ...");
+
+		// Modular Logger init
+		console = new ModularLog(prjName + "_Init");
 
 		// MineBootAPI configuration init ...
+		console.log("Initializing " + getPrjName() + " ...");
 		defaultConfig = new ModularDefaultConfig();
-		ModularWorkSpaceBuilder.initDefaultWorkSpace();
 
-		pluginManager = new ModularModuleManager();
-//		pluginLoader = new MineBootModuleFileLoader();
-//		pluginLoader.startIndexation();
+		workSpaceBuilder = new ModularWorkSpaceBuilder(new File(defaultConfig.getWorkSpaceDir()));
+
+		moduleFileLoader = new ModularModuleFileLoader();
+		moduleFileLoader.startIndexation();
+		moduleManager = new ModularModuleManager();
 
 		if (getDefaultConfig().isEnableAutoReload()) {
-			pluginsFileWatcher = new ModularFileWatcher(ModularModuleFileLoader.getModulesDir().toPath(),
-					() -> System.out.println("Plugins changed !"));
-			pluginsFileWatcher.startFileWatcher();
+			fileWatcher = new ModularFileWatcher(ModularModuleFileLoader.getModulesDir().toPath(),
+					() -> console.log("fileWatcher", "Modules changes detected !"));
+			fileWatcher.startFileWatcher();
 		}
 
-//        System.out.println("Launching " + MineBootDashBoard.class.getSimpleName() + " ...");
-//        new MineBootDashBoard();
-
-		System.out.println("Initialization done !");
-
 		ModularPostActions.postInit();
+		console.setContext(prjName);
+		console.log("init complete", "Done !");
 
 		/////////////////////////////////////////////////////////
-
 	}
 
 	public static ModularModuleFileLoader getModuleLoader() {
-		return pluginLoader;
+		return moduleFileLoader;
 	}
 
 	public static ModularModuleManager getModuleManager() {
-		return pluginManager;
-	}
-
-	public static void shutdown() {
-		// Code for shutdown MineBoot-API properly !
-		ModularShutdownActions.shutdownScript();
-		System.exit(0);
+		return moduleManager;
 	}
 
 	public static String getBuildVersion() {
@@ -77,5 +77,18 @@ public class ModularInit {
 
 	public static ModularDefaultConfig getDefaultConfig() {
 		return defaultConfig;
+	}
+
+	public static ModularWorkSpaceBuilder getWorkSpaceBuilder() {
+		return workSpaceBuilder;
+	}
+
+	public static ModularLog getConsole() {
+		return console;
+	}
+
+	public static void shutdown() {
+		ModularShutdownActions.shutdownScript();
+		System.exit(0);
 	}
 }

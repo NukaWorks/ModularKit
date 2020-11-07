@@ -1,26 +1,23 @@
 package com.github.sunproject.org.modularframework.configs;
 
+/**
+ * @since 1.0
+ * @author sundev79 (sundev79.sunproject@gmail.com)
+ * Configuration object definition class.
+ */
+
 public abstract class ModularConfig {
 
-	public String mineBootVersion, workSpaceDir;
-
+	public String workSpaceDir;
 	public boolean enableStopPluginIfManuallyDeleted, enableAutoReload;
-	public long mineBootAPI_LEVEL;
+	public long modularAPI_LEVEL;
 
-	public String getMineBootVersion() {
-		return mineBootVersion;
+	public long getModularAPI_LEVEL() {
+		return modularAPI_LEVEL;
 	}
 
-	public void setMineBootVersion(String mineBootVersion) {
-		this.mineBootVersion = mineBootVersion;
-	}
-
-	public long getMineBootAPI_LEVEL() {
-		return mineBootAPI_LEVEL;
-	}
-
-	public void setMineBootAPI_LEVEL(int mineBootAPI_LEVEL) {
-		this.mineBootAPI_LEVEL = mineBootAPI_LEVEL;
+	public void setModularAPI_LEVEL(int modularAPI_LEVEL) {
+		this.modularAPI_LEVEL = modularAPI_LEVEL;
 	}
 
 	public String getWorkSpaceDir() {

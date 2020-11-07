@@ -2,59 +2,37 @@ package com.github.sunproject.org.modularframework.providers.modulemanager;
 
 
 import com.github.sunproject.org.modularframework.events.ModularEventHandler;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.HashMap;
+
+/**
+ * @since 1.0
+ * @author sundev79 (sundev79.sunproject@gmail.com)
+ * ModularModule Object.
+ */
 
 public abstract class ModularModule {
 	private static final HashMap<String, ModularModule> moduleList = new HashMap<>();
 	private Class<?> moduleClassMain;
-	private JSONObject moduleJsonMeta;
 	private File moduleJarFile;
 	private String moduleName, moduleVersion, author, webSiteUrl;
 	private long targetApiLevel, minApiLevel, maxApiLevel;
 	private boolean isEnabled;
 	private ModularEventHandler preInitEvent;
 
-	public ModularModule(String moduleName, long minApi) {
+	public ModularModule(String moduleName, long minApi, String moduleVersion) {
 		
 		if (!moduleName.isEmpty()) {
 			this.setModuleName(moduleName);			
 		} else throw new NullPointerException("moduleName cannot be null !");
 		
 		this.setMinApiLevel(minApi);
+		this.setModuleVersion(moduleVersion);
 
 		// Add Plugin
 		getModulesList().put(getModuleName(), this);
-	}
-
-	public void parseJsonMetaData() {
-		if (!moduleJsonMeta.isEmpty()) {
-//			this.moduleJarFile = new File(moduleClassMain.getProtectionDomain().getCodeSource().getLocation().getPath());
-			this.targetApiLevel = (long) moduleJsonMeta.get("targetApiLevel");
-			this.minApiLevel = (long) moduleJsonMeta.get("minApiLevel");
-			this.maxApiLevel = (long) moduleJsonMeta.get("maxApiLevel");
-			this.moduleName = (String) moduleJsonMeta.get("moduleName");
-			this.moduleVersion = (String) moduleJsonMeta.get("moduleVersion");
-			JSONObject authorInfo = (JSONObject) moduleJsonMeta.get("authorInfo");
-			this.author = (String) authorInfo.get("authorName");
-			this.webSiteUrl = (String) authorInfo.get("webSiteUrl");
-		}
-	}
-
-	public JSONObject getModuleJsonMeta() {
-		return moduleJsonMeta;
-	}
-
-	public void setModuleJsonMeta(InputStream moduleJsonMeta) {
-		this.moduleJsonMeta = (JSONObject) JSONValue.parse(new InputStreamReader(moduleJsonMeta));
-		parseJsonMetaData();
-
 	}
 
 	public void setModuleClassMain(Class<?> moduleClassMain) {
@@ -143,10 +121,6 @@ public abstract class ModularModule {
 
 	public String getWebSiteUrl() {
 		return webSiteUrl;
-	}
-
-	public JSONObject getModuleMetaUrl() {
-		return moduleJsonMeta;
 	}
 
 	public boolean isEnabled() {

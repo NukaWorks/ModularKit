@@ -2,20 +2,28 @@ package com.github.sunproject.org.modularframework.providers.modulemanager;
 
 import com.github.sunproject.org.modularframework.init.ModularInit;
 import com.github.sunproject.org.modularframework.init.ModularModuleInit;
+import com.github.sunproject.org.modularframework.logging.ModularLog;
 import com.github.sunproject.org.modularframework.utils.Pluralize;
 
 import java.io.FileNotFoundException;
 import java.util.Iterator;
 import java.util.Map;
 
+/**
+ * @since 1.0
+ * @author sundev79 (sundev79.sunproject@gmail.com)
+ * Modular module manager.
+ */
+
 public class ModularModuleManager {
 
+	private ModularLog console = ModularInit.getConsole();
+
 	public ModularModuleManager() {
-		System.out.println("Starting up Module Manager ...");
+		console.log("Starting up Module Manager ...");
 		ModularModuleInit.init();
-		System.out.println("Detected " + "(" + ModularModule.getModuleNumber() + ") "
+		console.log("Detected " + "(" + ModularModule.getModuleNumber() + ") "
 				+ Pluralize.pluralizeWord("Module", ModularModule.getModuleNumber()) + " !");
-		System.out.println("done !");
 	}
 
 	public boolean reloadPluginList() {
@@ -30,8 +38,8 @@ public class ModularModuleManager {
 	}
 
 	public void shutdown() {
-		System.out.println("Stopping Module Manager ...");
-		System.err.println("Stopping ALL Modules " + "(" + ModularModule.getModuleNumber() + ")" + "...");
+		console.log("Stopping Module Manager ...");
+		console.log("Stopping ALL Modules " + "(" + ModularModule.getModuleNumber() + ")" + "...");
 
 		if (!ModularModule.getModulesList().isEmpty()) {
 			Iterator<Map.Entry<String, ModularModule>> it = ModularModule.getModulesList().entrySet().iterator();
@@ -47,31 +55,37 @@ public class ModularModuleManager {
 				}
 			}
 		}
-		System.out.println("done !");
+		console.log("Done !");
 	}
 
 	public void enableModule(ModularModule module) throws NoSuchMethodException {
 		if (!module.isEnabled()) {
-			System.out.println("Enabling Module " + module.getModuleName() + "...");
-			new Thread(() -> {
+			console.log("Enabling Module " + module.getModuleName() + "...");
+			Thread modRunner = new Thread(() -> {
 				module.onEnable();
-			}).start();
+			});
+
+			modRunner.setName("Module_" + module.getModuleName());
+			modRunner.start();
 			module.setEnabled(true);
 		}
 	}
 
 	public void disableModule(ModularModule module) throws NoSuchMethodException {
 		if (module.isEnabled()) {
-			System.out.println("Disabling Module " + module.getModuleName() + "...");
-			new Thread(() -> {
+			console.log("Disabling Module " + module.getModuleName() + "...");
+			Thread modRunner = new Thread(() -> {
 				module.onDisable();
-			}).start();
+			});
+
+			modRunner.setName("Module_" + module.getModuleName() + " Stopping ...");
+			modRunner.start();
 			module.setEnabled(false);
 		}
 	}
 
 	public void deleteModule(ModularModule module) {
-		System.out.println("Deleting Module" + module.getModuleName() + " ...");
+		console.log("Deleting Module" + module.getModuleName() + " ...");
 		try {
 			disableModule(module);
 		} catch (NoSuchMethodException e) {
@@ -90,7 +104,5 @@ public class ModularModuleManager {
 			return ModularModule.getModulesList().get(moduleName);
 
 		return null;
-
 	}
-
 }

@@ -1,91 +1,60 @@
 package com.github.sunproject.org.modularframework.providers.modulemanager;
 
-import com.github.sunproject.org.modularframework.configs.ModularDefaultConfig;
 import com.github.sunproject.org.modularframework.init.ModularInit;
-import com.github.sunproject.org.modularframework.utils.OSUtil;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
+import com.github.sunproject.org.modularframework.logging.ModularLog;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.ArrayList;
+
+/**
+ * @since 1.1.7
+ * @author sundev79 (sundev79.sunproject@gmail.com)
+ * Class for load a moduleObject in a .modlr (jar) file.
+ */
 
 public class ModularModuleFileLoader {
 	private static File modulesDir;
-
-	private final ArrayList<String> modulesNameList = new ArrayList<>();
+	private static ModularLog console = ModularInit.getConsole();
 
 	public ModularModuleFileLoader() throws FileNotFoundException {
-		modulesDir = OSUtil.getWorkSpacePath("modules");
+		modulesDir = ModularInit.getWorkSpaceBuilder().getWorkspaceDirs().get("MODULES");
 	}
 
 	public static File getModulesDir() {
 		return modulesDir;
 	}
 
-	public ArrayList<String> getModulesNameList() {
-		return modulesNameList;
-	}
-
 	public void startIndexation() throws FileNotFoundException {
-		System.out.println("Searching Modules ... ");
-		if (!modulesDir.exists())
-			throw new FileNotFoundException("Sorry, this folder not exist ;(");
-		if (!getModulesNameList().isEmpty())
-			getModulesNameList().clear();
-
-		for (File file : modulesDir.listFiles()) {
-			if (file.getName().endsWith(".jar")) {
-
-				URLClassLoader pluginJarClassLoader = null;
-				try {
-					pluginJarClassLoader = new URLClassLoader(
-							new URL[] { new URL("file", null, file.getAbsolutePath()) });
-				} catch (MalformedURLException e) {
-					e.printStackTrace();
-				}
-				Class<?> pluginMainClass = null;
-				JSONObject pluginMetaJsonFile = null;
-
-				try {
-					pluginMainClass = Class.forName("R", true, pluginJarClassLoader);
-					pluginMetaJsonFile = (JSONObject) JSONValue.parse(new InputStreamReader(pluginMainClass.getResourceAsStream("/ModuleMeta.json")));
-
-					String moduleName = (String) pluginMetaJsonFile.get("moduleName");
-
-				} catch (ClassNotFoundException e) {
-					System.err.println("failed !");
-					System.err.println("The class \"PluginClassMain\" was not found ! file: " + file.getAbsolutePath());
-					e.printStackTrace();
-				} catch (NullPointerException e) {
-					System.err.println("failed !");
-					System.err.println("File \"ModuleMeta.json\" was not found ! file: " + file.getAbsolutePath());
-					e.printStackTrace();
-				}
-				System.out.println(pluginMetaJsonFile.get("pluginName"));
-				getModulesNameList().add((String) pluginMetaJsonFile.get("pluginName"));
-			}
-		}
+		console.log("Searching Modules ... ");
+		if (!modulesDir.exists()) throw new FileNotFoundException("Sorry, this folder not exist ;(");
 		
-		for (String moduleName : ModularModule.getModulesList().keySet()) {
-			if (!getModulesNameList().contains(moduleName)) {
-				System.out.println("Removing " + moduleName + " ...");
-				if (ModularInit.getDefaultConfig().isEnableStopPluginIfManuallyDeleted()) {
-					try {
-						ModularInit.getModuleManager()
-								.disableModule(ModularInit.getModuleManager().getModuleByName(moduleName));
-					} catch (NoSuchMethodException e) {
-						e.printStackTrace();
-					}
-				}
-				ModularModule.getModulesList().remove(moduleName);
+		for(File modlr : modulesDir.listFiles()) {
+			URLClassLoader RSLoader = null;
+			Class<?> RSClass = null;
+
+			try {
+				RSLoader = new URLClassLoader(new URL[] {
+						new URL("file", null, modlr.getAbsolutePath())
+				});
+			} catch (MalformedURLException e) {
+
+			    e.printStackTrace();
+			}
+
+			try {
+				RSClass = Class.forName("R", false, RSLoader);
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+
+			try {
+				RSClass.newInstance();
+			} catch (InstantiationException | IllegalAccessException e) {
+				e.printStackTrace();
 			}
 		}
-
-		System.out.println("...done !");
 	}
 }

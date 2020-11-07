@@ -1,4 +1,6 @@
 target/
 bin/
 temp/
-.idea/discord.xml
+.idea/
+*.old
+*.iml
