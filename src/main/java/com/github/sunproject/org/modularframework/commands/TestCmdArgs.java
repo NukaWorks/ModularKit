@@ -8,7 +8,7 @@ public class TestCmdArgs extends ModularCommand {
 	public TestCmdArgs() {
 		super("test");
 		this.setEventHandler(() -> {
-			ModularCmdArgs args = new ModularCmdArgs("lol", () -> System.out.println("sfsdfsdf"));
+			ModularCmdArgs args = new ModularCmdArgs("lol", () -> System.out.println("lol"));
 		});
 	}
 }

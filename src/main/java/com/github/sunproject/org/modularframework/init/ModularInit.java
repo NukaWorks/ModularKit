@@ -33,19 +33,14 @@ public class ModularInit {
 		ModularWorkSpaceBuilder.initDefaultWorkSpace();
 
 		pluginManager = new ModularModuleManager();
-//		pluginLoader = new MineBootModuleFileLoader();
-//		pluginLoader.startIndexation();
+		pluginLoader = new ModularModuleFileLoader();
+		pluginLoader.startIndexation();
 
 		if (getDefaultConfig().isEnableAutoReload()) {
 			pluginsFileWatcher = new ModularFileWatcher(ModularModuleFileLoader.getModulesDir().toPath(),
 					() -> System.out.println("Plugins changed !"));
 			pluginsFileWatcher.startFileWatcher();
 		}
-
-//        System.out.println("Launching " + MineBootDashBoard.class.getSimpleName() + " ...");
-//        new MineBootDashBoard();
-
-		System.out.println("Initialization done !");
 
 		ModularPostActions.postInit();
 

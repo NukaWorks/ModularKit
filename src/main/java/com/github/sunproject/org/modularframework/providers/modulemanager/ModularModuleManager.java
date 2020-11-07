@@ -53,9 +53,12 @@ public class ModularModuleManager {
 	public void enableModule(ModularModule module) throws NoSuchMethodException {
 		if (!module.isEnabled()) {
 			System.out.println("Enabling Module " + module.getModuleName() + "...");
-			new Thread(() -> {
+			Thread modRunner = new Thread(() -> {
 				module.onEnable();
-			}).start();
+			});
+
+			modRunner.setName("Module_" + module.getModuleName());
+			modRunner.start();
 			module.setEnabled(true);
 		}
 	}
@@ -63,9 +66,12 @@ public class ModularModuleManager {
 	public void disableModule(ModularModule module) throws NoSuchMethodException {
 		if (module.isEnabled()) {
 			System.out.println("Disabling Module " + module.getModuleName() + "...");
-			new Thread(() -> {
+			Thread modRunner = new Thread(() -> {
 				module.onDisable();
-			}).start();
+			});
+
+			modRunner.setName("Module_" + module.getModuleName() + " Stopping ...");
+			modRunner.start();
 			module.setEnabled(false);
 		}
 	}

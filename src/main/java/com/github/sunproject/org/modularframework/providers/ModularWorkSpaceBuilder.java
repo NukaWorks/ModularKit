@@ -11,7 +11,7 @@ public class ModularWorkSpaceBuilder {
         File workDir = OSUtil.getWorkSpacePath();
         File[] dirs = {
                 new File(workDir, "/tmp"),
-                new File(workDir, "/modules")
+                new File(workDir, "/MODULEs")
         };
 
         if (!workDir.exists()) {
