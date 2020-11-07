@@ -1,18 +1,13 @@
 package com.github.sunproject.org.modularframework.providers.modulemanager;
 
+import com.github.sunproject.org.modularframework.init.ModularInit;
+import com.github.sunproject.org.modularframework.logging.ModularLog;
+
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.ArrayList;
-
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
-
-import com.github.sunproject.org.modularframework.init.ModularInit;
-import com.github.sunproject.org.modularframework.utils.OSUtil;
 
 /**
  * @since 1.1.7
@@ -22,18 +17,18 @@ import com.github.sunproject.org.modularframework.utils.OSUtil;
 
 public class ModularModuleFileLoader {
 	private static File modulesDir;
+	private static ModularLog console = ModularInit.getConsole();
 
 	public ModularModuleFileLoader() throws FileNotFoundException {
-		modulesDir = OSUtil.getWorkSpacePath("MODULEs");
+		modulesDir = ModularInit.getWorkSpaceBuilder().getWorkspaceDirs().get("MODULES");
 	}
 
 	public static File getModulesDir() {
 		return modulesDir;
 	}
 
-
 	public void startIndexation() throws FileNotFoundException {
-		System.out.println("Searching Modules ... ");
+		console.log("Searching Modules ... ");
 		if (!modulesDir.exists()) throw new FileNotFoundException("Sorry, this folder not exist ;(");
 		
 		for(File modlr : modulesDir.listFiles()) {
@@ -45,7 +40,8 @@ public class ModularModuleFileLoader {
 						new URL("file", null, modlr.getAbsolutePath())
 				});
 			} catch (MalformedURLException e) {
-				e.printStackTrace();
+
+			    e.printStackTrace();
 			}
 
 			try {
@@ -59,9 +55,6 @@ public class ModularModuleFileLoader {
 			} catch (InstantiationException | IllegalAccessException e) {
 				e.printStackTrace();
 			}
-
 		}
-		
 	}
 }
-		

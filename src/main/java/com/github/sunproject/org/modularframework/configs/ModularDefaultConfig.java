@@ -1,15 +1,21 @@
 package com.github.sunproject.org.modularframework.configs;
 
+import java.io.FileNotFoundException;
 
-import com.github.sunproject.org.modularframework.init.ModularInit;
+/**
+ * @author sundev79 (sundev79.sunproject@gmail.com)
+ * Default Configuration for ModularFramework.
+ * @since 1.0
+ */
 
 public class ModularDefaultConfig extends ModularConfig {
 
-    public ModularDefaultConfig() {
-            setMineBootAPI_LEVEL(1);
-            setMineBootVersion(ModularInit.getBuildVersion());
-            setWorkSpaceDir("mineboot");
-            setEnableStopPluginIfManuallyDeleted(true);
-            setEnableAutoReload(false);
-        }
+    public ModularDefaultConfig() throws FileNotFoundException {
+        setModularAPI_LEVEL(1);
+        setWorkSpaceDir("ModularFramework");
+        // *** [ BETA FEATURES ] *** //
+        setEnableStopPluginIfManuallyDeleted(true);
+        setEnableAutoReload(false);
+        /////////////////////////////////////////////////
     }
+}

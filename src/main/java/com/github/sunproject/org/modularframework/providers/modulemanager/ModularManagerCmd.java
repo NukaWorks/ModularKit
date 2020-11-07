@@ -4,6 +4,7 @@ package com.github.sunproject.org.modularframework.providers.modulemanager;
 import com.diogonunes.jcolor.Ansi;
 import com.diogonunes.jcolor.Attribute;
 import com.github.sunproject.org.modularframework.init.ModularInit;
+import com.github.sunproject.org.modularframework.logging.ModularLog;
 import com.github.sunproject.org.modularshell.ModularCmdArgs;
 import com.github.sunproject.org.modularshell.ModularCommand;
 
@@ -17,6 +18,8 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 
 public class ModularManagerCmd extends ModularCommand {
+
+	private ModularLog console = ModularInit.getConsole();
 
 	public ModularManagerCmd() {
 		super("manager");
@@ -39,7 +42,7 @@ public class ModularManagerCmd extends ModularCommand {
 				// Enabling the module ...
 				try {
 					if(mMan.getModuleByName(moduleName.get()) != null) mMan.enableModule(mMan.getModuleByName(moduleName.get()));
-					else System.out.println("Module " + moduleName.get() + " not found :/");
+					else console.log("Module " + moduleName.get() + " not found :/");
 				} catch (NoSuchMethodException e) {
 					e.printStackTrace();
 				}
@@ -55,7 +58,7 @@ public class ModularManagerCmd extends ModularCommand {
 				// Disabling the module ...
 				try {
 					if(mMan.getModuleByName(moduleName.get()) != null) mMan.disableModule(mMan.getModuleByName(moduleName.get()));
-						else System.out.println("Module " + moduleName.get() + " not found :/");
+						else console.log("Module " + moduleName.get() + " not found :/");
 				} catch (NoSuchMethodException e) {
 					e.printStackTrace();
 				}

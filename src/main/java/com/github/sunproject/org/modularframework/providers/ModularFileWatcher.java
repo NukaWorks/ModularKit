@@ -8,6 +8,12 @@ import java.nio.file.StandardWatchEventKinds;
 import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
 
+/**
+ * @since 1.0
+ * @author sundev79 (sundev79.sunproject@gmail.com)
+ * The Module File Watcher.
+ */
+
 public class ModularFileWatcher {
     private final Thread fileWatchThread;
     private Path dirPath;

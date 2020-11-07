@@ -3,6 +3,12 @@ package com.github.sunproject.org.modularframework;
 import com.github.sunproject.org.modularframework.init.ModularInit;
 import java.util.Scanner;
 
+/**
+ * @since 1.0
+ * @author sundev79 (sundev79.sunproject@gmail.com)
+ * Launch ModularFramework (for test purposes).
+ */
+
 class ModularDevMainClass {
 
 
