@@ -1,4 +1,4 @@
-package com.github.sunproject.org.modularframework.logging;
+package com.github.sunproject.org.modularframework.console;
 
 import com.diogonunes.jcolor.Ansi;
 import com.diogonunes.jcolor.Attribute;

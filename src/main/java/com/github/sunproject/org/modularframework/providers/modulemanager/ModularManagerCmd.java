@@ -4,7 +4,7 @@ package com.github.sunproject.org.modularframework.providers.modulemanager;
 import com.diogonunes.jcolor.Ansi;
 import com.diogonunes.jcolor.Attribute;
 import com.github.sunproject.org.modularframework.init.ModularInit;
-import com.github.sunproject.org.modularframework.logging.ModularLog;
+import com.github.sunproject.org.modularframework.console.ModularLog;
 import com.github.sunproject.org.modularshell.ModularCmdArgs;
 import com.github.sunproject.org.modularshell.ModularCommand;
 
