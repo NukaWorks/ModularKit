@@ -1,6 +1,6 @@
 package com.github.sunproject.org.modularframework.init;
 
-import com.github.sunproject.org.modularframework.logging.ModularLog;
+import com.github.sunproject.org.modularframework.console.ModularLog;
 import com.github.sunproject.org.modularshell.ModularShell;
 
 /**

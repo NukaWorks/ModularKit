@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import com.github.sunproject.org.modularframework.configs.ModularDefaultConfig;
-import com.github.sunproject.org.modularframework.logging.ModularLog;
+import com.github.sunproject.org.modularframework.console.ModularLog;
 import com.github.sunproject.org.modularframework.providers.ModularFileWatcher;
 import com.github.sunproject.org.modularframework.providers.ModularWorkSpaceBuilder;
 import com.github.sunproject.org.modularframework.providers.modulemanager.ModularModuleFileLoader;
@@ -89,6 +89,5 @@ public class ModularInit {
 
 	public static void shutdown() {
 		ModularShutdownActions.shutdownScript();
-		System.exit(0);
 	}
 }

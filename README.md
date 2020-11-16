@@ -1,8 +1,8 @@
 # ModularFramework
 The ModularFramework.
 
-**BUILD-STATUS :** ![CodeQL](https://github.com/SunProject-org/ModularFramework/workflows/CodeQL/badge.svg)  
 **Project STATUS:** ``2.x-BETA``  
+**Project Todo Page :** https://github.com/sundev79/Modular-TODOProject/projects/1  
 
 ``(fr)``
 
