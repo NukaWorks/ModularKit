@@ -2,7 +2,7 @@ package com.github.sunproject.org.modularframework.providers.modulemanager;
 
 import com.github.sunproject.org.modularframework.init.ModularInit;
 import com.github.sunproject.org.modularframework.init.ModularModuleInit;
-import com.github.sunproject.org.modularframework.logging.ModularLog;
+import com.github.sunproject.org.modularframework.console.ModularLog;
 import com.github.sunproject.org.modularframework.utils.Pluralize;
 
 import java.io.FileNotFoundException;
