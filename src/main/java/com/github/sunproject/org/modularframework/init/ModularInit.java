@@ -20,7 +20,7 @@ public class ModularInit {
 
 	// *** --[ Project Configuration ] -- ***
 	private static final String prjName = "ModularFramework";
-	private static final String prjVBuildVersion = "2.0.0";
+	private static final String prjVBuildVersion = "SNAPSHOT";
 	// *** ------------------------------ ***
 
 	private static ModularModuleFileLoader moduleFileLoader;
