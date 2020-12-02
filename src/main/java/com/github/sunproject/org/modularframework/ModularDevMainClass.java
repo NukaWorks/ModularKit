@@ -2,7 +2,6 @@ package com.github.sunproject.org.modularframework;
 
 import com.github.sunproject.org.modularframework.console.ModularCInputs;
 import com.github.sunproject.org.modularframework.init.ModularInit;
-import java.util.Scanner;
 
 /**
  * @since 1.0
