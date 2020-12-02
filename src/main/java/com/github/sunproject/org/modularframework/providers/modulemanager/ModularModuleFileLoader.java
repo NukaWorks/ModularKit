@@ -30,18 +30,15 @@ public class ModularModuleFileLoader {
 	public void startIndexation() throws FileNotFoundException {
 		console.log("Searching Modules ... ");
 		if (!modulesDir.exists()) throw new FileNotFoundException("Sorry, this folder not exist ;(");
-		
+
+		URLClassLoader RSLoader = null;
+		Class<?> RSClass = null;
+
 		for(File modlr : modulesDir.listFiles()) {
-			URLClassLoader RSLoader = null;
-			Class<?> RSClass = null;
-
 			try {
-				RSLoader = new URLClassLoader(new URL[] {
-						new URL("file", null, modlr.getAbsolutePath())
-				});
+				RSLoader = new URLClassLoader(new URL[] {new URL("file", null, modlr.getAbsolutePath())});
 			} catch (MalformedURLException e) {
-
-			    e.printStackTrace();
+				e.printStackTrace();
 			}
 
 			try {
@@ -51,7 +48,7 @@ public class ModularModuleFileLoader {
 			}
 
 			try {
-				RSClass.newInstance();
+				if (RSClass != null) RSClass.newInstance();
 			} catch (InstantiationException | IllegalAccessException e) {
 				e.printStackTrace();
 			}

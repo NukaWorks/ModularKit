@@ -16,5 +16,4 @@ public class ModularShutdownCommand extends ModularCommand {
 		this.setCommandDetails("Shutdown " + ModularInit.getPrjName() + " properly.");
 		this.setEventHandler(ModularInit::shutdown);
 	}
-
 }

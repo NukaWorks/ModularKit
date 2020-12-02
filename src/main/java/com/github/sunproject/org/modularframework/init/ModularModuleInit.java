@@ -1,8 +1,9 @@
 package com.github.sunproject.org.modularframework.init;
 
-import com.github.sunproject.org.modularshell.ModularShell;
 
 // static import for import registerModule method
+import com.github.sunproject.org.modularshell.ModularShell;
+
 import static com.github.sunproject.org.modularframework.providers.modulemanager.ModularModule.registerModule;
 
 /**
