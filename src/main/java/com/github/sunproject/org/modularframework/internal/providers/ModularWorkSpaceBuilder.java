@@ -1,7 +1,7 @@
-package com.github.sunproject.org.modularframework.providers;
+package com.github.sunproject.org.modularframework.internal.providers;
 
-import com.github.sunproject.org.modularframework.init.ModularInit;
-import com.github.sunproject.org.modularframework.console.ModularLog;
+import com.github.sunproject.org.modularframework.internal.init.ModularInit;
+import com.github.sunproject.org.modularframework.internal.console.ModularLog;
 
 import java.io.File;
 import java.io.FileNotFoundException;

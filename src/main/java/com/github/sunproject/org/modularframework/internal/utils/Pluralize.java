@@ -1,4 +1,4 @@
-package com.github.sunproject.org.modularframework.utils;
+package com.github.sunproject.org.modularframework.internal.utils;
 
 /**
  * @since 1.0

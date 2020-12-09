@@ -1,4 +1,4 @@
-package com.github.sunproject.org.modularframework.console;
+package com.github.sunproject.org.modularframework.internal.console;
 
 
 import java.util.Scanner;
@@ -13,7 +13,7 @@ public class ModularCInputs {
         modSCL = new Scanner(System.in);
     }
 
-    public static ModularCInputs getModularConsoleInputs() {
+    public static ModularCInputs getConsoleInputs() {
         if (instance == null) instance = new ModularCInputs();
         return instance;
     }

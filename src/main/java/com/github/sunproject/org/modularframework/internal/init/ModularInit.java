@@ -1,14 +1,14 @@
-package com.github.sunproject.org.modularframework.init;
+package com.github.sunproject.org.modularframework.internal.init;
 
 import java.io.File;
 import java.io.IOException;
 
-import com.github.sunproject.org.modularframework.configs.ModularDefaultConfig;
-import com.github.sunproject.org.modularframework.console.ModularLog;
-import com.github.sunproject.org.modularframework.providers.ModularFileWatcher;
-import com.github.sunproject.org.modularframework.providers.ModularWorkSpaceBuilder;
-import com.github.sunproject.org.modularframework.providers.modulemanager.ModularModuleFileLoader;
-import com.github.sunproject.org.modularframework.providers.modulemanager.ModularModuleManager;
+import com.github.sunproject.org.modularframework.internal.configs.ModularDefaultConfig;
+import com.github.sunproject.org.modularframework.internal.console.ModularLog;
+import com.github.sunproject.org.modularframework.internal.providers.ModularFileWatcher;
+import com.github.sunproject.org.modularframework.internal.providers.ModularWorkSpaceBuilder;
+import com.github.sunproject.org.modularframework.internal.providers.modulemanager.ModularModuleFileLoader;
+import com.github.sunproject.org.modularframework.internal.providers.modulemanager.ModularModuleManager;
 
 /**
  * @since 1.0
@@ -38,10 +38,9 @@ public class ModularInit {
 
 		// MineBootAPI configuration init ...
 		console.log("Initializing " + getPrjName() + " ...");
+
 		defaultConfig = new ModularDefaultConfig();
-
 		workSpaceBuilder = new ModularWorkSpaceBuilder(new File(defaultConfig.getWorkSpaceDir()));
-
 		moduleFileLoader = new ModularModuleFileLoader();
 		moduleFileLoader.startIndexation();
 		moduleManager = new ModularModuleManager();

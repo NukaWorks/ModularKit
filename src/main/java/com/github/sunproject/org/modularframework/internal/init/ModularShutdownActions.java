@@ -1,8 +1,6 @@
-package com.github.sunproject.org.modularframework.init;
+package com.github.sunproject.org.modularframework.internal.init;
 
-import com.github.sunproject.org.modularframework.console.ModularCInputs;
-
-import java.io.IOException;
+import com.github.sunproject.org.modularframework.internal.console.ModularCInputs;
 
 /**
  * @since 1.0
@@ -14,6 +12,6 @@ public class ModularShutdownActions {
 	public static void shutdownScript() {
 		ModularInit.getConsole().log("Shutting down " + ModularInit.getPrjName() + " ...");
 		ModularInit.getModuleManager().shutdown();
-		ModularCInputs.getModularConsoleInputs().destroy();
+		ModularCInputs.getConsoleInputs().destroy();
 	}
 }
