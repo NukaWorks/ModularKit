@@ -1,9 +1,8 @@
-package com.github.sunproject.org.modularframework.providers.modulemanager;
+package com.github.sunproject.org.modularframework.internal.providers.modulemanager;
 
-import com.github.sunproject.org.modularframework.init.ModularInit;
-import com.github.sunproject.org.modularframework.init.ModularModuleInit;
-import com.github.sunproject.org.modularframework.console.ModularLog;
-import com.github.sunproject.org.modularframework.utils.Pluralize;
+import com.github.sunproject.org.modularframework.internal.init.ModularInit;
+import com.github.sunproject.org.modularframework.internal.console.ModularLog;
+import com.github.sunproject.org.modularframework.internal.utils.Pluralize;
 
 import java.io.FileNotFoundException;
 import java.util.Iterator;
@@ -21,7 +20,6 @@ public class ModularModuleManager {
 
 	public ModularModuleManager() {
 		console.log("Starting up Module Manager ...");
-		ModularModuleInit.init();
 		console.log("Detected " + "(" + ModularModule.getModuleNumber() + ") "
 				+ Pluralize.pluralizeWord("Module", ModularModule.getModuleNumber()) + " !");
 	}

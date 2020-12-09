@@ -1,4 +1,4 @@
-package com.github.sunproject.org.modularframework.events;
+package com.github.sunproject.org.modularframework.internal.events;
 
 /**
  * @since 1.0

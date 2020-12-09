@@ -1,6 +1,6 @@
-package com.github.sunproject.org.modularframework.providers;
+package com.github.sunproject.org.modularframework.internal.providers;
 
-import com.github.sunproject.org.modularframework.events.ModularEventHandler;
+import com.github.sunproject.org.modularframework.internal.events.ModularEventHandler;
 
 import java.io.IOException;
 import java.nio.file.Path;

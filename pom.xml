@@ -40,12 +40,6 @@
 			<artifactId>JColor</artifactId>
 			<version>5.0.0</version>
 		</dependency>
-
-		<dependency>
-			<groupId>com.github.sunproject-org</groupId>
-			<artifactId>modularshell</artifactId>
-			<version>2.0.1</version>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -58,7 +52,7 @@
 					</descriptorRefs>
 					<archive>
 						<manifest>
-							<mainClass>com.github.sunproject.org.modularframework.ModularDevMainClass</mainClass>
+							<mainClass>ModularDevMainClass</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

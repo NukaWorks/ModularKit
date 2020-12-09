@@ -1,7 +1,7 @@
-package com.github.sunproject.org.modularframework.providers.modulemanager;
+package com.github.sunproject.org.modularframework.internal.providers.modulemanager;
 
 
-import com.github.sunproject.org.modularframework.events.ModularEventHandler;
+import com.github.sunproject.org.modularframework.internal.events.ModularEventHandler;
 
 import java.io.File;
 import java.io.FileNotFoundException;
