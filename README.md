@@ -1,4 +1,4 @@
-<div align=center><h1><span style="color:orange;">Modular</span>Framework</h1></div>
+<h1><div align=center><span style="color:orange;">Modular</span>Framework</div></h1>
 
 ### Warning : Version ``2.x`` is depreciated !
 
