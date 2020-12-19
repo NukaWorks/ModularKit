@@ -1,4 +1,4 @@
-package com.github.sunproject.org.modularframework.configs;
+package com.github.sunproject.org.modularframework.internal.configs;
 
 /**
  * @since 1.0

@@ -1,4 +1,4 @@
-package com.github.sunproject.org.modularframework.console;
+package com.github.sunproject.org.modularframework.internal.console;
 
 import com.diogonunes.jcolor.Ansi;
 import com.diogonunes.jcolor.Attribute;
