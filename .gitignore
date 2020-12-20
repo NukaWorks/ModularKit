@@ -1,6 +1,2 @@
-target/
-bin/
-temp/
-.idea/
-*.old
-*.iml
+﻿.gradle
+.idea
