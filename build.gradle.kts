@@ -5,8 +5,8 @@ plugins {
     application
 }
 
-group = "com.example"
-version = "1.0-SNAPSHOT"
+group = "org.sunproject.modular.framework"
+version = "v3-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -15,7 +15,7 @@ repositories {
 
 
 tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "13"
+    kotlinOptions.jvmTarget = "15"
 }
 
 application {
