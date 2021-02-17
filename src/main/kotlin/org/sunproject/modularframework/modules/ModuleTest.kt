@@ -12,7 +12,7 @@ class ModuleTest : ModularModule("4dba2e7f", "Test") {
         TODO("Not yet implemented")
     }
 
-    override fun disable() {
+    override fun disable(): Boolean {
         TODO("Not yet implemented")
     }
 }

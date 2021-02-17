@@ -18,7 +18,7 @@ open class ModularFramework private constructor() {
 
         init {
             var mainSource = ModuleSource(File("temp/modules"))
-
+            var manager = ModuleManager.instance
         }
 
     }
