@@ -5,6 +5,15 @@ import org.sunproject.modularframework.modules.ModuleTest
 fun main(args: Array<String>) {
     ModularFramework.ModularInstance
 
-    ModuleTest()
+    println(ModuleManager.instance?.dynUuiD)
+    println(ModuleManager.instance?.dynUuiD)
+    ModuleManager.instance?.refreshDynUuiD()
+    println(ModuleManager.instance?.dynUuiD)
+    println(ModuleManager.instance?.dynUuiD)
+    ModuleManager.instance?.refreshDynUuiD()
+    println(ModuleManager.instance?.dynUuiD)
+    println(ModuleManager.instance?.dynUuiD)
+
+
 
 }
