@@ -2,7 +2,7 @@ package xyz.sunproject.modularframework.core;
 
 import xyz.sunproject.modularframework.core.events.RunEvent;
 
-public abstract class ModularModule {
+public abstract class ModularModule implements RunEvent {
 
     private final String uuid;
     private final String moduleName;
@@ -28,12 +28,10 @@ public abstract class ModularModule {
         if (ModuleManager.getInstance().findModuleByUuiD(uuid) != null) throw new Exception("Module already instantiated !");
     }
 
-    public abstract RunEvent setRunJob();
-
-    public void _exec() throws Exception {
+    public void exec() throws Exception {
         threadName = Thread.currentThread().getName();
         if (!threadName.equals("Mod_" + moduleName + "#" + ModuleManager.getInstance().getDynUuiD() + "_" + uuid)) throw new Exception("This module cannot be run outside a ModThread.");
-        setRunJob();
+        runEvent();
     }
 
     public String getUuid() {

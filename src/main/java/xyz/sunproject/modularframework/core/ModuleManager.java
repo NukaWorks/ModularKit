@@ -19,14 +19,13 @@ public class ModuleManager {
         ModularModule finalRunMod = runMod;
         Thread runThread = new Thread(() -> {
             try {
-                finalRunMod._exec();
-            } catch (Exception e) {
+                finalRunMod.exec();
+            } catch (Throwable e) {
                 e.printStackTrace();
             }
         });
 
         refreshDynUuiD();
-        runThread.setDaemon(true);
         runThread.setName("Mod_" + runMod.getModuleName() + "#" + dynUuiD + "_" + runMod.getUuid());
 
         //Starting the module...

@@ -12,13 +12,7 @@ public class ModuleTest extends ModularModule {
     }
 
     @Override
-    public RunEvent setRunJob() {
-        return () -> {
-            while (true) {
-                System.out.println("The module is Working !");
-                try { Thread.sleep(1000); }
-                catch (InterruptedException e) { e.printStackTrace(); }
-            }
-        };
+    public void runEvent() {
+        System.out.println("Hello World !");
     }
 }
