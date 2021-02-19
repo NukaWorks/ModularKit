@@ -2,3 +2,5 @@
 .idea
 /build/
 /src/main/java/xyz/sunproject/modularframework/testModules/
+/src/main/java/xyz/sunproject/modularframework/DevMainClass.java
+/target/
