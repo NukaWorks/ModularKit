@@ -1,6 +1,5 @@
-target/
-bin/
-temp/
-.idea/
-*.old
-*.iml
+﻿.gradle
+.idea
+/build/
+/target/
+/src/main/java/xyz/sunproject/modularframework/testModules/
