@@ -7,6 +7,7 @@ public abstract class ModularModule implements RunEvent {
 
     private final String uuid, moduleName, author, version;
     private ModuleStatus modStatus = ModuleStatus.STOPPED;
+    private ModularSource modSource = Modular.getInstance().getModManager().getDefaultSource();
 
     // Thread naming conventions : Mod_$name#$dynUuid_$uuid
 
@@ -31,10 +32,17 @@ public abstract class ModularModule implements RunEvent {
         else moduleName = _name;
         uuid = _uuid;
 
-        if (ModuleManager.getInstance().findModuleByUuiD(uuid) != null) throw new Exception("Module already instantiated !");
+        if (ModuleManager.getInstance().findModuleByUuiD(uuid, modSource) != null) throw new Exception("Module already instantiated !");
     }
 
-    public void _exec() throws Exception {
+
+    protected void changeModuleSource(ModularSource source) {
+        if (source != null) modSource = source;
+        else throw new NullPointerException();
+    }
+
+
+    protected void _exec() throws Exception {
         modStatus = ModuleStatus.RUNNING;
         threadName = Thread.currentThread().getName();
         modThread = Thread.currentThread();
@@ -48,11 +56,11 @@ public abstract class ModularModule implements RunEvent {
      * Stop the module
      */
 
-    public void _stop() {
+    protected void _stop() {
         modStatus = ModuleStatus.STOPPING;
     }
 
-    public void _kill() throws Exception {
+    protected void _kill() throws Exception {
         if (modStatus != ModuleStatus.STOPPING) throw new Exception("Please try with stop() before call _kill() !");
         modThread.stop();
         modStatus = ModuleStatus.STOPPED;
