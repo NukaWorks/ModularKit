@@ -1,6 +1,5 @@
-package xyz.sunproject.modularframework.modules;
+package xyz.sunproject.modularframework.testModules;
 
-import xyz.sunproject.modularframework.core.Modular;
 import xyz.sunproject.modularframework.core.ModularModule;
 import xyz.sunproject.modularframework.core.events.ModuleStatus;
 
@@ -24,9 +23,10 @@ public class ModuleTest extends ModularModule {
                 e.printStackTrace();
             }
 */
+            if (getModuleState() == ModuleStatus.STOPPING) break;
+
             try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
 
-            if (getModuleState() == ModuleStatus.STOPPING) break;
 
         }
     }

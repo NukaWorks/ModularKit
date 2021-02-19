@@ -1,7 +1,7 @@
 package xyz.sunproject.modularframework;
 
 import xyz.sunproject.modularframework.core.Modular;
-import xyz.sunproject.modularframework.modules.ModuleTest;
+import xyz.sunproject.modularframework.testModules.ModuleTest;
 
 public class DevMainClass {
 
@@ -11,14 +11,16 @@ public class DevMainClass {
 
         modular.getModManager().registerModule(testModule);
 
-
-        System.out.println(modular.getModManager().getModulesCollection());
-
         modular.getModManager().runModule(testModule);
-        Thread.sleep(2000);
+
+        Thread.sleep(3000);
+
+        modular.getModManager().stopModule(testModule, false);
+        Thread.sleep(3000);
         modular.getModManager().unregisterModule(testModule);
 
-        System.out.println(modular.getModManager().getModulesCollection());
-        System.out.println(testModule.getModuleState());
+        System.out.println("state 1: " + modular.getModManager().getModulesCollection());
+
+        System.out.println("state 2: " + testModule.getModuleState());
     }
 }

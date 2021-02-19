@@ -35,7 +35,7 @@ public abstract class ModularModule implements RunEvent {
     }
 
     public void _exec() throws Exception {
-        modStatus = getModuleState();
+        modStatus = ModuleStatus.RUNNING;
         threadName = Thread.currentThread().getName();
         modThread = Thread.currentThread();
         if (!threadName.equals("Mod_" + moduleName + "#" + ModuleManager.getInstance().getDynUuiD() + "_" + uuid)) throw new Exception("This module cannot be run outside a ModThread.");
@@ -67,7 +67,6 @@ public abstract class ModularModule implements RunEvent {
     }
 
     public ModuleStatus getModuleState() {
-        if (modThread != null) if (modThread.getState() == Thread.State.RUNNABLE) modStatus = ModuleStatus.RUNNING;
         return modStatus;
     }
 
