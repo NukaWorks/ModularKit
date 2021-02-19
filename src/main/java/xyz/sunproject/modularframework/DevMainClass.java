@@ -1,34 +1,24 @@
 package xyz.sunproject.modularframework;
 
-import xyz.sunproject.modularframework.core.ModularModule;
-import xyz.sunproject.modularframework.core.manager.ModuleManager;
+import xyz.sunproject.modularframework.core.Modular;
 import xyz.sunproject.modularframework.modules.ModuleTest;
 
 public class DevMainClass {
 
     public static void main(String[] args) throws Exception {
+        Modular modular = Modular.getInstance();
+        ModuleTest testModule = new ModuleTest();
 
-        // ModuleManager.getInstance().runModule(ModuleTest.class);
+        modular.getModManager().registerModule(testModule);
 
-        System.out.println(ModuleTest.class.getSuperclass());
 
-        ModuleManager.getInstance().registerModule(ModuleTest.class);
-        ModularModule testMod = ModuleManager.getInstance().findModuleByUuiD("8460d607");
-        System.out.println(ModuleManager.getInstance().findModuleByUuiD("8460d607").getModuleState());
-        ModuleManager.getInstance().runModule(testMod);
+        System.out.println(modular.getModManager().getModulesCollection());
 
-        System.out.println(ModuleManager.getInstance().findModuleByUuiD("8460d607").getModuleState());
-
-        Thread.sleep(5000);
-        ModuleManager.getInstance().stopModule(testMod, false);
+        modular.getModManager().runModule(testModule);
         Thread.sleep(2000);
-        System.out.println(ModuleManager.getInstance().findModuleByUuiD("8460d607").getModuleState());
+        modular.getModManager().unregisterModule(testModule);
 
-        System.out.println(ModuleManager.getInstance().getModulesCollection().getUnmodifiableModuleCollection());
-        System.out.println("Unregistering the TestModule ...");
-
-        System.out.println(ModuleManager.getInstance().unregisterModule(testMod));
-
-        System.out.println(ModuleManager.getInstance().getModulesCollection().getUnmodifiableModuleCollection());
+        System.out.println(modular.getModManager().getModulesCollection());
+        System.out.println(testModule.getModuleState());
     }
 }

@@ -1,34 +1,37 @@
-package xyz.sunproject.modularframework.core.manager;
+package xyz.sunproject.modularframework.core;
 
-import xyz.sunproject.modularframework.core.ModularModule;
 import xyz.sunproject.modularframework.core.events.ModuleStatus;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 public class ModuleManager {
 
     protected HashMap<String, ModularModule> moduleMap = new HashMap<>();
     private String dynUuiD = null;
-    private static ModuleManager instance = null;
-    private final ModulesCollection modInfo = new ModulesCollection(moduleMap);
+    private static final ModuleManager instance = new ModuleManager();
 
     private ModuleManager() {}
 
-    public void runModule(ModularModule module) {
-        Thread runThread = new Thread(() -> {
-            try {
-                module._exec();
-            } catch (Throwable e) {
-                e.printStackTrace();
-            }
-        });
+    public boolean runModule(ModularModule module) throws Exception {
+        if (moduleMap.containsKey(module.getUuid())) {
+            Thread runThread = new Thread(() -> {
+                try {
+                    module._exec();
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
+            });
 
-        refreshDynUuiD();
-        runThread.setName("Mod_" + module.getModuleName() + "#" + dynUuiD + "_" + module.getUuid());
+            refreshDynUuiD();
+            runThread.setName("Mod_" + module.getModuleName() + "#" + dynUuiD + "_" + module.getUuid());
 
-        //Starting the module...
-        runThread.start();
+            //Starting the module...
+            runThread.start();
+            return true;
+        } else throw new Exception("Module not registered !");
     }
 
 
@@ -62,6 +65,7 @@ public class ModuleManager {
     }
 
     public boolean unregisterModule(ModularModule module) throws Exception {
+        System.out.println(module.getModuleState());
         if (moduleMap.containsKey(module.getUuid())) {
             if (module.getModuleState() == ModuleStatus.RUNNING) throw new Exception("Failed to unregister the module : the module is running.");
             else {
@@ -80,10 +84,10 @@ public class ModuleManager {
     }
 
 
-    public static ModuleManager getInstance() {
-        if (instance == null) instance = new ModuleManager();
+    protected static ModuleManager getInstance() {
         return instance;
     }
+
 
     private void refreshDynUuiD() {
         dynUuiD = UUID.randomUUID().toString().split("-")[1];
@@ -93,7 +97,7 @@ public class ModuleManager {
         return dynUuiD;
     }
 
-    public ModulesCollection getModulesCollection() {
-        return modInfo;
+    public Map<String, ModularModule> getModulesCollection() {
+        return Collections.unmodifiableMap(moduleMap);
     }
 }

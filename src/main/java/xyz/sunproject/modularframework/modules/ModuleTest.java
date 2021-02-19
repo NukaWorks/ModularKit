@@ -1,5 +1,6 @@
 package xyz.sunproject.modularframework.modules;
 
+import xyz.sunproject.modularframework.core.Modular;
 import xyz.sunproject.modularframework.core.ModularModule;
 import xyz.sunproject.modularframework.core.events.ModuleStatus;
 
@@ -16,7 +17,13 @@ public class ModuleTest extends ModularModule {
         while (true) {
             System.out.println("Hello World !");
             System.out.println(getModuleState());
-            System.out.println("isStopping: " + getModuleState());
+/*
+            try {
+                System.out.println(Modular.getInstance().getModManager().findModuleByUuiD("8460d607").getModuleState());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+*/
             try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
 
             if (getModuleState() == ModuleStatus.STOPPING) break;
