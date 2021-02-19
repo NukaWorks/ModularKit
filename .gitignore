@@ -1,6 +1,5 @@
 ﻿.gradle
 .idea
 /build/
-/src/main/java/xyz/sunproject/modularframework/testModules/
-/src/main/java/xyz/sunproject/modularframework/MainDevClass.java
 /target/
+/src/main/java/xyz/sunproject/modularframework/testModules/
