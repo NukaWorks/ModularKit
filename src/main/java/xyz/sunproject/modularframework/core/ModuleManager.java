@@ -1,5 +1,6 @@
 package xyz.sunproject.modularframework.core;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 public class ModuleManager {
@@ -13,22 +14,26 @@ public class ModuleManager {
     }
 
     public boolean runModule(ModularModule module) throws Exception {
-        if (modSource.getModuleMap().containsKey(module.getUuid())) {
-            Thread runThread = new Thread(() -> {
-                try {
-                    module._exec();
-                } catch (Throwable e) {
-                    e.printStackTrace();
-                }
-            });
+        HashMap<String, ModularModule> runMap = (HashMap<String, ModularModule>) modSource.getModuleMap();
+        if (!runMap.isEmpty()) {
 
-            refreshDynUuiD();
-            runThread.setName("Mod_" + module.getModuleName() + "#" + dynUuiD + "_" + module.getUuid());
+            if (runMap.containsKey(module.getUuid())) {
+                Thread runThread = new Thread(() -> {
+                    try {
+                        module._exec();
+                    } catch (Throwable e) {
+                        e.printStackTrace();
+                    }
+                });
 
-            //Starting the module...
-            runThread.start();
-            return true;
-        } else throw new Exception("Module not registered !");
+                refreshDynUuiD();
+                runThread.setName("Mod_" + module.getModuleName() + "#" + dynUuiD + "_" + module.getUuid());
+
+                //Starting the module...
+                runThread.start();
+                return true;
+            } else throw new Exception("Module not registered !");
+        } else throw new Exception("Module not found !");
     }
 
     public void stopModule(ModularModule module, @Deprecated boolean forceStop) throws Exception {
