@@ -7,7 +7,7 @@ public abstract class ModularModule implements RunEvent {
 
     private final String uuid, moduleName, author, version;
     private ModuleStatus modStatus = ModuleStatus.STOPPED;
-    private ModularSource modSource = Modular.getInstance().getModManager().getDefaultSource();
+    private ModularSource modSource;
 
     // Thread naming conventions : Mod_$name#$dynUuid_$uuid
 
@@ -31,14 +31,13 @@ public abstract class ModularModule implements RunEvent {
         if (_name.isEmpty()) moduleName = "I Have a no-name !";
         else moduleName = _name;
         uuid = _uuid;
-
-        if (ModuleManager.getInstance().findModuleByUuiD(uuid, modSource) != null) throw new Exception("Module already instantiated !");
     }
 
 
-    protected void changeModuleSource(ModularSource source) {
+    protected void setModuleSource(ModularSource source) throws Exception {
         if (source != null) modSource = source;
         else throw new NullPointerException();
+        if (modSource.getModuleManager().findModuleByUuiD(uuid) != null) throw new Exception("Module already instantiated !");
     }
 
 
@@ -46,7 +45,7 @@ public abstract class ModularModule implements RunEvent {
         modStatus = ModuleStatus.RUNNING;
         threadName = Thread.currentThread().getName();
         modThread = Thread.currentThread();
-        if (!threadName.equals("Mod_" + moduleName + "#" + ModuleManager.getInstance().getDynUuiD() + "_" + uuid)) throw new Exception("This module cannot be run outside a ModThread.");
+        if (!threadName.equals("Mod_" + moduleName + "#" + modSource.getModuleManager().getDynUuiD() + "_" + uuid)) throw new Exception("This module cannot be run outside a ModThread.");
 
         runEvent();
         modStatus = ModuleStatus.STOPPED;

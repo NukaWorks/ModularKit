@@ -5,6 +5,7 @@ import xyz.sunproject.modularframework.core.events.ModuleStatus;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -19,11 +20,12 @@ public class ModularSource {
     private final Map<String, ModularModule> moduleMap = new HashMap<>();
     private static final HashMap<String, ModularSource> sourceMap = new HashMap<>();
     private final String uuid;
+    private ModuleManager moduleManager = new ModuleManager(this);
 
 
     public ModularSource(String _uuid) {
         if (_uuid == null) throw new NullPointerException("uuid cannot be null.");
-        else if (_uuid.length() != 8) try { throw new Exception("uuid is incorrect !"); }
+        if (_uuid.length() != 8) try { throw new Exception("uuid is incorrect !"); }
         catch (Exception e) { e.printStackTrace(); }
         uuid = _uuid;
 
@@ -33,7 +35,7 @@ public class ModularSource {
 
     public ModularSource(String _uuid, File path) {
         if (_uuid == null) throw new NullPointerException("uuid cannot be null.");
-        else if (_uuid.length() != 8) try { throw new Exception("uuid is incorrect !"); }
+        if (_uuid.length() != 8) try { throw new Exception("uuid is incorrect !"); }
         catch (Exception e) { e.printStackTrace(); }
         uuid = _uuid;
 
@@ -48,16 +50,21 @@ public class ModularSource {
 
                         Properties modlrFile = new Properties();
                         try {
-                            modlrFile.load(classLoader.getResourceAsStream(".modlr"));
-                        } catch (IOException ioException) {
-                            ioException.printStackTrace();
-                        }
+                            InputStream inModlr = classLoader.getResourceAsStream(".modlr");
+                            if (inModlr != null) {
+                                modlrFile.load(inModlr);
+                            } else throw new IOException("File .modlr not found !");
+                        } catch (IOException ioException) { ioException.printStackTrace(); }
 
                         for (Map.Entry<Object, Object> entry : modlrFile.entrySet()) {
                             try {
                                 String[] className = entry.getValue().toString().split("\\.");
                                 Class<?> modClass = Class.forName(entry.getValue().toString(), false, classLoader);
-                                if (!modClass.getSuperclass().getName().equals(ModularModule.class.getSimpleName())) modClass.newInstance();
+                                if (!modClass.getSuperclass().getName().equals(ModularModule.class.getSimpleName())) {
+                                    ModularModule newModule = (ModularModule) modClass.newInstance();
+                                    newModule.setModuleSource(this);
+                                    registerModule(newModule);
+                                }
                                 else throw new Exception("The module not extends ModularModule.");
                             } catch (Exception classNotFoundException) {
                                 classNotFoundException.printStackTrace();
@@ -141,6 +148,14 @@ public class ModularSource {
         return false;
     }
 
+    public static ModularSource findSourceByUuiD(String uuid) throws Exception {
+        if (uuid.length() == 8) {
+            if (sourceMap.containsKey(uuid)) return sourceMap.get(uuid);
+        } else throw new Exception("uuid is incorrect");
+        return null;
+    }
+
+
     public Map<String, ModularModule> getUnmodifiableModuleMap() {
         return Collections.unmodifiableMap(moduleMap);
     }
@@ -151,6 +166,14 @@ public class ModularSource {
 
     protected static HashMap<String, ModularSource> getSourceMap() {
         return sourceMap;
+    }
+
+    public static HashMap<String, ModularSource> getUnmodifiableSourceMap() {
+        return (HashMap<String, ModularSource>) Collections.unmodifiableMap(sourceMap);
+    }
+
+    public ModuleManager getModuleManager() {
+        return moduleManager;
     }
 
     public String getUuid() {

@@ -4,19 +4,16 @@ import java.util.UUID;
 
 public class ModuleManager {
 
-    private final ModularSource defaultSource = new ModularSource("ab1f4a59");
     private String dynUuiD = null;
-    private static final ModuleManager instance = new ModuleManager();
+    private final ModularSource modSource;
 
+    public ModuleManager(ModularSource source) {
+        if (source != null) modSource = source;
+        else throw new NullPointerException("Source cannot be null.");
+    }
 
-    private ModuleManager() {}
-
-
-    public boolean runModule(ModularModule module, ModularSource source) throws Exception {
-        ModularSource runSource = defaultSource;
-        if (source != null) runSource = source;
-
-        if (runSource.getModuleMap().containsKey(module.getUuid())) {
+    public boolean runModule(ModularModule module) throws Exception {
+        if (modSource.getModuleMap().containsKey(module.getUuid())) {
             Thread runThread = new Thread(() -> {
                 try {
                     module._exec();
@@ -39,25 +36,11 @@ public class ModuleManager {
         if (forceStop) module._kill();
     }
 
-    public ModularModule findModuleByUuiD(String uuid, ModularSource source) throws Exception {
-        ModularSource findSource = defaultSource;
-        if (source != null) findSource = source;
-
+    public ModularModule findModuleByUuiD(String uuid) throws Exception {
         if (uuid.length() == 8) {
-            if (findSource.getModuleMap().containsKey(uuid)) return findSource.getModuleMap().get(uuid);
+            if (modSource.getModuleMap().containsKey(uuid)) return modSource.getModuleMap().get(uuid);
         } else throw new Exception("uuid is incorrect");
         return null;
-    }
-
-    public ModularSource findSourceByUuiD(String uuid) throws Exception {
-        if (uuid.length() == 8) {
-            if (defaultSource.getSourceMap().containsKey(uuid)) return defaultSource.getSourceMap().get(uuid);
-        } else throw new Exception("uuid is incorrect");
-        return null;
-    }
-
-    protected static ModuleManager getInstance() {
-        return instance;
     }
 
     private void refreshDynUuiD() {
@@ -66,9 +49,5 @@ public class ModuleManager {
 
     public String getDynUuiD() {
         return dynUuiD;
-    }
-
-    protected ModularSource getDefaultSource() {
-        return defaultSource;
     }
 }
