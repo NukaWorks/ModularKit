@@ -7,6 +7,7 @@ public abstract class ModularModule implements RunEvent {
 
     private final String uuid, moduleName, author, version;
     private ModuleStatus modStatus = ModuleStatus.STOPPED;
+    private ModularSource modSource;
 
     // Thread naming conventions : Mod_$name#$dynUuid_$uuid
 
@@ -30,15 +31,21 @@ public abstract class ModularModule implements RunEvent {
         if (_name.isEmpty()) moduleName = "I Have a no-name !";
         else moduleName = _name;
         uuid = _uuid;
-
-        if (ModuleManager.getInstance().findModuleByUuiD(uuid) != null) throw new Exception("Module already instantiated !");
     }
 
-    public void _exec() throws Exception {
+
+    protected void setModuleSource(ModularSource source) throws Exception {
+        if (source != null) modSource = source;
+        else throw new NullPointerException();
+        if (modSource.getModuleManager().findModuleByUuiD(uuid) != null) throw new Exception("Module already instantiated !");
+    }
+
+
+    protected void _exec() throws Exception {
         modStatus = ModuleStatus.RUNNING;
         threadName = Thread.currentThread().getName();
         modThread = Thread.currentThread();
-        if (!threadName.equals("Mod_" + moduleName + "#" + ModuleManager.getInstance().getDynUuiD() + "_" + uuid)) throw new Exception("This module cannot be run outside a ModThread.");
+        if (!threadName.equals("Mod_" + moduleName + "#" + modSource.getModuleManager().getDynUuiD() + "_" + uuid)) throw new Exception("This module cannot be run outside a ModThread.");
 
         runEvent();
         modStatus = ModuleStatus.STOPPED;
@@ -48,11 +55,11 @@ public abstract class ModularModule implements RunEvent {
      * Stop the module
      */
 
-    public void _stop() {
+    protected void _stop() {
         modStatus = ModuleStatus.STOPPING;
     }
 
-    public void _kill() throws Exception {
+    protected void _kill() throws Exception {
         if (modStatus != ModuleStatus.STOPPING) throw new Exception("Please try with stop() before call _kill() !");
         modThread.stop();
         modStatus = ModuleStatus.STOPPED;
