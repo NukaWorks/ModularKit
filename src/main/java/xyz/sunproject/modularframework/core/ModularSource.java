@@ -28,7 +28,6 @@ public class ModularSource {
         if (_uuid.length() != 8) try { throw new Exception("uuid is incorrect !"); }
         catch (Exception e) { e.printStackTrace(); }
         uuid = _uuid;
-
         registerSource();
     }
 
@@ -119,6 +118,7 @@ public class ModularSource {
 
     public boolean registerModule(ModularModule module) throws Exception {
         if (!moduleMap.containsKey(module.getUuid())) {
+            module.setModuleSource(this);
             moduleMap.put(module.getUuid(), module);
             return true;
         } else throw new Exception("Module already instantiated !");
@@ -129,7 +129,6 @@ public class ModularSource {
      * @param module Class Object contains a ModularModule Object.
      * @throws Exception
      */
-
 
     public boolean registerModule(Class<?> module) throws Exception {
         ModularModule mod = (ModularModule) module.newInstance();
