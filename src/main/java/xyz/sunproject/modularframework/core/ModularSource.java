@@ -18,9 +18,9 @@ import java.util.Properties;
 public class ModularSource {
 
     private final Map<String, ModularModule> moduleMap = new HashMap<>();
-    private static final HashMap<String, ModularSource> sourceMap = new HashMap<>();
+    private static HashMap<String, ModularSource> sourceMap = new HashMap<>();
     private final String uuid;
-    private ModuleManager moduleManager = new ModuleManager(this);
+    private final ModuleManager moduleManager = new ModuleManager(this);
 
 
     public ModularSource(String _uuid) {
@@ -28,7 +28,6 @@ public class ModularSource {
         if (_uuid.length() != 8) try { throw new Exception("uuid is incorrect !"); }
         catch (Exception e) { e.printStackTrace(); }
         uuid = _uuid;
-
         registerSource();
     }
 
@@ -62,7 +61,6 @@ public class ModularSource {
                                 Class<?> modClass = Class.forName(entry.getValue().toString(), false, classLoader);
                                 if (!modClass.getSuperclass().getName().equals(ModularModule.class.getSimpleName())) {
                                     ModularModule newModule = (ModularModule) modClass.newInstance();
-                                    newModule.setModuleSource(this);
                                     registerModule(newModule);
                                 }
                                 else throw new Exception("The module not extends ModularModule.");
@@ -81,7 +79,7 @@ public class ModularSource {
     }
 
 
-    private boolean registerSource() {
+    private synchronized boolean registerSource() {
         if (!sourceMap.containsKey(uuid)) {
             sourceMap.put(uuid, this);
             return true;
@@ -119,6 +117,7 @@ public class ModularSource {
 
     public boolean registerModule(ModularModule module) throws Exception {
         if (!moduleMap.containsKey(module.getUuid())) {
+            module.setModuleSource(this);
             moduleMap.put(module.getUuid(), module);
             return true;
         } else throw new Exception("Module already instantiated !");
@@ -129,7 +128,6 @@ public class ModularSource {
      * @param module Class Object contains a ModularModule Object.
      * @throws Exception
      */
-
 
     public boolean registerModule(Class<?> module) throws Exception {
         ModularModule mod = (ModularModule) module.newInstance();

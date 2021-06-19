@@ -1,11 +1,8 @@
 package xyz.sunproject.modularframework.core;
 
 import java.util.HashMap;
-import java.util.UUID;
 
 public class ModuleManager {
-
-    private String dynUuiD = null;
     private final ModularSource modSource;
 
     public ModuleManager(ModularSource source) {
@@ -13,26 +10,23 @@ public class ModuleManager {
         else throw new NullPointerException("Source cannot be null.");
     }
 
-    public boolean runModule(ModularModule module) throws Exception {
+    public synchronized boolean runModule(ModularModule module) throws Exception {
         HashMap<String, ModularModule> runMap = (HashMap<String, ModularModule>) modSource.getModuleMap();
         if (!runMap.isEmpty()) {
+                if (runMap.containsKey(module.getUuid())) {
+                    Thread runThread = new Thread(() -> {
+                        try {
+                            module._exec();
+                        } catch (Throwable e) {
+                            e.printStackTrace();
+                        }
+                    });
 
-            if (runMap.containsKey(module.getUuid())) {
-                Thread runThread = new Thread(() -> {
-                    try {
-                        module._exec();
-                    } catch (Throwable e) {
-                        e.printStackTrace();
-                    }
-                });
-
-                refreshDynUuiD();
-                runThread.setName("Mod_" + module.getModuleName() + "#" + dynUuiD + "_" + module.getUuid());
-
-                //Starting the module...
-                runThread.start();
-                return true;
-            } else throw new Exception("Module not registered !");
+                    runThread.setName("Mod_" + module.getModuleName() + "_" + module.getUuid());
+                    //Starting the module...
+                    runThread.start();
+                    return true;
+                } else throw new Exception("Module not registered !");
         } else throw new Exception("Module not found !");
     }
 
@@ -46,13 +40,5 @@ public class ModuleManager {
             if (modSource.getModuleMap().containsKey(uuid)) return modSource.getModuleMap().get(uuid);
         } else throw new Exception("uuid is incorrect");
         return null;
-    }
-
-    private void refreshDynUuiD() {
-        dynUuiD = UUID.randomUUID().toString().split("-")[1];
-    }
-
-    public String getDynUuiD() {
-        return dynUuiD;
     }
 }

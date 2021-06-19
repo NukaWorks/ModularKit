@@ -6,7 +6,7 @@
 
     <groupId>xyz.sunproject</groupId>
     <artifactId>ModularFramework</artifactId>
-    <version>v1.4.0-beta</version>
+    <version>v1.4.4-beta</version>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>A minimal and powerful Java Framework for creating modular apps.</description>
 
@@ -17,6 +17,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>mvn-sunproject</id>
+            <url>https://mvn.sunproject.xyz/releases</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <plugins>
