@@ -17,11 +17,11 @@ public abstract class ModularModule implements RunEvent {
 
     /**
      * TODO
+     *
      * @param _name
      * @param _uuid
      * @param author
-     * @param version
-     //* @param modDeps
+     * @param version //* @param modDeps
      */
 
 /*    public ModularModule(String _name, String _uuid, String author, String version, ModularModule... modDeps) throws Exception {
@@ -35,7 +35,6 @@ public abstract class ModularModule implements RunEvent {
         else moduleName = _name;
         uuid = _uuid;
     }*/
-
     public ModularModule(String _name, String _uuid, String author, String version) throws Exception {
         this.author = author;
         this.version = version;
@@ -47,21 +46,23 @@ public abstract class ModularModule implements RunEvent {
         uuid = _uuid;
     }
 
-    protected void setModuleSource(ModularSource source) throws Exception {
+    protected synchronized void setModuleSource(ModularSource source) throws Exception {
         if (source != null) modSource = source;
         else throw new NullPointerException();
-        if (modSource.getModuleManager().findModuleByUuiD(uuid) != null) throw new Exception("Module already instantiated !");
+        if (modSource.getModuleManager().findModuleByUuiD(uuid) != null)
+            throw new Exception("Module already instantiated !");
     }
 
 
-    protected void _exec() throws Exception {
+    protected synchronized void _exec() throws Exception {
         modStatus = ModuleStatus.RUNNING;
-        threadName = Thread.currentThread().getName();
         modThread = Thread.currentThread();
-        if (!threadName.equals("Mod_" + moduleName + "#" + modSource.getModuleManager().getDynUuiD() + "_" + uuid)) throw new Exception("This module cannot be run outside a ModThread.");
+        threadName = modThread.getName();
+
         /* if (modDependencies.length != 0) for (ModularModule mod : modDependencies) {
             if (mod.getModuleState() == ModuleStatus.STOPPED) mod.getModSource().getModuleManager().runModule(mod);
         } */
+
         runEvent();
         modStatus = ModuleStatus.STOPPED;
     }

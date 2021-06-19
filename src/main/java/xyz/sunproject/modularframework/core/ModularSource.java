@@ -18,9 +18,9 @@ import java.util.Properties;
 public class ModularSource {
 
     private final Map<String, ModularModule> moduleMap = new HashMap<>();
-    private static final HashMap<String, ModularSource> sourceMap = new HashMap<>();
+    private static HashMap<String, ModularSource> sourceMap = new HashMap<>();
     private final String uuid;
-    private ModuleManager moduleManager = new ModuleManager(this);
+    private final ModuleManager moduleManager = new ModuleManager(this);
 
 
     public ModularSource(String _uuid) {
@@ -61,7 +61,6 @@ public class ModularSource {
                                 Class<?> modClass = Class.forName(entry.getValue().toString(), false, classLoader);
                                 if (!modClass.getSuperclass().getName().equals(ModularModule.class.getSimpleName())) {
                                     ModularModule newModule = (ModularModule) modClass.newInstance();
-                                    newModule.setModuleSource(this);
                                     registerModule(newModule);
                                 }
                                 else throw new Exception("The module not extends ModularModule.");
@@ -80,7 +79,7 @@ public class ModularSource {
     }
 
 
-    private boolean registerSource() {
+    private synchronized boolean registerSource() {
         if (!sourceMap.containsKey(uuid)) {
             sourceMap.put(uuid, this);
             return true;
