@@ -11,5 +11,6 @@ With ModularKit, you can create modular apps with increased flexibility and stab
 ### Easy to use ?
 Yea, you can checkout documentation here : **LINK**
 
-## Examples :    
+
+# Examples :    
 
