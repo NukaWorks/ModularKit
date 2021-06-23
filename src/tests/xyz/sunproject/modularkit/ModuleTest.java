@@ -1,6 +1,6 @@
-package xyz.sunproject.modularframework;
+package xyz.sunproject.modularkit;
 
-import xyz.sunproject.modularframework.core.ModularModule;
+import xyz.sunproject.modularkit.core.ModularModule;
 
 public class ModuleTest extends ModularModule {
 

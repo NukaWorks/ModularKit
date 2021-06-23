@@ -1,4 +1,4 @@
-package xyz.sunproject.modularframework.core;
+package xyz.sunproject.modularkit.core;
 
 import java.util.HashMap;
 

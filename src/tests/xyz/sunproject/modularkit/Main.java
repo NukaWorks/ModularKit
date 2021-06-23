@@ -1,6 +1,6 @@
-package xyz.sunproject.modularframework;
+package xyz.sunproject.modularkit;
 
-import xyz.sunproject.modularframework.core.ModularSource;
+import xyz.sunproject.modularkit.core.ModularSource;
 
 public class Main {
 

@@ -1,7 +1,7 @@
-package xyz.sunproject.modularframework.core;
+package xyz.sunproject.modularkit.core;
 
 
-import xyz.sunproject.modularframework.core.events.ModuleStatus;
+import xyz.sunproject.modularkit.core.events.ModuleStatus;
 
 import java.io.File;
 import java.io.IOException;
