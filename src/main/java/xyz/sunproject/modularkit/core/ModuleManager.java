@@ -1,9 +1,11 @@
 package xyz.sunproject.modularkit.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ModuleManager {
     private final ModularSource modSource;
+    private ArrayList<ModularModule> modulesDependencies = new ArrayList<>();
 
     public ModuleManager(ModularSource source) {
         if (source != null) modSource = source;
@@ -41,4 +43,12 @@ public class ModuleManager {
         } else throw new Exception("uuid is incorrect");
         return null;
     }
+
+    public void setDepends(ModularModule... modDeps) {
+        for (ModularModule mod : modDeps) if (!modulesDependencies.contains(mod)) {
+            modulesDependencies.add(mod);
+            System.out.println(mod.getModuleName());
+        }
+    }
+
 }
