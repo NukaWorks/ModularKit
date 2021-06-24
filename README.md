@@ -14,3 +14,23 @@ Yea, you can checkout documentation here : **LINK**
 
 # Examples :    
 
+### How to create a Modular hello-world ?    
+It's very simple :
+
+```java
+package com.example;
+
+import xyz.sunproject.modularkit.core.ModularModule;
+
+public class ModuleTest extends ModularModule {
+
+    public ModuleTest() throws Exception {
+        super("ModuleTest", "81f9ab59", "Sundev79", "1.0.0");
+    }
+
+    @Override
+    public void runEvent() {
+        System.out.println("Hello World !");
+    }
+}
+```
