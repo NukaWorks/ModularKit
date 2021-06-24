@@ -1,6 +1,6 @@
 <center><h1>ModularKit</h1></center>
 
-<center><img alt="ModularKit Logo" src="pub/ModularKit-Logo.png" /></center>
+<center><img alt="ModularKit Logo" src="https://repo.sunproject.xyz/SunProject.xyz/ModularKit/raw/branch/sundev79-v3/pub/ModularKit-Logo.png" /></center>
 
 ### What is ModularKit ?
 **ModularKit** is a minimal and powerful Java Framework for creating modular apps.    
@@ -11,5 +11,6 @@ With ModularKit, you can create modular apps with increased flexibility and stab
 ### Easy to use ?
 Yea, you can checkout documentation here : **LINK**
 
-## Examples :    
+
+# Examples :    
 
