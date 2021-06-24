@@ -5,11 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>xyz.sunproject</groupId>
-    <artifactId>ModularFramework</artifactId>
-    <version>v1.4.4-beta</version>
+    <artifactId>ModularKit</artifactId>
+    <version>v1.4.5-beta</version>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>A minimal and powerful Java Framework for creating modular apps.</description>
-
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

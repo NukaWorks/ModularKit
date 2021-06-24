@@ -1,4 +1,4 @@
-package xyz.sunproject.modularframework.core.events;
+package xyz.sunproject.modularkit.core.events;
 
 public enum ModuleStatus {
 

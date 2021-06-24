@@ -1,7 +1,7 @@
-package xyz.sunproject.modularframework.core;
+package xyz.sunproject.modularkit.core;
 
-import xyz.sunproject.modularframework.core.events.ModuleStatus;
-import xyz.sunproject.modularframework.core.events.RunEvent;
+import xyz.sunproject.modularkit.core.events.ModuleStatus;
+import xyz.sunproject.modularkit.core.events.RunEvent;
 
 public abstract class ModularModule implements RunEvent {
 
