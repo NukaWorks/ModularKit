@@ -127,7 +127,7 @@ a {
     }
 
     img[alt="ModularKit Logo"] {
-        width: 90%;
-        height: 90%;
+        width: 30vh;
+        height: 30vh;
     }    
 }
