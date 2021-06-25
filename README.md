@@ -15,7 +15,8 @@ Yea, you can checkout documentation here : **LINK**
 # Examples :    
 
 ### How to create a Modular hello-world ?    
-It's very simple :
+
+First example : **HelloWorld** !
 
 ```java
 package com.example;
@@ -33,4 +34,14 @@ public class ModuleTest extends ModularModule {
         System.out.println("Hello World !");
     }
 }
+```
+This example is very simple, but this module don't use any ModDependencies.    
+You can use :
+```java
+ public ModuleTest() throws Exception {
+        AnotherModule anotherMod = new AnotherModule();
+        AnotherModule anotherMod2 = new AnotherModule();
+        super("ModuleTest", "81f9ab59", "Sundev79", "1.0.0", anotherMod, anotherMod2);
+        // You can use many dependencies !
+    }
 ```

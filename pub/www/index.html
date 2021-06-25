@@ -13,7 +13,9 @@
     />
     <link rel="stylesheet" href="src/main.css" />
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
+    <link rel="stylesheet"
+    href="src/hljs.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.1/build/highlight.min.js"></script>
     <meta property="og:title" content="ModularKit" />
     <meta
       property="og:description"
@@ -53,9 +55,14 @@
         </a>
         <span class="footer-about">© 2021 SunProject.xyz - All right reserved.</span>
     </footer>
+
   </body>
   
   <script>
-    fetch('https://repo.sunproject.xyz/SunProject.xyz/ModularKit/raw/branch/main/README.md').then(res => res.text()).then(res => document.querySelector(".file-content").innerHTML = marked(res));
+    fetch('https://repo.sunproject.xyz/SunProject.xyz/ModularKit/raw/branch/main/README.md').then(res => res.text()).then(res => {
+      document.querySelector(".file-content").innerHTML = marked(res)
+      hljs.highlightAll();
+    });
   </script>
+  
 </html>
