@@ -26,12 +26,10 @@ body {
     justify-content: space-between;
     font-family: 'Fira Sans Extra Condensed', sans-serif;
     padding: 15px;
-    box-shadow: 0px 4px 4px 1px rgba(0,0,0,0.48);
+    box-shadow: 0px 4px 4px 1px #0000007a;
     background-color: #1e2c3d;
     color: whitesmoke;
 }
-
-
 
 .main-logo {
     display: flex;
@@ -58,7 +56,7 @@ body {
     border-radius: 5px;
     text-decoration: none;
     color: white;
-    box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.8);
+    box-shadow: 0px 0px 17px 1px #000000cc;
     transition: background .2s;
     user-select: none;
 }
@@ -85,7 +83,7 @@ body {
 }
 
 .md-file {
-    box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.8);
+    box-shadow: 0px 0px 17px 1px #000000cc;
     background: #495f7a;
     border-radius: 10px 10px 0 0;
 }
@@ -109,9 +107,19 @@ code {
     display: inline-block;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.8);
+    box-shadow: 0px 0px 17px 1px #000000cc;
 }
 
 code, .hljs {
     background-color: #2d3a49;
+}
+
+a {
+    color: #0d9dfd;
+    text-decoration: none;
+    transition: color .2s;
+}
+
+a:hover {
+    color: #007acc;
 }

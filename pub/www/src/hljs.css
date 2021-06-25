@@ -45,11 +45,12 @@ code.hljs {
 .hljs-string,
 .hljs-template-tag,
 .hljs-type {
-  color: #f52929;
+  color: #f5a329;
+  font-weight: bold;
 }
 .hljs-section,
 .hljs-title {
-  color: #ff8e8e;
+  color: tomato;
   font-weight: 700;
 }
 .hljs-link,
