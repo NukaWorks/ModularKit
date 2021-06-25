@@ -45,3 +45,22 @@ You can use :
         // You can use many dependencies !
     }
 ```
+
+### For registering and run a module : 
+For running a module, let's try this little example :
+```java
+    public static void main() {
+        ModularSource mainSource = new ModularSource("e3640e55")
+    }
+```
+For ModSource and Module you need to generate a new uuid (Group 1).   
+#### Unix/MacOS/Linux :
+```bash
+~$ uuidgen
+**e3640e55**-cbaf-42c2-b053-52a2cfa2e0a5
+~$
+```
+#### UUIDGEN Online : 
+You can use https://www.uuidgenerator.net/    
+
+**You need to copy the group 1 (*)**
