@@ -33,7 +33,7 @@ body {
   color: whitesmoke;
 }
 
-.main-logo {
+.titlemain-logo {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -42,14 +42,15 @@ body {
   color: whitesmoke;
 }
 
-.sunproj-logo {
-  width: 30px;
-  height: 50px;
+.modularkit-logo {
+    width: 80px;
+    height: 80px;
 }
 
-.main-logo img {
-  width: 70px;
-  height: 70px;
+.sunproj-logo {
+  width: 50px;
+  height: 50px;
+  padding: 0 5px;
 }
 
 .sonikalize-proj-btn {
