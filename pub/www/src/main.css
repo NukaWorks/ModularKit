@@ -1,133 +1,142 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&display=swap");
 
-html, body {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    background: #272a2e;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: #272a2e;
 }
 
 .flex-space {
-    display: flex;
-    flex: 1;
+  display: flex;
+  flex: 1;
 }
 
-.main-header, .main-footer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    font-family: 'Fira Sans Extra Condensed', sans-serif;
-    padding: 15px;
-    box-shadow: 0px 4px 4px 1px #0000007a;
-    background-color: #1e2c3d;
-    color: whitesmoke;
+.main-header,
+.main-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+  padding: 15px;
+  box-shadow: 0px 4px 4px 1px #0000007a;
+  background-color: #1e2c3d;
+  color: whitesmoke;
 }
 
 .main-logo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: 15pt;
-    text-decoration: none;
-    color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 15pt;
+  text-decoration: none;
+  color: whitesmoke;
 }
 
 .sunproj-logo {
-    width: 30px;
-    height: 50px;
+  width: 30px;
+  height: 50px;
 }
 
-.main-logo img{
-    width: 70px;
-    height: 70px;
+.main-logo img {
+  width: 70px;
+  height: 70px;
 }
 
 .sonikalize-proj-btn {
-    padding: 10px;
-    background: #008cff;
-    border-radius: 5px;
-    text-decoration: none;
-    color: white;
-    box-shadow: 0px 0px 17px 1px #000000cc;
-    transition: background .2s;
-    user-select: none;
+  padding: 10px;
+  background: #008cff;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0px 0px 17px 1px #000000cc;
+  transition: background 0.2s;
+  user-select: none;
 }
 
 .sonikalize-proj-btn:hover {
-    background: #006fca;
+  background: #006fca;
 }
 
 .main-content {
-    font-family: 'Fira Sans', sans-serif;
-    padding: 20px;
-    color: whitesmoke;
+  font-family: "Fira Sans", sans-serif;
+  padding: 20px;
+  color: whitesmoke;
 }
 
 .md-head-info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0 10px;
-    border-radius: 10px 10px 0 0;
-    background: #313f50;
-    font-family: 'Fira Sans Extra Condensed', sans-serif;
-    padding: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 10px 10px 0 0;
+  background: #313f50;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+  padding: 15px;
 }
 
 .md-file {
-    box-shadow: 0px 0px 17px 1px #000000cc;
-    background: #495f7a;
-    border-radius: 10px 10px 0 0;
+  box-shadow: 0px 0px 17px 1px #000000cc;
+  background: #495f7a;
+  border-radius: 10px 10px 0 0;
 }
 
 .file-name {
-    padding: 0 5px;
-    text-decoration: none;
-    color: whitesmoke;
-    transition: color .2s;
+  padding: 0 5px;
+  text-decoration: none;
+  color: whitesmoke;
+  transition: color 0.2s;
 }
 
 .file-name:hover {
-    color: #008cff;
+  color: #008cff;
 }
 
 .file-content {
-    padding: 10px 15px;
+  padding: 10px 15px;
+  overflow: hidden;
 }
 
 code {
-    display: inline-block;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 17px 1px #000000cc;
-    width: 60%;
+  display: inline-block;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 17px 1px #000000cc;
+  width: 55em;
 }
 
-code, .hljs {
-    background-color: #2d3a49;
+code,
+.hljs {
+  background-color: #2d3a49;
 }
 
 a {
-    color: #0d9dfd;
-    text-decoration: none;
+  color: #0d9dfd;
+  text-decoration: none;
 }
 
-
 @media screen and (max-width: 900px) {
-    code {
-        width: 95%;
-    }
+  code {
+    width: 90%;
+  }
 
-    img[alt="ModularKit Logo"] {
-        width: 30vh;
-        height: 30vh;
-    }    
+  pre {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  img[alt="ModularKit Logo"] {
+    width: 30vh;
+    height: 30vh;
+  }
 }
