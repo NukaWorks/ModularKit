@@ -9,7 +9,7 @@
 With ModularKit, you can create modular apps with increased flexibility and stability, designed to create projects with no downtime worries and good maintainability.
 
 ### Easy to use ?
-Yea, you can checkout documentation here : **LINK**
+Yea, you can checkout documentation here : **[Wiki on Sonikalize](https://repo.sunproject.xyz/SunProject.xyz/ModularKit/wiki).**
 
 
 # Examples :    
@@ -66,4 +66,4 @@ You can use **https://www.uuidgenerator.net/**
 **You need to copy the group 1 (*)**    
 
 
-#### You can find the full documentation on the Wiki : **LINK**    
+#### You can find the full documentation on the Wiki : **[Wiki on Sonikalize](https://repo.sunproject.xyz/SunProject.xyz/ModularKit/wiki).**  
