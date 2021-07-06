@@ -1,7 +1,7 @@
-package xyz.sunproject.modularkit.core;
+package org.nutdevs.modularkit.core;
 
-import xyz.sunproject.modularkit.core.events.ModuleStatus;
-import xyz.sunproject.modularkit.core.events.RunEvent;
+import org.nutdevs.modularkit.core.events.ModuleStatus;
+import org.nutdevs.modularkit.core.events.RunEvent;
 
 import java.util.ArrayList;
 

@@ -21,7 +21,7 @@ First example : **HelloWorld** !
 ```java
 package com.example;
 
-import xyz.sunproject.modularkit.core.ModularModule;
+import ModularModule;
 
 public class ModuleTest extends ModularModule {
 

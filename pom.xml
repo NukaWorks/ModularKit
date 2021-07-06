@@ -6,7 +6,7 @@
 
     <groupId>xyz.sunproject</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>v1.4.5-beta</version>
+    <version>v1.4.5b-beta</version>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>A minimal and powerful Java Framework for creating modular apps.</description>
 

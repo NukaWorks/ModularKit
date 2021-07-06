@@ -1,7 +1,7 @@
-package xyz.sunproject.modularkit.core;
+package org.nutdevs.modularkit.core;
 
 
-import xyz.sunproject.modularkit.core.events.ModuleStatus;
+import org.nutdevs.modularkit.core.events.ModuleStatus;
 
 import java.io.File;
 import java.io.IOException;

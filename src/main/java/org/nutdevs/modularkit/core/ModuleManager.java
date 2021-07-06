@@ -1,4 +1,4 @@
-package xyz.sunproject.modularkit.core;
+package org.nutdevs.modularkit.core;
 
 import java.util.ArrayList;
 import java.util.HashMap;

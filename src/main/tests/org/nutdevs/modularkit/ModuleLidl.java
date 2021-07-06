@@ -1,6 +1,6 @@
-package xyz.sunproject.modularkit;
+package org.nutdevs.modularkit;
 
-import xyz.sunproject.modularkit.core.ModularModule;
+import org.nutdevs.modularkit.core.ModularModule;
 
 public class ModuleLidl extends ModularModule {
 

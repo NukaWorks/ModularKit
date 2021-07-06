@@ -1,6 +1,6 @@
-package xyz.sunproject.modularkit;
+package org.nutdevs.modularkit;
 
-import xyz.sunproject.modularkit.core.ModularSource;
+import org.nutdevs.modularkit.core.ModularSource;
 
 public class Main {
 

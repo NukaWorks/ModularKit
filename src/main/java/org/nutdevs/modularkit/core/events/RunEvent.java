@@ -1,4 +1,4 @@
-package xyz.sunproject.modularkit.core.events;
+package org.nutdevs.modularkit.core.events;
 
 public interface RunEvent {
 
