@@ -50,7 +50,10 @@ public ModuleTest() throws Exception {
 For running a module, let's try this little example :
 ```java
 public static void main() {
-    ModularSource mainSource = new ModularSource("e3640e55");
+    // Register the module first
+    ModularSource mainSource = new ModularSource("e3640e55"); 
+    // Then let's run it !
+    mainSource.getModuleManager().findModuleByUuID("Dug40M90").runModule();
 }
 ```
 For ModSource and Module you need to generate a new uuid (Group 1).   
