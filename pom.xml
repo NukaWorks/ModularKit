@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>xyz.sunproject</groupId>
+    <groupId>org.nutdevs</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>v1.4.5b-beta</version>
+    <version>v1.4.5c-beta</version>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>A minimal and powerful Java Framework for creating modular apps.</description>
 
