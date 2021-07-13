@@ -11,6 +11,7 @@ public abstract class ModularModule implements RunEvent {
     private ModuleStatus modStatus = ModuleStatus.STOPPED;
     private ModularSource modSource;
     private ArrayList<ModularModule> tmpModDepsList = new ArrayList<>();
+
     // Thread naming conventions : Mod_$name#$dynUuid_$uuid
 
     private String threadName = null;
@@ -40,7 +41,7 @@ public abstract class ModularModule implements RunEvent {
         uuid = _uuid;
     }
 
-    protected synchronized void setModuleSource(ModularSource source) throws Exception {
+    protected void setModuleSource(ModularSource source) throws Exception {
         if (source != null) modSource = source;
         else throw new NullPointerException();
         if (modSource.getModuleManager().findModuleByUuiD(uuid) != null)
@@ -49,7 +50,7 @@ public abstract class ModularModule implements RunEvent {
     }
 
 
-    protected synchronized void _exec() throws Exception {
+    protected void _exec() throws Exception {
         modStatus = ModuleStatus.RUNNING;
         modThread = Thread.currentThread();
         threadName = modThread.getName();
