@@ -6,9 +6,30 @@ $bg-500: #304a56;
 $bg-400: #3b5969;
 $text-400: whitesmoke;
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+pre,
+code,
+strong,
+br,
+img,
+b {
+  &::selection {
+    background: $bg-600;
+  }
+}
+
 body {
   margin: 0;
   color: $text-400;
+  font-size: 16px;
   font-family: "Fira Sans", sans-serif;
   background: $bg-700;
 }
@@ -24,16 +45,18 @@ a {
 }
 
 .sonikalize-proj-btn {
+  white-space: nowrap;
   user-select: none;
   padding: 10px 20px;
   background: $bg-400;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .main-header,
 .main-footer {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
   font-family: "Fira Sans Extra Condensed", sans-serif;
@@ -62,4 +85,5 @@ a {
 
 .file-content {
   padding: 25px;
+  overflow: hidden;
 }
