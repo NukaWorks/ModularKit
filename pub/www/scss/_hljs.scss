@@ -1,5 +1,89 @@
 @use "color";
 
+
 code.hljs {
-  background-color: color.$bg-600;
+  padding: 20px;
+  font-weight: 500;
+
+  display: inline-block;
+  background-color: color.$bg-500;
+  overflow-x: scroll;
+  width: 75%;
+}
+
+.hljs {
+  font-family: "Fira Code", monospace;
+
+  &-comment {
+    color: #93A1A1;
+  }
+
+  &-punctuation,
+  &-tag {
+    color: #444a;
+  }
+
+  &-tag &-attr,
+  &-tag &-name {
+    color: #444;
+  }
+
+  &-attribute,
+  &-doctag,
+  &-keyword,
+  &-meta &-keyword,
+  &-name,
+  &-selector-tag {
+    color: #54A700;
+  }
+
+  &-deletion,
+  &-number,
+  &-quote,
+  &-selector-class,
+  &-selector-id,
+  &-string,
+  &-template-tag,
+  &-type {
+    color: #CC773B;
+  }
+
+  &-section,
+  &-title {
+    color: tomato;
+  }
+
+  &-link,
+  &-operator,
+  &-regexp,
+  &-selector-attr,
+  &-selector-pseudo,
+  &-symbol,
+  &-template-variable,
+  &-variable {
+    color: whitesmoke;
+  }
+
+  &-literal {
+    color: #78a960;
+  }
+
+  &-addition,
+  &-built_in,
+  &-bullet,
+  &-code {
+    color: #60be01;
+  }
+
+  &-meta {
+    color: #2facf5;
+  }
+
+  &-meta &-string {
+    color: #359cca;
+  }
+
+  &-emphasis {
+    font-style: italic;
+  }
 }
