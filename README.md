@@ -1,20 +1,25 @@
-<center><h1>ModularKit</h1></center>
-
-<center><img alt="ModularKit Logo" src="https://repo.sunproject.xyz/NutDevs.org/ModularKit/raw/branch/main/pub/www/src/assets/ModularKit-Logo.png" /></center>
+<center>
+    <h1>ModularKit</h1>
+    <img alt="ModularKit Logo" src="https://raw.githubusercontent.com/Sigmanificient/ModularKit/main/pub/www/svg/logo.svg" height="200" width="200"/>
+</center>
 
 ## What is ModularKit ?
-**ModularKit** is a minimal and powerful Java Framework for creating modular apps.    
+
+**ModularKit** is a minimal and powerful Java Framework for creating modular apps.
 
 ### But why i using it on all my Java projects ?
-With ModularKit, you can create modular apps with increased flexibility and stability, designed to create projects with no downtime worries and good maintainability.
+
+With ModularKit, you can create modular apps with increased flexibility and stability, designed to create projects with
+no downtime worries and good maintainability.
 
 ### Easy to use ?
-Yea, you can checkout documentation here : **[Wiki on Sonikalize](https://repo.sunproject.xyz/NutDevs.org/ModularKit/wiki).**
 
+Yea, you can checkout documentation
+here : **[Wiki on Sonikalize](https://repo.sunproject.xyz/NutDevs.org/ModularKit/wiki).**
 
-# Examples :    
+## Examples
 
-### How to create a Modular hello-world ?    
+### How to create a Modular hello-world ?
 
 First example : **HelloWorld** !
 
@@ -35,8 +40,10 @@ public class ModuleTest extends ModularModule {
     }
 }
 ```
+
 This example is very simple, but this module don't use any ModDependencies.    
 You can use :
+
 ```java
 public ModuleTest() throws Exception {
         AnotherModule anotherMod = new AnotherModule();
@@ -46,8 +53,10 @@ public ModuleTest() throws Exception {
 }
 ```
 
-### For registering and run a module : 
+### For registering and run a module :
+
 For running a module, let's try this little example :
+
 ```java
 public static void main() {
     // Register the module first
@@ -56,17 +65,23 @@ public static void main() {
     mainSource.getModuleManager().findModuleByUuID("Dug40M90").runModule();
 }
 ```
-For ModSource and Module you need to generate a new uuid (Group 1).   
+
+For ModSource and Module you need to generate a new uuid (Group 1).
+
 #### Unix/MacOS/Linux :
+
 ```bash
 ~$ uuidgen
 **e3640e55**-cbaf-42c2-b053-52a2cfa2e0a5
 ~$
 ```
-#### UUIDGEN Online : 
+
+#### UUIDGEN Online :
+
 You can use **https://www.uuidgenerator.net/**
 
-**You need to copy the group 1 (*)**    
+**You need to copy the group 1 (*)**
 
+#### You can find the full documentation on the Wiki : **[Wiki on Sonikalize](https://repo.sunproject.xyz/NutDevs.org/ModularKit/wiki)
 
-#### You can find the full documentation on the Wiki : **[Wiki on Sonikalize](https://repo.sunproject.xyz/NutDevs.org/ModularKit/wiki).**  
+.**  
