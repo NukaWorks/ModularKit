@@ -82,6 +82,4 @@ You can use **https://www.uuidgenerator.net/**
 
 **You need to copy the group 1 (*)**
 
-#### You can find the full documentation on the Wiki : **[Wiki on Sonikalize](https://repo.sunproject.xyz/NutDevs.org/ModularKit/wiki)
-
-.**  
+#### You can find the full documentation on the Wiki : **[Wiki on Sonikalize](https://repo.sunproject.xyz/NutDevs.org/ModularKit/wiki).**  
