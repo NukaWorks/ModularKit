@@ -3,12 +3,26 @@
 
 code.hljs {
   padding: 20px;
+  font-size: 0.8em;
   font-weight: 500;
-
   display: inline-block;
   background-color: color.$bg-500;
+
+  width: clamp(55%, 1200px, calc(100% - 50px));
   overflow-x: scroll;
-  width: 75%;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+
+    &-track {
+      background: color.$bg-400;
+    }
+
+    &-thumb {
+      background: color.$bg-700;
+    }
+  }
 }
 
 .hljs {
