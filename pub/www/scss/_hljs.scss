@@ -1,0 +1,5 @@
+@use "color";
+
+code.hljs {
+  background-color: color.$bg-600;
+}
