@@ -60,7 +60,7 @@
   </body>
   
   <script>
-    fetch('https://repo.sunproject.xyz/NutDevs.org/ModularKit/raw/branch/main/README.md').then(res => res.text()).then(res => {
+    fetch('https://raw.githubusercontent.com/NutDevs-org/ModularKit/main/README.md').then(res => res.text()).then(res => {
       document.querySelector(".file-content").innerHTML = marked(res)
       hljs.highlightAll();
     });
