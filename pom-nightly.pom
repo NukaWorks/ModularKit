@@ -25,7 +25,7 @@
     <distributionManagement>
         <repository>
             <id>mvn-nutdevs</id>
-            <url>https://mvn.nutdevs.org/ModularKit\stable-builds</url>
+            <url>https://mvn.nutdevs.org/ModularKit\nightly-builds</url>
         </repository>
     </distributionManagement>
 
