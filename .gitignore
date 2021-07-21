@@ -1,7 +1,5 @@
 ﻿.gradle
-.idea
+.idea/
 /build/
 /target/
-/src/main/java/xyz/sunproject/modularframework/testModules/
-ModularKit.iml
 *.iml

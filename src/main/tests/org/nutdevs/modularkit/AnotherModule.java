@@ -2,9 +2,9 @@ package org.nutdevs.modularkit;
 
 import org.nutdevs.modularkit.core.ModularModule;
 
-public class ModuleLidl extends ModularModule {
+public class AnotherModule extends ModularModule {
 
-    public ModuleLidl() throws Exception {
+    public AnotherModule() throws Exception {
         super("ModuleLidl", "452457c5", "Sundev79", "1.0.0");
     }
 

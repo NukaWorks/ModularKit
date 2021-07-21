@@ -6,8 +6,8 @@
 
     <groupId>org.nutdevs</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>v1.4.5c-beta</version>
-    <name>${project.groupId}:${project.artifactId}</name>
+    <version>v1.4.6-beta</version>
+    <name>ModularKit</name>
     <description>A minimal and powerful Java Framework for creating modular apps.</description>
 
     <properties>
@@ -18,8 +18,8 @@
 
     <distributionManagement>
         <repository>
-            <id>mvn-sunproject</id>
-            <url>https://mvn.sunproject.xyz/releases</url>
+            <id>mvn-nutdevs</id>
+            <url>https://mvn.nutdevs.org/snapshots</url>
         </repository>
     </distributionManagement>
 

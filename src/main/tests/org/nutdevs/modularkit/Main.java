@@ -10,5 +10,4 @@ public class Main {
         mainSource.registerModule(testMod);
         mainSource.getModuleManager().runModule(testMod);
     }
-
 }
