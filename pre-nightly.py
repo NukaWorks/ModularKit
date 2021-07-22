@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as element_tree
 import sys
+import os
 from github import Github
 
 githubToken = ""
@@ -20,10 +21,8 @@ def get_commit_id():
 
 
 def main() -> None:
-    for arg in sys.argv[1:]:
-        print(f"Shitty args : {arg}")
-        githubToken = arg
-    gRepo = Github(githubToken).get_repo(385764384).get_branch("main")
+    print(f"Shitty args : {os.environ}")
+    gRepo = Github("").get_repo(385764384).get_branch("main")
     file: str = 'pom.xml'
     fileDest = ".github/nightly-pom.xml"
     xml_root = get_root(file)
