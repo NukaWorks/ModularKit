@@ -1,24 +1,25 @@
 name: Nightly Builder
+
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+  
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.9
+      
       - uses: actions/setup-python@v2
         with:
           python-version: 3.9
+          
       - name: Install Python dependencies
         run: python -m pip install PyGithub
         
       - name: Launch Pre-Build Nightly
-      - shell: bash
-        env:
-          GTOKEN: ${{ secrets.TOKEN }}
-      - run: python ./pre-nightly.py "$GTOKEN"
+        run: python ./pre-nightly.py "$GTOKEN"
