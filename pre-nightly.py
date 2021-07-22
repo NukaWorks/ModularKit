@@ -1,8 +1,9 @@
 import xml.etree.ElementTree as element_tree
-import os
+import sys
 from github import Github
 
-gAccount = Github("${{ secrets.TOKEN }}")
+githubToken = None
+gAccount = None
 gRepo = gAccount.get_repo(385764384).get_branch("main")
 
 
@@ -20,6 +21,10 @@ def get_commit_id():
 
 
 def main() -> None:
+    for arg in sys.argv[1:]:
+        githubToken = arg
+
+    gAccount = Github(githubToken)
     file: str = 'pom.xml'
     fileDest = ".github/nightly-pom.xml"
     xml_root = get_root(file)
