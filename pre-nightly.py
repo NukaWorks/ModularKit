@@ -21,7 +21,7 @@ def get_commit_id():
 
 def main() -> None:
     for arg in sys.argv[1:]:
-        print(arg)
+        print(f"Shitty args : {arg}")
         githubToken = arg
     gRepo = Github(githubToken).get_repo(385764384).get_branch("main")
     file: str = 'pom.xml'
