@@ -2,8 +2,8 @@ import xml.etree.ElementTree as element_tree
 import sys
 from github import Github
 
-githubToken = None
-gAccount = None
+githubToken = ""
+gAccount = ""
 gRepo = gAccount.get_repo(385764384).get_branch("main")
 
 
