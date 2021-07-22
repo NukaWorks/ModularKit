@@ -20,7 +20,7 @@ def get_commit_id():
 
 
 def main() -> None:
-    file: str = 'dict.xml'
+    file: str = 'pom.xml'
     fileDest = ".github/nightly-pom.xml"
     xml_root = get_root(file)
     xml_root[3].text = f"v1.4.3-nightly_{get_commit_id()}"
