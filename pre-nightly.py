@@ -3,8 +3,7 @@ import sys
 from github import Github
 
 githubToken = ""
-gAccount = ""
-gRepo = gAccount.get_repo(385764384).get_branch("main")
+gRepo = ""
 
 
 def get_root(file_path: str):
@@ -24,7 +23,7 @@ def main() -> None:
     for arg in sys.argv[1:]:
         githubToken = arg
 
-    gAccount = Github(githubToken)
+    gRepo = Github(githubToken).get_repo(385764384).get_branch("main")
     file: str = 'pom.xml'
     fileDest = ".github/nightly-pom.xml"
     xml_root = get_root(file)
