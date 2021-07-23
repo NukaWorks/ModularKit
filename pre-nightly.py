@@ -1,19 +1,17 @@
-import xml.etree.ElementTree as element_tree
-import sys
 import os
+import xml.etree.ElementTree as ET
 from github import Github
 
-githubToken = ""
-gRepo = ""
+gRepo = Github(os.environ['GTOKEN']).get_repo(385764384).get_branch("main")
 
 
 def get_root(file_path: str):
-    return element_tree.parse(file_path).getroot()
+    return ET.parse(file_path).getroot()
 
 
 def save_pom(file_path: str, tree_root) -> None:
     with open(file_path, "w") as f:
-        f.write(element_tree.tostring(tree_root).decode().replace("ns0:", '').replace(":ns0", ''))
+        f.write(ET.tostring(tree_root).decode().replace("ns0:", '').replace(":ns0", ''))
 
 
 def get_commit_id():
@@ -21,8 +19,6 @@ def get_commit_id():
 
 
 def main() -> None:
-    print(f"Shitty args : {os.environ['GTOKEN']}")
-    gRepo = Github("").get_repo(385764384).get_branch("main")
     file: str = 'pom.xml'
     fileDest = ".github/nightly-pom.xml"
     xml_root = get_root(file)
