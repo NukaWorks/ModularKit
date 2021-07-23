@@ -21,13 +21,13 @@ jobs:
       - name: Install Python dependencies
         run: python -m pip install PyGithub
         
-      - name: Launch Pre-Build Nightly
+      - name: Launch Pre-Build Nightly Prep Script
         shell: bash
         env:
           GTOKEN: ${{ secrets.TOKEN }}
         run: python ./pre-nightly.py ${GTOKEN}
         
-      - name: Set up Maven Central Repository
+      - name: Set up NutDevs.org Maven Repo
         uses: actions/setup-java@v2
         with:
           java-version: '11'
@@ -35,7 +35,7 @@ jobs:
           server-id: mvn-nutdevs
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
-      - name: Publish package
+      - name: Publish package to mvn.nutdevs.org
         run: mvn -f .github/nightly-pom.xml --batch-mode clean deploy
         env:
           MAVEN_USERNAME: ${{ secrets.MVN_USERNAME }}
