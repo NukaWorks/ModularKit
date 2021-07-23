@@ -28,4 +28,4 @@ jobs:
         run: python ./pre-nightly.py ${GTOKEN}
       
       - name: Check Directory
-        run: ls -lha
+        run: ls -lha .github/
