@@ -1,3 +1,5 @@
+**ModularKit | BuildStatus: [![Nightly Builder](https://github.com/NutDevs-org/ModularKit/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/NutDevs-org/ModularKit/actions/workflows/main.yml) | Thanks for  [@Sigmanificient](https://github.com/Sigmanificient) for the Project-Page !**
+
 <center>
     <h1>ModularKit</h1>
     <img alt="ModularKit Logo" src="https://raw.githubusercontent.com/Sigmanificient/ModularKit/main/pub/www/svg/logo.svg" height="200" width="200"/>
