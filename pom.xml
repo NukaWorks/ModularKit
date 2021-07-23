@@ -26,8 +26,6 @@
         <repository>
             <id>mvn-nutdevs</id>
             <url>https://mvn.nutdevs.org/NutDevs-org/ModularKit/stable-builds</url>
-            <username>${repo.username}</username>
-            <password>${repo.pwd}</password>
             <!-- Nightly_Builds <url>https://mvn.nutdevs.org/NutDevs-org/ModularKit/nightly-builds</url> -->
         </repository>
     </distributionManagement>
