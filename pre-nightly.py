@@ -21,7 +21,7 @@ def get_commit_id():
 
 
 def main() -> None:
-    print(f"Shitty args : {os.environ}")
+    print(f"Shitty args : {os.environ['GTOKEN']}")
     gRepo = Github("").get_repo(385764384).get_branch("main")
     file: str = 'pom.xml'
     fileDest = ".github/nightly-pom.xml"
