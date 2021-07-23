@@ -22,7 +22,7 @@ jobs:
         run: python -m pip install PyGithub
         
       - name: Launch Pre-Build Nightly
-      - shell: bash
+        shell: bash
         env:
           GTOKEN: ${{ secrets.TOKEN }}
         run: python ./pre-nightly.py ${GTOKEN}
