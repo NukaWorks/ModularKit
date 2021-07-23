@@ -26,6 +26,17 @@ jobs:
         env:
           GTOKEN: ${{ secrets.TOKEN }}
         run: python ./pre-nightly.py ${GTOKEN}
-      
-      - name: Check Directory
-        run: ls -lha .github/
+        
+      - name: Set up Maven Central Repository
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+          server-id: mvn-nutdevs
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+      - name: Publish package
+        run: mvn --batch-mode clean deploy
+        env:
+          MAVEN_USERNAME: ${{ secrets.MVN_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.MVN_PASSWORD }}
