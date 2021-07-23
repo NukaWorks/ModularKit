@@ -26,3 +26,6 @@ jobs:
         env:
           GTOKEN: ${{ secrets.TOKEN }}
         run: python ./pre-nightly.py ${GTOKEN}
+      
+      - name: Check Directory
+        run: ls -lha
