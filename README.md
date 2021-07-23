@@ -1,9 +1,12 @@
-**ModularKit | BuildStatus: [![Nightly Builder](https://github.com/NutDevs-org/ModularKit/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/NutDevs-org/ModularKit/actions/workflows/main.yml) | Thanks for  [@Sigmanificient](https://github.com/Sigmanificient) for the Project-Page !**
 
-<center>
-    <h1>ModularKit</h1>
-    <img alt="ModularKit Logo" src="https://raw.githubusercontent.com/Sigmanificient/ModularKit/main/pub/www/svg/logo.svg" height="200" width="200"/>
-</center>
+[![Nightly Builder](https://github.com/NutDevs-org/ModularKit/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/NutDevs-org/ModularKit/actions/workflows/main.yml)
+![Lines of code](https://img.shields.io/tokei/lines/github/NutDevs-org/ModularKit?label=Total%20Lines%20Of%20Codes%20%3A)
+![Discord](https://img.shields.io/discord/832638079255969794?label=Join%20our%20Discord%20%3A%20)
+
+**Thanks for  [@Sigmanificient](https://github.com/Sigmanificient) for the Project-Page !**
+
+<h1>ModularKit</h1>
+<img alt="ModularKit Logo" src="https://raw.githubusercontent.com/Sigmanificient/ModularKit/main/pub/www/svg/logo.svg" height="200" width="200"/>
 
 ## What is ModularKit ?
 
