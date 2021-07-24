@@ -33,6 +33,7 @@ def get_commit_id() -> str:
 def main() -> None:
     """Entry point for the program."""
     file: str = '../pom.xml'
+    os.system("ls -alh")
     file_dest = ".github/nightly-pom.xml"
 
     xml_root = get_root(file)
