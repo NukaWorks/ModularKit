@@ -1,30 +1,46 @@
+"""Replace version in pom.xml for server backups."""
+
 import os
-import xml.etree.ElementTree as ET
-from github import Github
+import xml.etree.ElementTree as Et
 
-gRepo = Github(os.environ['GTOKEN']).get_repo(385764384).get_branch("main")
+from github import Github, Branch
 
+REPO_ID: int = 385764384
+BRANCH: str = "main"
 
-def get_root(file_path: str):
-    return ET.parse(file_path).getroot()
-
-
-def save_pom(file_path: str, tree_root) -> None:
-    with open(file_path, "w") as f:
-        f.write(ET.tostring(tree_root).decode().replace("ns0:", '').replace(":ns0", ''))
+g: Branch = Github(os.environ["GTOKEN"]).get_repo(REPO_ID).get_branch(BRANCH)
 
 
-def get_commit_id():
-    return gRepo.commit.sha[:7]
+def get_root(file_path: str) -> Et.Element:
+    """Retrieve xml root element from pom."""
+    return Et.parse(file_path).getroot()
+
+
+def save_pom(file_path: str, tree_root: Et.Element) -> None:
+    """Cleanup xml and save it."""
+    content: str = Et.tostring(tree_root).decode()
+    clean: str = content.replace("ns0:", '').replace(":ns0", '')
+
+    with open(file_path, 'w') as f:
+        f.write(clean)
+
+
+def get_commit_id() -> str:
+    """Retrieve the repository id."""
+    return g.commit.sha[:7]
 
 
 def main() -> None:
-    file: str = 'pom.xml'
-    fileDest = ".github/nightly-pom.xml"
+    """Entry point for the program."""
+    file: str = '../pom.xml'
+    file_dest = ".github/nightly-pom.xml"
+
     xml_root = get_root(file)
     xml_root[3].text += f"-nightly_{get_commit_id()}"
+
     xml_root[8][0][1].text = xml_root[8][0][1].text.replace("stable-builds", "nightly-builds")
-    save_pom(fileDest, xml_root)
+
+    save_pom(file_dest, xml_root)
 
 
 if __name__ == '__main__':
