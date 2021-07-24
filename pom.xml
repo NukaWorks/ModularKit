@@ -10,12 +10,6 @@
     <name>ModularKit</name>
     <description>A minimal and powerful Java Framework for creating modular apps.</description>
 
-    <scm>
-        <connection>scm:git:https://github.com/NutDevs-org/ModularKit.git</connection>
-        <developerConnection>scm:git:https://github.com/NutDevs-org/ModularKit.git</developerConnection>
-        <url>https://github.com/NutDevs-org/ModularKit.git</url>
-    </scm>
-
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
