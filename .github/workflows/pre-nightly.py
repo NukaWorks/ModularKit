@@ -8,7 +8,7 @@ from github import Github, Branch
 REPO_ID: int = 385764384
 BRANCH: str = "main"
 
-g: Branch = Github(os.environ["TOKEN"]).get_repo(REPO_ID).get_branch(BRANCH)
+g: Branch = Github(os.environ["GTOKEN"]).get_repo(REPO_ID).get_branch(BRANCH)
 
 
 def get_root(file_path: str) -> Et.Element:
