@@ -32,14 +32,15 @@ def get_commit_id() -> str:
 
 def main() -> None:
     """Entry point for the program."""
-    file: str = '../pom.xml'
-    os.system("ls -alh")
-    file_dest = ".github/nightly-pom.xml"
+    file: str = 'pom.xml'
+    file_dest: str = ".github/nightly-pom.xml"
 
     xml_root = get_root(file)
     xml_root[3].text += f"-nightly_{get_commit_id()}"
 
-    xml_root[8][0][1].text = xml_root[8][0][1].text.replace("stable-builds", "nightly-builds")
+    xml_root[9][0][1].text = xml_root[8][0][1].text.replace(
+        "stable-builds", "nightly-builds"
+    )
 
     save_pom(file_dest, xml_root)
 
