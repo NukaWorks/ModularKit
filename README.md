@@ -10,7 +10,7 @@
 
 ## What is ModularKit ?
 
-**ModularKit** is a minimal and powerful Java Framework for creating modular apps.
+**ModularKit** it's a lightweight and powerful Java Framework for creating modular apps.
 
 ### But why i using it on all my Java projects ?
 
@@ -19,8 +19,7 @@ no downtime worries and good maintainability.
 
 ### Easy to use ?
 
-Yea, you can checkout documentation
-here : **[Wiki on Sonikalize](https://repo.sunproject.xyz/NutDevs.org/ModularKit/wiki).**
+Yea, you can checkout documentation here : **[Wiki on Github](https://github.com/NutDevs-org/ModularKit/wiki).**
 
 ## Examples
 
@@ -31,7 +30,7 @@ First example : **HelloWorld** !
 ```java
 package com.example;
 
-import ModularModule;
+import org.nutdevs.modularkit.core.ModularModule;
 
 public class ModuleTest extends ModularModule {
 
@@ -46,7 +45,7 @@ public class ModuleTest extends ModularModule {
 }
 ```
 
-This example is very simple, but this module don't use any ModDependencies.    
+This example is very simple, you can add others ModuleDependencies so,    
 You can use :
 
 ```java
@@ -87,4 +86,4 @@ You can use **https://www.uuidgenerator.net/**
 
 **You need to copy the group 1 (*)**
 
-#### You can find the full documentation on the Wiki : **[Wiki on Sonikalize](https://repo.sunproject.xyz/NutDevs.org/ModularKit/wiki).**  
+#### You can find the full documentation on the Wiki : **[Wiki on Github](https://github.com/NutDevs-org/ModularKit/wiki).**  
