@@ -53,7 +53,7 @@ public ModuleTest() throws Exception {
         AnotherModule anotherMod = new AnotherModule();
         AnotherModule anotherMod2 = new AnotherModule();
         super("ModuleTest", "81f9ab59", "Sundev79", "1.0.0", anotherMod, anotherMod2);
-        // You can use many dependencies !
+        // You can use Module dependencies !
 }
 ```
 
@@ -63,9 +63,9 @@ For running a module, let's try this little example :
 
 ```java
 public static void main() {
-    // Register the module first
+    // Register the module first ...
     ModularSource mainSource = new ModularSource("e3640e55"); 
-    // Then let's run it !
+    // ... And then let's run it !
     mainSource.getModuleManager().findModuleByUuID("Dug40M90").runModule();
 }
 ```
@@ -74,7 +74,7 @@ For ModSource and Module you need to generate a new uuid (Group 1).
 
 #### Unix/MacOS/Linux :
 
-```bash
+```shell
 ~$ uuidgen
 **e3640e55**-cbaf-42c2-b053-52a2cfa2e0a5
 ~$
