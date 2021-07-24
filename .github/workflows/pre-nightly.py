@@ -33,7 +33,7 @@ def get_commit_id() -> str:
 def main() -> None:
     """Entry point for the program."""
     file: str = 'pom.xml'
-    file_dest: str = ".github/nightly-pom.xml"
+    file_dest: str = "nightly-pom.xml"
 
     xml_root = get_root(file)
     xml_root[3].text += f"-nightly_{get_commit_id()}"
