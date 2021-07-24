@@ -36,7 +36,7 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Publish package to mvn.nutdevs.org
-        run: mvn -f .github/nightly-pom.xml --batch-mode clean deploy
+        run: mvn -f nightly-pom.xml --batch-mode clean deploy
         env:
           MAVEN_USERNAME: ${{ secrets.MVN_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.MVN_PASSWORD }}
