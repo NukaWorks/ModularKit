@@ -38,7 +38,7 @@ def main() -> None:
     xml_root = get_root(file)
     xml_root[3].text += f"-nightly_{get_commit_id()}"
 
-    xml_root[9][0][1].text = xml_root[9][0][1].text.replace(
+    xml_root[0][9][1].text = xml_root[0][9][1].text.replace(
         "stable-builds", "nightly-builds"
     )
 
