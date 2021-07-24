@@ -21,7 +21,7 @@ def save_pom(file_path: str, tree_root: Et.Element) -> None:
     content: str = Et.tostring(tree_root).decode()
     clean: str = content.replace("ns0:", '').replace(":ns0", '')
 
-    with open(file_path, 'w') as f:
+    with open(file_path, 'w+') as f:
         f.write(clean)
 
 
@@ -38,7 +38,7 @@ def main() -> None:
     xml_root = get_root(file)
     xml_root[3].text += f"-nightly_{get_commit_id()}"
 
-    xml_root[8][0][2].text = xml_root[8][0][2].text.replace(
+    xml_root[7][0][1].text = xml_root[7][0][1].text.replace(
         "stable-builds", "nightly-builds"
     )
 
