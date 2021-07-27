@@ -9,22 +9,22 @@
 <h1>ModularKit</h1>
 <img alt="ModularKit Logo" src="https://raw.githubusercontent.com/Sigmanificient/ModularKit/main/pub/www/svg/logo.svg" height="200" width="200"/>
 
-## What is ModularKit ?
+## What is ModularKit
 
 **ModularKit** it's a lightweight and powerful Java Framework for creating modular apps.
 
-### But why i using it on all my Java projects ?
+### But why i using it on all my Java projects
 
 With ModularKit, you can create modular apps with increased flexibility and stability, designed to create projects with
 no downtime worries and good maintainability.
 
-### Easy to use ?
+### Easy to use
 
 Yea, you can checkout documentation here : **[Wiki on Github](https://github.com/NutDevs-org/ModularKit/wiki).**
 
 ## Examples
 
-### How to create a Modular hello-world ?
+### How to create a Modular hello-world
 
 First example : **HelloWorld** !
 
@@ -58,7 +58,7 @@ public ModuleTest() throws Exception {
 }
 ```
 
-### For registering and run a module :
+### For registering and run a module
 
 For running a module, let's try this little example :
 
@@ -73,7 +73,7 @@ public static void main() {
 
 For ModSource and Module you need to generate a new uuid (Group 1).
 
-#### Unix/MacOS/Linux :
+#### Unix/MacOS/Linux
 
 ```shell
 ~$ uuidgen
@@ -81,7 +81,7 @@ For ModSource and Module you need to generate a new uuid (Group 1).
 ~$
 ```
 
-#### UUIDGEN Online :
+#### UUIDGEN Online
 
 You can use **https://www.uuidgenerator.net/**
 
