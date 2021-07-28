@@ -2,6 +2,8 @@ package org.nutdevs.modularkit.core;
 
 import org.nutdevs.modularkit.core.events.ModuleStatus;
 import org.nutdevs.modularkit.core.events.RunEvent;
+import org.nutdevs.modularkit.core.ex.ModSourceEx;
+import org.nutdevs.modularkit.core.ex.ModUuidEx;
 
 import java.util.ArrayList;
 
@@ -36,19 +38,19 @@ public abstract class ModularModule implements RunEvent {
             for (ModularModule mod : modDeps) if (!tmpModDepsList.contains(mod)) tmpModDepsList.add(mod);
         }
 
-        if (_uuid == null) throw new NullPointerException("uuid cannot be null.");
-        else if (_uuid.length() != 8) throw new Exception("uuid is incorrect !");
-        if (_name == null) throw new NullPointerException("name cannot be null.");
+        if (_uuid == null) throw new ModUuidEx("uuid cannot be null.");
+        else if (_uuid.length() != 8) throw new ModUuidEx("uuid is incorrect !");
+        if (_name == null) throw new ModUuidEx("name cannot be null.");
         if (_name.isEmpty()) moduleName = "I Have a no-name !";
         else moduleName = _name;
         uuid = _uuid;
     }
 
-    protected void setModuleSource(ModularSource source) throws Exception {
+    protected void setModuleSource(ModularSource source) throws ModSourceEx, ModUuidEx {
         if (source != null) modSource = source;
-        else throw new NullPointerException();
+        else throw new ModSourceEx("ModSource cannot be null !");
         if (modSource.getModuleManager().findModuleByUuiD(uuid) != null)
-            throw new Exception("Module already instantiated !");
+            throw new ModUuidEx("Module already instantiated !");
         if (!tmpModDepsList.isEmpty()) for (ModularModule mod : tmpModDepsList) getModSource().getModuleManager().setDepends(mod);
     }
 
@@ -103,5 +105,5 @@ public abstract class ModularModule implements RunEvent {
     private ModularSource getModSource() {
         return modSource;
     }
-    
+
 }
