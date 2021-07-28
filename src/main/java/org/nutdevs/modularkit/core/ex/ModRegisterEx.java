@@ -1,12 +1,12 @@
 package org.nutdevs.modularkit.core.ex;
 
-public class ModEx extends Exception {
+public class ModRegisterEx extends Exception {
 
-    public ModEx() {
+    public ModRegisterEx() {
         super();
     }
 
-    public ModEx(String message) {
+    public ModRegisterEx(String message) {
         super(message);
     }
 
