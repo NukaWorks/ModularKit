@@ -1,4 +1,3 @@
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7524371023014522906b1a8f0c5354d2)](https://app.codacy.com/gh/NutDevs-org/ModularKit?utm_source=github.com&utm_medium=referral&utm_content=NutDevs-org/ModularKit&utm_campaign=Badge_Grade_Settings)
 [![Nightly Builder](https://github.com/NutDevs-org/ModularKit/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/NutDevs-org/ModularKit/actions/workflows/main.yml)
 ![Lines of code](https://img.shields.io/tokei/lines/github/NutDevs-org/ModularKit?label=Total%20Lines%20Of%20Codes%20%3A)
@@ -87,4 +86,4 @@ You can use **https://www.uuidgenerator.net/**
 
 **You need to copy the group 1 (*)**
 
-#### You can find the full documentation on the Wiki : **[Wiki on Github](https://github.com/NutDevs-org/ModularKit/wiki).**  
+#### You can find the full documentation on the Wiki : **[Wiki on Github](https://github.com/NutDevs-org/ModularKit/wiki)**
