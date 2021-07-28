@@ -7,23 +7,26 @@ import java.util.ArrayList;
 
 public abstract class ModularModule implements RunEvent {
 
-    private final String uuid, moduleName, author, version;
-    private ModuleStatus modStatus = ModuleStatus.STOPPED;
+    private final String uuid; // The Module UuID, needed for find a unique Module.
+    private final String moduleName; // The Module Name.
+    private final String author; // The Module Author Name.
+    private final String version; // The The Module Version Number.
+
+    private ModuleStatus modStatus = ModuleStatus.STOPPED; // Default Module Execution Status.
     private ModularSource modSource;
-    private ArrayList<ModularModule> tmpModDepsList = new ArrayList<>();
+    private ArrayList<ModularModule> tmpModDepsList = new ArrayList<>(); // (BETA) Temp ModuleDeps ArrayList<ModularModule>.
 
     // Thread naming conventions : Mod_$name#$dynUuid_$uuid
 
-    private String threadName = null;
-    private Thread modThread = null;
+    private String threadName;
+    private Thread modThread;
 
     /**
-     * TODO
-     *
-     * @param _name
-     * @param _uuid
-     * @param author
-     * @param version //* @param modDeps
+     * @param _name - Module Name.
+     * @param _uuid - Module UuID.
+     * @param author - Author of the Module.
+     * @param version - Module Version Number.
+     * @param modDeps - (Optional) Add Module Dependencies.
      */
 
    public ModularModule(String _name, String _uuid, String author, String version, ModularModule... modDeps) throws Exception {
