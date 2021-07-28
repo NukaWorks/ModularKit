@@ -2,6 +2,8 @@ package org.nutdevs.modularkit.core;
 
 import org.nutdevs.modularkit.core.events.ModuleStatus;
 import org.nutdevs.modularkit.core.events.RunEvent;
+import org.nutdevs.modularkit.core.ex.ModEx;
+import org.nutdevs.modularkit.core.ex.ModRunEx;
 import org.nutdevs.modularkit.core.ex.ModSourceEx;
 import org.nutdevs.modularkit.core.ex.ModUuidEx;
 
@@ -72,8 +74,8 @@ public abstract class ModularModule implements RunEvent {
         modStatus = ModuleStatus.STOPPING;
     }
 
-    protected void kill() throws Exception {
-        if (modStatus != ModuleStatus.STOPPING) throw new Exception("Please try with stop() before call _kill() !");
+    protected void kill() throws ModRunEx {
+        if (modStatus != ModuleStatus.STOPPING) throw new ModRunEx("Please try with stop() before call kill() !");
         modThread.stop();
         modStatus = ModuleStatus.STOPPED;
     }

@@ -1,5 +1,6 @@
 package org.nutdevs.modularkit.core;
 
+import org.nutdevs.modularkit.core.ex.ModRegisterEx;
 import org.nutdevs.modularkit.core.ex.ModSourceEx;
 import org.nutdevs.modularkit.core.ex.ModUuidEx;
 
@@ -15,7 +16,7 @@ public class ModuleManager {
         else throw new ModSourceEx("Source cannot be null.");
     }
 
-    public synchronized boolean runModule(ModularModule module) throws Exception {
+    public synchronized boolean runModule(ModularModule module) throws ModRegisterEx {
         HashMap<String, ModularModule> runMap = (HashMap<String, ModularModule>) modSource.getModuleMap();
         if (!runMap.isEmpty()) {
             if (runMap.containsKey(module.getUuid())) {
@@ -31,8 +32,8 @@ public class ModuleManager {
                 //Starting the module...
                 runThread.start();
                 return true;
-            } else throw new Exception("Module not registered !");
-        } else throw new Exception("Module not found !");
+            } else throw new ModRegisterEx("Module not registered !");
+        } else throw new ModRegisterEx("Module not found !");
     }
 
     public void stopModule(ModularModule module, @Deprecated boolean forceStop) throws Exception {

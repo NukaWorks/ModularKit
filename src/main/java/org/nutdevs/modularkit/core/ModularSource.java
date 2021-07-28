@@ -71,12 +71,12 @@ public class ModularSource {
                                     ModularModule newModule = (ModularModule) modClass.newInstance();
                                     registerModule(newModule);
                                 }
-                                else throw new Exception("The module not extends ModularModule.");
+                                else throw new ModSourceEx("The module not extends ModularModule.");
                             } catch (Exception classNotFoundException) {
                                 classNotFoundException.printStackTrace();
                             }
                         }
-                    };
+                    }
                 });
             } catch (IOException e) {
                 e.printStackTrace();
@@ -122,12 +122,12 @@ public class ModularSource {
      * @throws Exception
      */
 
-    public boolean registerModule(ModularModule module) throws Exception {
+    public boolean registerModule(ModularModule module) throws ModRegisterEx, ModUuidEx, ModSourceEx {
         if (!moduleMap.containsKey(module.getUuid())) {
             module.setModuleSource(this);
             moduleMap.put(module.getUuid(), module);
             return true;
-        } else throw new Exception("Module already instantiated !");
+        } else throw new ModRegisterEx("Module already instantiated !");
     }
 
     /**
@@ -136,7 +136,7 @@ public class ModularSource {
      * @throws Exception
      */
 
-    public boolean registerModule(Class<?> module) throws Exception {
+    public boolean registerModule(Class<?> module) throws ModUuidEx, ModRegisterEx, ModSourceEx, InstantiationException, IllegalAccessException {
         ModularModule mod = (ModularModule) module.newInstance();
         return registerModule(mod);
     }
