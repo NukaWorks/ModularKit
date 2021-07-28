@@ -20,12 +20,18 @@ import java.util.Properties;
 
 public class ModularSource {
 
+    private static final HashMap<String, ModularSource> sourceMap = new HashMap<>();
     private final Map<String, ModularModule> moduleMap = new HashMap<>();
-    private static HashMap<String, ModularSource> sourceMap = new HashMap<>();
     private final String uuid;
     private ModuleManager moduleManager;
 
 
+    /**
+     * ModularSource - Create a collections cf Modules.
+     *
+     * @param _uuid - UuID of the ModularSource.
+     * @throws ModUuidEx Returns a ModUuidEx if the UuiD is incorrect or null.
+     */
     public ModularSource(String _uuid) throws ModUuidEx {
         try {
             this.moduleManager = new ModuleManager(this);
@@ -34,34 +40,52 @@ public class ModularSource {
         }
 
         if (_uuid == null) throw new ModUuidEx("uuid cannot be null.");
-        if (_uuid.length() != 8) try { throw new ModUuidEx("uuid is incorrect !"); }
-        catch (Exception e) { e.printStackTrace(); }
+        if (_uuid.length() != 8) try {
+            throw new ModUuidEx("uuid is incorrect !");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         uuid = _uuid;
         registerSource();
     }
 
+    /**
+     * ModularSource - Create a collections of Modules with External ModularModule Repository.
+     *
+     * @param _uuid - UuID of the ModularSource.
+     * @param path  - File Path of the Modules Repository.
+     * @throws ModUuidEx - Can return a ModUuidEx if UuID is incorrect or null.
+     */
     public ModularSource(String _uuid, File path) throws ModUuidEx {
         if (_uuid == null) throw new ModUuidEx("uuid cannot be null.");
-        if (_uuid.length() != 8) try { throw new ModUuidEx("uuid is incorrect !"); }
-        catch (Exception e) { e.printStackTrace(); }
-        uuid = _uuid;
+        if (_uuid.length() != 8) try {
+            throw new ModUuidEx("uuid is incorrect !");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+        uuid = _uuid;
         if (path.exists() && path.canRead()) {
             try {
                 Files.walk(path.toPath()).forEach(e -> {
                     if (e.toFile().isFile() && e.toFile().getName().endsWith(".jar")) {
                         URLClassLoader classLoader = null;
                         try {
-                            classLoader = new URLClassLoader(new URL[] {new URL("file", null, e.toFile().getAbsolutePath())});
-                        } catch (MalformedURLException malformedURLException) { malformedURLException.printStackTrace(); }
+                            classLoader = new URLClassLoader(new URL[]{new URL("file", null, e.toFile().getAbsolutePath())});
+                        } catch (MalformedURLException malformedURLException) {
+                            malformedURLException.printStackTrace();
+                        }
 
                         Properties modlrFile = new Properties();
                         try {
                             InputStream inModlr = classLoader.getResourceAsStream(".modlr");
                             if (inModlr != null) {
                                 modlrFile.load(inModlr);
-                            } else throw new IOException("File .modlr not found !");
-                        } catch (IOException ioException) { ioException.printStackTrace(); }
+                            } else
+                                throw new IOException("File .modlr not found !");
+                        } catch (IOException ioException) {
+                            ioException.printStackTrace();
+                        }
 
                         for (Map.Entry<Object, Object> entry : modlrFile.entrySet()) {
                             try {
@@ -70,8 +94,8 @@ public class ModularSource {
                                 if (!modClass.getSuperclass().getName().equals(ModularModule.class.getSimpleName())) {
                                     ModularModule newModule = (ModularModule) modClass.newInstance();
                                     registerModule(newModule);
-                                }
-                                else throw new ModSourceEx("The module not extends ModularModule.");
+                                } else
+                                    throw new ModSourceEx("The module not extends ModularModule.");
                             } catch (Exception classNotFoundException) {
                                 classNotFoundException.printStackTrace();
                             }
@@ -85,6 +109,39 @@ public class ModularSource {
 
         registerSource();
     }
+
+    /**
+     * Find a ModularSource with the source-uuid.
+     *
+     * @param uuid - Give the Source-UuID.
+     * @return - Returns a found ModularSource Object.
+     * @throws ModUuidEx - Can returns a ModUuidEx if the uuid is incorrect or null.
+     */
+    public static ModularSource findSourceByUuiD(String uuid) throws ModUuidEx {
+        if (uuid.length() == 8) {
+            if (sourceMap.containsKey(uuid)) return sourceMap.get(uuid);
+        } else throw new ModUuidEx("uuid is incorrect");
+        return null;
+    }
+
+    /**
+     * (Protected, Internal API) - get the ModularSource sourceMap.
+     *
+     * @return - Returns a ModularSource HashMap Object.
+     */
+    protected static HashMap<String, ModularSource> getSourceMap() {
+        return sourceMap;
+    }
+
+    /**
+     * Get a ModularSource unmodifiable-hashmap
+     *
+     * @return - Return a ModularSource Unmodifioble HashMap.
+     */
+    public static HashMap<String, ModularSource> getUnmodifiableSourceMap() {
+        return (HashMap<String, ModularSource>) Collections.unmodifiableMap(sourceMap);
+    }
+
 
     private synchronized boolean registerSource() {
         if (!sourceMap.containsKey(uuid)) {
@@ -102,12 +159,20 @@ public class ModularSource {
         return false;
     }
 
+    /**
+     * Destroys the entire source
+     *
+     * @param forceDestroy - Force the Destruction.
+     * @return - Return true if destroy success.
+     * @since 1.0
+     */
     public boolean destroy(@Deprecated boolean forceDestroy) {
         for (Map.Entry<String, ModularModule> moduleEntry : moduleMap.entrySet()) {
             moduleEntry.getValue().stop();
             if (forceDestroy) {
-                try { moduleEntry.getValue().kill(); }
-                catch (Exception e) {
+                try {
+                    moduleEntry.getValue().kill();
+                } catch (Exception e) {
                     System.err.println("Thread Killed !");
                     e.printStackTrace();
                 }
@@ -118,8 +183,12 @@ public class ModularSource {
 
     /**
      * Registering a module with the ModularModule Object.
-     * @param module Module Object
-     * @throws Exception
+     *
+     * @param module - Module Object
+     * @throws ModRegisterEx - Can returns a ModRegisterEx if the Module registration will fail.
+     * @throws ModUuidEx     - If the uuid is incorrect or uuid is null.
+     * @throws ModSourceEx   - Can fail if the ModSource is null.
+     * @since 1.0
      */
 
     public boolean registerModule(ModularModule module) throws ModRegisterEx, ModUuidEx, ModSourceEx {
@@ -132,8 +201,10 @@ public class ModularSource {
 
     /**
      * Registering a module with the ModuleClass.
+     *
      * @param module Class Object contains a ModularModule Object.
      * @throws Exception
+     * @since 1.0
      */
 
     public boolean registerModule(Class<?> module) throws ModUuidEx, ModRegisterEx, ModSourceEx, InstantiationException, IllegalAccessException {
@@ -144,7 +215,8 @@ public class ModularSource {
     public boolean unregisterModule(ModularModule module) throws ModRegisterEx {
         System.out.println(module.getModuleState());
         if (moduleMap.containsKey(module.getUuid())) {
-            if (module.getModuleState() == ModuleStatus.RUNNING) throw new ModRegisterEx("Failed to unregister the module : the module is running.");
+            if (module.getModuleState() == ModuleStatus.RUNNING)
+                throw new ModRegisterEx("Failed to unregister the module : the module is running.");
             else {
                 moduleMap.remove(module.getUuid(), module);
                 return true;
@@ -153,27 +225,12 @@ public class ModularSource {
         return false;
     }
 
-    public static ModularSource findSourceByUuiD(String uuid) throws ModUuidEx {
-        if (uuid.length() == 8) {
-            if (sourceMap.containsKey(uuid)) return sourceMap.get(uuid);
-        } else throw new ModUuidEx("uuid is incorrect");
-        return null;
-    }
-
     public Map<String, ModularModule> getUnmodifiableModuleMap() {
         return Collections.unmodifiableMap(moduleMap);
     }
 
     protected Map<String, ModularModule> getModuleMap() {
         return moduleMap;
-    }
-
-    protected static HashMap<String, ModularSource> getSourceMap() {
-        return sourceMap;
-    }
-
-    public static HashMap<String, ModularSource> getUnmodifiableSourceMap() {
-        return (HashMap<String, ModularSource>) Collections.unmodifiableMap(sourceMap);
     }
 
     public ModuleManager getModuleManager() {
