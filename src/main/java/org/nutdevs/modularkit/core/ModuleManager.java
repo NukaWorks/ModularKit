@@ -18,7 +18,7 @@ public class ModuleManager {
                 if (runMap.containsKey(module.getUuid())) {
                     Thread runThread = new Thread(() -> {
                         try {
-                            module._exec();
+                            module.exec();
                         } catch (Throwable e) {
                             e.printStackTrace();
                         }
@@ -33,8 +33,8 @@ public class ModuleManager {
     }
 
     public void stopModule(ModularModule module, @Deprecated boolean forceStop) throws Exception {
-        module._stop();
-        if (forceStop) module._kill();
+        module.stop();
+        if (forceStop) module.kill();
     }
 
     public ModularModule findModuleByUuiD(String uuid) throws Exception {

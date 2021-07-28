@@ -53,14 +53,10 @@ public abstract class ModularModule implements RunEvent {
     }
 
 
-    protected void _exec() throws Exception {
+    protected void exec() throws Exception {
         modStatus = ModuleStatus.RUNNING;
         modThread = Thread.currentThread();
         threadName = modThread.getName();
-
-        /* if (modDependencies.length != 0) for (ModularModule mod : modDependencies) {
-            if (mod.getModuleState() == ModuleStatus.STOPPED) mod.getModSource().getModuleManager().runModule(mod);
-        } */
 
         runEvent();
         modStatus = ModuleStatus.STOPPED;
@@ -70,14 +66,12 @@ public abstract class ModularModule implements RunEvent {
      * Stop the module
      */
 
-    protected void _stop() {
-        // depsCleaner();
+    protected void stop() {
         modStatus = ModuleStatus.STOPPING;
     }
 
-    protected void _kill() throws Exception {
+    protected void kill() throws Exception {
         if (modStatus != ModuleStatus.STOPPING) throw new Exception("Please try with stop() before call _kill() !");
-        // depsCleaner();
         modThread.stop();
         modStatus = ModuleStatus.STOPPED;
     }
@@ -109,14 +103,5 @@ public abstract class ModularModule implements RunEvent {
     private ModularSource getModSource() {
         return modSource;
     }
-
-    /* private void depsCleaner() {
-        for (ModularModule modDeps : modDependencies) {
-            if (modDeps.modDependencies.length >= 1) { //TODO Don't work, i see later...
-                try {
-                    modDeps.getModSource().getModuleManager().stopModule(modDeps, false);
-                } catch (Exception e) { e.printStackTrace(); }
-            }
-        }
-    } */
+    
 }

@@ -97,9 +97,9 @@ public class ModularSource {
 
     public boolean destroy(@Deprecated boolean forceDestroy) {
         for (Map.Entry<String, ModularModule> moduleEntry : moduleMap.entrySet()) {
-            moduleEntry.getValue()._stop();
+            moduleEntry.getValue().stop();
             if (forceDestroy) {
-                try { moduleEntry.getValue()._kill(); }
+                try { moduleEntry.getValue().kill(); }
                 catch (Exception e) {
                     System.err.println("Thread Killed !");
                     e.printStackTrace();
