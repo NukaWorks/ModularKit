@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.nutdevs</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>v1.4.7</version>
+    <version>v1.4.8</version>
     <name>ModularKit</name>
-    <description>A minimal and powerful Java Framework for creating modular apps.</description>
+    <description>
+        A minimal and powerful Java Framework for creating modular apps.
+    </description>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -19,7 +21,8 @@
     <distributionManagement>
         <repository>
             <id>mvn-nutdevs</id>
-            <url>https://mvn.nutdevs.org/NutDevs-org/ModularKit/stable-builds</url>
+            <url>https://mvn.nutdevs.org/NutDevs-org/ModularKit/stable-builds
+            </url>
             <!-- Nightly_Builds <url>https://mvn.nutdevs.org/NutDevs-org/ModularKit/nightly-builds</url> -->
         </repository>
     </distributionManagement>
