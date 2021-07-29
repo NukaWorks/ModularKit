@@ -185,12 +185,12 @@ public class ModularSource {
      * Registering a module with the ModularModule Object.
      *
      * @param module - Module Object
+     * @return - Return true if the module registration will success.
      * @throws ModRegisterEx - Can returns a ModRegisterEx if the Module registration will fail.
      * @throws ModUuidEx     - If the uuid is incorrect or uuid is null.
      * @throws ModSourceEx   - Can fail if the ModSource is null.
      * @since 1.0
      */
-
     public boolean registerModule(ModularModule module) throws ModRegisterEx, ModUuidEx, ModSourceEx {
         if (!moduleMap.containsKey(module.getUuid())) {
             module.setModuleSource(this);
@@ -203,15 +203,26 @@ public class ModularSource {
      * Registering a module with the ModuleClass.
      *
      * @param module Class Object contains a ModularModule Object.
-     * @throws Exception
+     * @return - Return true if the module registration will success.
+     * @throws ModUuidEx              - Can fail if null of incorrect.
+     * @throws ModRegisterEx          - Can fail if null of incorrect.
+     * @throws ModSourceEx            - Can fail if null of incorrect.
+     * @throws InstantiationException - Can return an error if the module is already instanced.
+     * @throws IllegalAccessException - Can return a Ex if Illegal Access violation subsist.
      * @since 1.0
      */
-
     public boolean registerModule(Class<?> module) throws ModUuidEx, ModRegisterEx, ModSourceEx, InstantiationException, IllegalAccessException {
         ModularModule mod = (ModularModule) module.newInstance();
         return registerModule(mod);
     }
 
+    /**
+     * Unregister a Module quickly
+     *
+     * @param module - Give the module to unregister.
+     * @return Returns true if the operation success.
+     * @throws ModRegisterEx - Can fail if the module is null.
+     */
     public boolean unregisterModule(ModularModule module) throws ModRegisterEx {
         System.out.println(module.getModuleState());
         if (moduleMap.containsKey(module.getUuid())) {

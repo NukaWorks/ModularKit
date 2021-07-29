@@ -29,6 +29,7 @@ public class ModuleManager {
      * Run the Module
      *
      * @param module - Give the Module needed to run.
+     * @return Return true if the runModule operation is successful.
      * @throws ModRegisterEx - Return a ModRegisterEx if Module Registration fails.
      * @since 1.0
      */
