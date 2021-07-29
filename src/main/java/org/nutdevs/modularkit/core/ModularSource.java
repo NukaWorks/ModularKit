@@ -9,6 +9,7 @@ import org.nutdevs.modularkit.core.ex.ModUuidEx;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -18,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+@SuppressWarnings("unused")
 public class ModularSource {
 
     private static final HashMap<String, ModularSource> sourceMap = new HashMap<>();
@@ -78,6 +80,7 @@ public class ModularSource {
 
                         Properties modlrFile = new Properties();
                         try {
+                            assert classLoader != null;
                             InputStream inModlr = classLoader.getResourceAsStream(".modlr");
                             if (inModlr != null) {
                                 modlrFile.load(inModlr);
@@ -92,7 +95,7 @@ public class ModularSource {
                                 String[] className = entry.getValue().toString().split("\\.");
                                 Class<?> modClass = Class.forName(entry.getValue().toString(), false, classLoader);
                                 if (!modClass.getSuperclass().getName().equals(ModularModule.class.getSimpleName())) {
-                                    ModularModule newModule = (ModularModule) modClass.newInstance();
+                                    ModularModule newModule = (ModularModule) modClass.getDeclaredConstructor().newInstance();
                                     registerModule(newModule);
                                 } else
                                     throw new ModSourceEx("The module not extends ModularModule.");
@@ -195,8 +198,8 @@ public class ModularSource {
         if (!moduleMap.containsKey(module.getUuid())) {
             module.setModuleSource(this);
             moduleMap.put(module.getUuid(), module);
-            return true;
         } else throw new ModRegisterEx("Module already instantiated !");
+        return true;
     }
 
     /**
@@ -211,8 +214,10 @@ public class ModularSource {
      * @throws IllegalAccessException - Can return a Ex if Illegal Access violation subsist.
      * @since 1.0
      */
-    public boolean registerModule(Class<?> module) throws ModUuidEx, ModRegisterEx, ModSourceEx, InstantiationException, IllegalAccessException {
-        ModularModule mod = (ModularModule) module.newInstance();
+    public boolean registerModule(Class<?> module)
+            throws ModUuidEx, ModRegisterEx, ModSourceEx, InstantiationException,
+            IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+        ModularModule mod = (ModularModule) module.getDeclaredConstructor().newInstance();
         return registerModule(mod);
     }
 

@@ -3,23 +3,27 @@
 ![Lines of code](https://img.shields.io/tokei/lines/github/NutDevs-org/ModularKit?label=Total%20Lines%20Of%20Codes%20%3A)
 [![Discord](https://img.shields.io/discord/832638079255969794?label=Join%20our%20Discord%20%3A%20)](http://discord.nutdevs.org)
 
-**Thanks for  [@Sigmanificient](https://github.com/Sigmanificient) for the Project-Page !**
+**Thanks for  [@Sigmanificient](https://github.com/Sigmanificient) for the
+Project-Page !**
 
 <h1>ModularKit</h1>
 <img alt="ModularKit Logo" src="https://raw.githubusercontent.com/Sigmanificient/ModularKit/main/pub/www/svg/logo.svg" height="200" width="200"/>
 
 ## What is ModularKit
 
-**ModularKit** it's a lightweight and powerful Java Framework for creating modular apps.
+**ModularKit** it's a lightweight and powerful Java Framework for creating
+modular apps.
 
-### But why i using it on all my Java projects
+### But why I using it on all my Java projects
 
-With ModularKit, you can create modular apps with increased flexibility and stability, designed to create projects with
-no downtime worries and good maintainability.
+With ModularKit, you can create modular apps with increased flexibility and
+stability, designed to create projects with no downtime worries and good
+maintainability.
 
 ### Easy to use
 
-Yea, you can checkout documentation here : **[Wiki on Github](https://github.com/NutDevs-org/ModularKit/wiki).**
+Yea, you can check out documentation
+here : **[Wiki on Github](https://github.com/NutDevs-org/ModularKit/wiki).**
 
 ## Examples
 
@@ -49,11 +53,13 @@ This example is very simple, you can add others ModuleDependencies so,
 You can use :
 
 ```java
-public ModuleTest() throws Exception {
+public class ModuleTest {
+    public ModuleTest() {
         AnotherModule anotherMod = new AnotherModule();
         AnotherModule anotherMod2 = new AnotherModule();
         super("ModuleTest", "81f9ab59", "Sundev79", "1.0.0", anotherMod, anotherMod2);
         // You can use Module dependencies !
+    }
 }
 ```
 
@@ -62,11 +68,13 @@ public ModuleTest() throws Exception {
 For running a module, let's try this little example :
 
 ```java
-public static void main() {
-    // Register the module first ...
-    ModularSource mainSource = new ModularSource("e3640e55"); 
-    // ... And then let's run it !
-    mainSource.getModuleManager().findModuleByUuID("Dug40M90").runModule();
+public class Main {
+    public static void main() {
+        // Register the module first ...
+        ModularSource mainSource = new ModularSource("e3640e55");
+        // ... And then let's run it !
+        mainSource.getModuleManager().findModuleByUuID("Dug40M90").runModule();
+    }
 }
 ```
 

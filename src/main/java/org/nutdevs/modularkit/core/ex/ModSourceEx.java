@@ -1,5 +1,6 @@
 package org.nutdevs.modularkit.core.ex;
 
+@SuppressWarnings("unused")
 public class ModSourceEx extends ModEx {
 
     public ModSourceEx() {

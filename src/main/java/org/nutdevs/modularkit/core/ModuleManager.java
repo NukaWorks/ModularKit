@@ -8,6 +8,8 @@ import org.nutdevs.modularkit.core.ex.ModUuidEx;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+@SuppressWarnings({"UnusedReturnValue", "unused"})
+
 public class ModuleManager {
     private final ModularSource modSource;
     private final ArrayList<ModularModule> modulesDependencies = new ArrayList<>();

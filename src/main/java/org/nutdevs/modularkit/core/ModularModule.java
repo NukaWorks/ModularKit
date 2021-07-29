@@ -8,19 +8,19 @@ import org.nutdevs.modularkit.core.ex.ModUuidEx;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("unused")
+
 public abstract class ModularModule implements RunEvent {
 
     private final String uuid; // The Module UuID, needed for find a unique Module.
-    private final String moduleName; // The Module Name.
-    private final String author; // The Module Author Name.
-    private final String version; // The The Module Version Number.
-
+    private final String moduleName; // The Module names.
+    private final String author; // The Module Author name.
+    private final String version; // The Module Version Number.
+    private final ArrayList<ModularModule> tmpModDepsList = new ArrayList<>(); // (BETA) Temp ModuleDeps ArrayList<ModularModule>.
     private ModuleStatus modStatus = ModuleStatus.STOPPED; // Default Module Execution Status.
     private ModularSource modSource;
-    private final ArrayList<ModularModule> tmpModDepsList = new ArrayList<>(); // (BETA) Temp ModuleDeps ArrayList<ModularModule>.
 
     // Thread naming conventions : Mod_$name#$dynUuid_$uuid
-
     private String threadName;
     private Thread modThread;
 
@@ -63,7 +63,7 @@ public abstract class ModularModule implements RunEvent {
     }
 
 
-    protected void exec() throws Exception {
+    protected void exec() {
         modStatus = ModuleStatus.RUNNING;
         modThread = Thread.currentThread();
         threadName = modThread.getName();
@@ -80,6 +80,7 @@ public abstract class ModularModule implements RunEvent {
         modStatus = ModuleStatus.STOPPING;
     }
 
+    @SuppressWarnings("deprecation") // Because modThread.stop() is deprecated.
     protected void kill() throws ModRunEx {
         if (modStatus != ModuleStatus.STOPPING)
             throw new ModRunEx("Please try with stop() before call kill() !");
