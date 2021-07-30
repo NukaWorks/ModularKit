@@ -91,16 +91,34 @@ public class ModularSource {
                         }
 
                         for (Map.Entry<Object, Object> entry : modlrFile.entrySet()) {
+                            String[] className = entry.getValue().toString().split("\\.");
+                            Class<?> modClass = null;
+
                             try {
-                                String[] className = entry.getValue().toString().split("\\.");
-                                Class<?> modClass = Class.forName(entry.getValue().toString(), false, classLoader);
-                                if (!modClass.getSuperclass().getName().equals(ModularModule.class.getSimpleName())) {
-                                    ModularModule newModule = (ModularModule) modClass.getDeclaredConstructor().newInstance();
-                                    registerModule(newModule);
-                                } else
-                                    throw new ModSourceEx("The module not extends ModularModule.");
+                                modClass = Class.forName(entry.getValue().toString(), false, classLoader);
+
                             } catch (Exception classNotFoundException) {
                                 classNotFoundException.printStackTrace();
+                            }
+
+                            assert modClass != null;
+                            if (!modClass.getSuperclass().getName().equals(ModularModule.class.getSimpleName())) {
+                                ModularModule newModule = null;
+                                try {
+                                    newModule = (ModularModule) modClass.getDeclaredConstructor().newInstance();
+                                } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException ex) {
+                                    ex.printStackTrace();
+                                }
+                                try {
+                                    assert newModule != null;
+                                    registerModule(newModule);
+                                } catch (ModRegisterEx | ModUuidEx | ModSourceEx ex) {
+                                    ex.printStackTrace();
+                                }
+                            } else try {
+                                throw new ModSourceEx("The module doesn't extends ModularModule.");
+                            } catch (ModSourceEx ex) {
+                                ex.printStackTrace();
                             }
                         }
                     }
