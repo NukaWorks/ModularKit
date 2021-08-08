@@ -16,15 +16,15 @@ Project-Page !**
 **ModularKit** it's a lightweight and powerful Java Framework for creating
 modular apps.
 
-### But why I using it on all my Java projects
+### But why you need to use it ?
 
 With ModularKit, you can create modular apps with increased flexibility and
 stability, designed to create projects with no downtime worries and good
 maintainability.
 
-### Easy to use
+### Easy to use ?
 
-Yea, you can check out documentation
+Of course ! You can check out documentation
 here : **[Wiki on Github](https://github.com/NutDevs-org/ModularKit/wiki).**
 
 ## Examples
