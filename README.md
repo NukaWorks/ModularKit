@@ -11,7 +11,7 @@ Project-Page !**
 <h1>ModularKit</h1>
 <img alt="ModularKit Logo" src="https://raw.githubusercontent.com/Sigmanificient/ModularKit/main/pub/www/svg/logo.svg" height="200" width="200"/>
 
-## What is ModularKit
+## What is ModularKit ?
 
 **ModularKit** it's a lightweight and powerful Java Framework for creating
 modular apps.
