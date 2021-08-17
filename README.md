@@ -72,8 +72,10 @@ For running a module, let's try this little example :
 ```java
 public class Main {
     public static void main() {
-        // Register the module first ...
+        // Register the source first ...
         ModularSource mainSource = new ModularSource("e3640e55");
+        // And the Module ...
+        ModuleTest testMod = new ModuleTest();
         // ... And then let's run it !
         mainSource.getModuleManager().findModuleByUuID("Dug40M90").runModule();
     }
