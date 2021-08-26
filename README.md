@@ -9,7 +9,7 @@
 
 **- for  [@Sigmanificient](https://github.com/Sigmanificient) for the
 Project-Page !**  
-**- and [@NeedGroups](https://github.com/NeedGroups-Media) ([@Manon](https://github.com/Manon2402)) for full support and web hosting on NutDevs.org!**
+**- and [@NeedGroups](https://github.com/NeedGroups-Media) ([@Manon](https://github.com/Manon2402)) for full support and web hosting on NutDevs.org !**
 
 <h1>ModularKit</h1>
 <img alt="ModularKit Logo" src="https://raw.githubusercontent.com/Sigmanificient/ModularKit/main/pub/www/svg/logo.svg" height="200" width="200"/>
