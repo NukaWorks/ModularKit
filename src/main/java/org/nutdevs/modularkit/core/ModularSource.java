@@ -66,6 +66,12 @@ public class ModularSource {
             e.printStackTrace();
         }
 
+        try {
+            this.moduleManager = new ModuleManager(this);
+        } catch (ModSourceEx modSourceEx) {
+            modSourceEx.printStackTrace();
+        }
+
         uuid = _uuid;
         if (path.exists() && path.canRead()) {
             try {
