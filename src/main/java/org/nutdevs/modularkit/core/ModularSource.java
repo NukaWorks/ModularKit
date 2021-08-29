@@ -58,13 +58,15 @@ public class ModularSource {
      * @param path  - File Path of the Modules Repository.
      * @throws ModUuidEx - Can return a ModUuidEx if UuID is incorrect or null.
      */
-    public ModularSource(String _uuid, File path) throws ModUuidEx {
+    public ModularSource(String _uuid, File path, String fileExtension) throws ModUuidEx, ModSourceEx {
         if (_uuid == null) throw new ModUuidEx("uuid cannot be null.");
         if (_uuid.length() != 8) try {
-            throw new ModUuidEx("uuid is incorrect !");
+            throw new ModUuidEx("uuid is incorrect !"); // Grab only the group 1 of the uuid eg : "**f3eafee8**-2419-4a58-b8fe-fe72d6f4019b"
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        if (fileExtension.isEmpty()) throw new ModSourceEx("You need to set a custom file extension !");
 
         try {
             this.moduleManager = new ModuleManager(this);
@@ -76,7 +78,7 @@ public class ModularSource {
         if (path.exists() && path.canRead()) {
             try {
                 Files.walk(path.toPath()).forEach(e -> {
-                    if (e.toFile().isFile() && e.toFile().getName().endsWith(".jar")) {
+                    if (e.toFile().isFile() && e.toFile().getName().endsWith(fileExtension)) {
                         URLClassLoader classLoader = null;
                         try {
                             classLoader = new URLClassLoader(new URL[]{new URL("file", null, e.toFile().getAbsolutePath())});
