@@ -1,7 +1,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7524371023014522906b1a8f0c5354d2)](https://app.codacy.com/gh/NutDevs-org/ModularKit?utm_source=github.com&utm_medium=referral&utm_content=NutDevs-org/ModularKit&utm_campaign=Badge_Grade_Settings)
 [![Nightly Builder](https://github.com/NutDevs-org/ModularKit/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/NutDevs-org/ModularKit/actions/workflows/main.yml)
 ![Lines of code](https://img.shields.io/tokei/lines/github/NutDevs-org/ModularKit?label=Total%20Lines%20Of%20Codes%20%3A)
-[![Discord](https://img.shields.io/discord/832638079255969794?label=Join%20our%20Discord%20%3A%20)](http://discord.nutdevs.org)
+![Discord](https://img.shields.io/discord/880501090796331030?label=Join%20our%20Discord%20Server)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/NutDevs-org/KawiBot)
 ![GitHub Licence](https://img.shields.io/github/license/NutDevs-org/KawiBot)
 
@@ -12,7 +12,6 @@ Project-Page !**
 **- and [@NeedGroups](https://github.com/NeedGroups-Media) ([@Manon](https://github.com/Manon2402)) for full support and web hosting on NutDevs.org !**
 
 <h1>ModularKit</h1>
-<img alt="ModularKit Logo" src="https://raw.githubusercontent.com/Sigmanificient/ModularKit/main/pub/www/svg/logo.svg" height="200" width="200"/>
 
 ## What is ModularKit ?
 
