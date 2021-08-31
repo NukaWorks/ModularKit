@@ -3,7 +3,7 @@
 ![Lines of code](https://img.shields.io/tokei/lines/github/NutDevs-org/ModularKit?label=Total%20Lines%20Of%20Codes%20%3A)
 ![Discord](https://img.shields.io/discord/880501090796331030?label=Join%20our%20Discord%20Server)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/NutDevs-org/KawiBot)
-![GitHub Licence](https://img.shields.io/github/license/NutDevs-org/KawiBot)
+![GitHub Licence](https://img.shields.io/github/license/NutDevs-org/ModularKit)
 
 # Many thanks to :
 
