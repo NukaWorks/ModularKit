@@ -39,18 +39,17 @@ public abstract class ModularModule implements RunEvent {
     public ModularModule(String _name, String _uuid, String author, String version, ModularModule... modDeps) throws ModUuidEx {
         this.author = author;
         this.version = version;
-        if (modDeps != null) {
-            for (ModularModule mod : modDeps)
-                if (!tmpModDepsList.contains(mod)) tmpModDepsList.add(mod);
-        }
 
         if (_uuid == null) throw new ModUuidEx("uuid cannot be null.");
         else if (_uuid.length() != 8)
             throw new ModUuidEx("uuid is incorrect !");
-        if (_name == null) throw new ModUuidEx("name cannot be null.");
+        uuid = _uuid;
         if (_name.isEmpty()) moduleName = "I Have a no-name !";
         else moduleName = _name;
-        uuid = _uuid;
+        if (modDeps != null) {
+            for (ModularModule mod : modDeps)
+                if (!tmpModDepsList.contains(mod)) tmpModDepsList.add(mod);
+        }
     }
 
     protected void setModuleSource(ModularSource source) throws ModSourceEx, ModUuidEx {
@@ -115,5 +114,4 @@ public abstract class ModularModule implements RunEvent {
     private ModularSource getModSource() {
         return modSource;
     }
-
 }
