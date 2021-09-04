@@ -79,7 +79,7 @@ public class Main {
         // And the Module ...
         ModuleTest testMod = new ModuleTest();
         // ... And then let's run it !
-        mainSource.getModuleManager().findModuleByUuID("Dug40M90").runModule();
+        mainSource.getModuleManager().runModule(testMod);
     }
 }
 ```
