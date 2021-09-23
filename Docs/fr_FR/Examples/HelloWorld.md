@@ -1,5 +1,32 @@
 # Dans la famille des exemples, je demande L'HelloWorld !
 
+
+## Avant toute chose la première étape est d'importer ModularKit
+
+First, you need to create a new maven (recommended) project and add this dependency : 
+Pour cela vous devez créer un nouveau projet maven (recommandé) et ajouter cette dépendence : 
+
+### For creating a modular-based app : 
+
+```xml
+<dependency>
+    <groupId>org.nutdevs</groupId>
+    <artifactId>ModularKit</artifactId>
+    <version>v1.4.11-nightly_e67ab56</version>
+</dependency>
+```
+
+### For external module : 
+
+```xml
+<dependency>
+    <groupId>org.nutdevs</groupId>
+    <artifactId>ModularKit</artifactId>
+    <version>v1.4.11-nightly_e67ab56</version>
+    <scope>provided</scope>
+</dependency>
+```
+A partir de là, vous pouvez commencer a jouer avec 😋
 Premier example : **HelloWorld** !
 
 ```java
