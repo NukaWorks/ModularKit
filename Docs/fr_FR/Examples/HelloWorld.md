@@ -26,7 +26,8 @@ Pour cela vous devez créer un nouveau projet maven (recommandé) et ajouter cet
     <scope>provided</scope>
 </dependency>
 ```
-A partir de là, vous pouvez commencer a jouer avec 😋
+A partir de là, vous pouvez commencer a jouer avec 😋    
+
 Premier example : **HelloWorld** !
 
 ```java
