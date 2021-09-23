@@ -29,6 +29,33 @@ maintainability.
 Of course ! You can check out documentation
 here : **[Wiki on Github](https://github.com/NutDevs-org/ModularKit/wiki).**
 
+
+## Getting started
+
+First, you need to create a new maven (recommended) project and add this dependencies : 
+
+### For creating a modular-based app : 
+
+```xml
+<dependency>
+    <groupId>org.nutdevs</groupId>
+    <artifactId>ModularKit</artifactId>
+    <version>v1.4.11-nightly_e67ab56</version>
+</dependency>
+```
+
+### For external module : 
+
+```xml
+<dependency>
+    <groupId>org.nutdevs</groupId>
+    <artifactId>ModularKit</artifactId>
+    <version>v1.4.11-nightly_e67ab56</version>
+    <scope>provided</scope>
+</dependency>
+```
+
+
 ## Examples
 
 ### How to create a Modular hello-world
