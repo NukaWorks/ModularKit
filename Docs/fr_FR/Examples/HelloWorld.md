@@ -3,7 +3,6 @@
 
 ## Avant toute chose la première étape est d'importer ModularKit
 
-First, you need to create a new maven (recommended) project and add this dependency : 
 Pour cela vous devez créer un nouveau projet maven (recommandé) et ajouter cette dépendence : 
 
 ### For creating a modular-based app : 
