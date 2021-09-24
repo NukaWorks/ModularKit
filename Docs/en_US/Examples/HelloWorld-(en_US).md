@@ -1,5 +1,26 @@
 # In the family of examples, I call the HelloWorld!    
 
+### For creating a modular-based app : 
+
+```xml
+<dependency>
+    <groupId>org.nutdevs</groupId>
+    <artifactId>ModularKit</artifactId>
+    <version>v1.4.11-nightly_e67ab56</version>
+</dependency>
+```
+
+### For external module : 
+
+```xml
+<dependency>
+    <groupId>org.nutdevs</groupId>
+    <artifactId>ModularKit</artifactId>
+    <version>v1.4.11-nightly_e67ab56</version>
+    <scope>provided</scope>
+</dependency>
+```
+
 First example : **HelloWorld** !
 
 ```java
