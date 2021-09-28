@@ -9,9 +9,9 @@
 
 **- for  [@Sigmanificient](https://github.com/Sigmanificient) for the
 Project-Page !**  
-**- and [@NeedGroups](https://github.com/NeedGroups-Media) ([@Manon](https://github.com/Manon2402)) for full support and web hosting on NutDevs.org !**
+**- and [@TheAlfiperf](https://thealfiperf.com) ([@Alflamme](https://github.com/Alflamme)) for full support and web hosting on NutDevs.org !**
 
-<h1>ModularKit</h1>
+# ModularKit
 
 ## What is ModularKit ?
 
