@@ -40,7 +40,7 @@ First, you need to create a new maven (recommended) project and add this depende
 <dependency>
     <groupId>org.nutdevs</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>v1.4.11-nightly_e67ab56</version>
+    <version>{mvn.version}</version>
 </dependency>
 ```
 
@@ -50,7 +50,7 @@ First, you need to create a new maven (recommended) project and add this depende
 <dependency>
     <groupId>org.nutdevs</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>v1.4.11-nightly_e67ab56</version>
+    <version>{mvn.version}</version>
     <scope>provided</scope>
 </dependency>
 ```
