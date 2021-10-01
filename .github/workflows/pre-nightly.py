@@ -43,6 +43,9 @@ def main() -> None:
 
     save_pom(file_dest, xml_root)
 
+def update_readme() -> None:
+    print("Coming soon")
+
 
 if __name__ == '__main__':
     main()
