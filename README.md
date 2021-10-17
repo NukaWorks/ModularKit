@@ -15,7 +15,7 @@ Project-Page !**
 
 ## What is ModularKit ?
 
-**ModularKit** it's a lightweight and powerful Java Framework for creating
+**ModularKit** it's a lightweight and powerful Java micro-framework for creating
 modular apps.
 
 ### But why you need to use it ?
