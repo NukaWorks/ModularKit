@@ -5,12 +5,6 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/NutDevs-org/KawiBot)
 ![GitHub Licence](https://img.shields.io/github/license/NutDevs-org/ModularKit)
 
-# Many thanks to :
-
-**- for  [@Sigmanificient](https://github.com/Sigmanificient) for the
-Project-Page !**  
-**- and [@TheAlfiperf](https://thealfiperf.com) ([@Alflamme](https://github.com/Alflamme)) for full support and web hosting on NutDevs.org !**
-
 # ModularKit
 
 ## What is ModularKit ?
@@ -128,3 +122,9 @@ You can use **https://www.uuidgenerator.net/**
 **You need to copy the group 1 (*)**
 
 #### You can find the full documentation on the Wiki : **[Wiki on Github](https://github.com/NutDevs-org/ModularKit/wiki)**
+
+# Many thanks to :
+
+**- for  [@Sigmanificient](https://github.com/Sigmanificient) for the
+Project-Page !**  
+**- and [@TheAlfiperf](https://thealfiperf.com) ([@Alflamme](https://github.com/Alflamme)) for full support and web hosting on NutDevs.org !**
