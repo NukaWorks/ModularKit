@@ -127,4 +127,3 @@ You can use **https://www.uuidgenerator.net/**
 
 **- [@Sigmanificient](https://github.com/Sigmanificient) for the
 Project-Page !**  
-**- and [@TheAlfiperf](https://thealfiperf.com) ([@Alflamme](https://github.com/Alflamme)) for full support and web hosting on NutDevs.org !**
