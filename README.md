@@ -21,7 +21,7 @@ maintainability.
 ### Easy to use ?
 
 Of course ! You can check out documentation
-here on the Docs folder: **[Docs/](https://github.com/NutDevs-org/ModularKit/Docs/).**
+here on the Docs folder: **[Docs/](https://github.com/NutDevs-org/ModularKit/tree/main/Docs/).**
 
 
 ## Getting started
@@ -121,7 +121,7 @@ You can use **https://www.uuidgenerator.net/**
 
 **You need to copy the group 1 (*)**
 
-#### You can find the full documentation on the directory : **[Docs/](https://github.com/NutDevs-org/ModularKit/Docs/)**
+#### You can find the full documentation on the directory : **[Docs/](https://github.com/NutDevs-org/ModularKit/tree/main/Docs/)**
 
 # Many thanks to :
 
