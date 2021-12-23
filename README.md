@@ -9,42 +9,37 @@
 
 ## What is ModularKit ?
 
-**ModularKit** it's a lightweight and powerful Java micro-framework for creating
+**ModularKit** it's a lightweight but powerful Java micro-framework for creating
 modular apps.
 
-### But why you need to use it ?
-
 With ModularKit, you can create modular apps with increased flexibility and
-stability, designed to create projects with no downtime worries and good
+stability, designed to create projects without server shutdown and a good
 maintainability.
 
-### Easy to use ?
-
-Of course ! You can check out documentation
-here on the Docs folder: **[Docs/](https://github.com/NutDevs-org/ModularKit/tree/main/Docs/).**
+Checkout the documentation on the documentation folder: **[Docs/](https://github.com/NutDevs-org/ModularKit/tree/main/Docs/).**
 
 
 ## Getting started
 
-First, you need to create a new maven (recommended) project and add this dependencies : 
+First, you need to create a new project (maven recommended) and add **ModularKit** dependency : 
 
-### For creating a modular-based app : 
+### For creating a modular-based app (Client side) : 
 
 ```xml
 <dependency>
     <groupId>org.nutdevs</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>{mvn.version}</version>
+    <version>{check the mvn.nutdevs.org badge}</version>
 </dependency>
 ```
 
-### For external module : 
+### For external module (Module side) : 
 
 ```xml
 <dependency>
     <groupId>org.nutdevs</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>{mvn.version}</version>
+    <version>{check the mvn.nutdevs.org badge}</version>
     <scope>provided</scope>
 </dependency>
 ```
@@ -74,16 +69,25 @@ public class ModuleTest extends ModularModule {
 }
 ```
 
-This example is very simple, you can add others ModuleDependencies so,    
-You can use :
+An another example with module-dependencies : you can add others dependant module by this way :
 
 ```java
-public class ModuleTest {
+package com.example;
+
+import org.nutdevs.modularkit.core.ModularModule;
+
+public class ModuleTest extends ModularModule {
     public ModuleTest() {
         AnotherModule anotherMod = new AnotherModule();
         AnotherModule anotherMod2 = new AnotherModule();
+        
         super("ModuleTest", "81f9ab59", "Sundev79", "1.0.0", anotherMod, anotherMod2);
         // You can use Module dependencies !
+    }
+    
+    @Override
+    public void runEvent() {
+        System.out.println("Hello World with module-dependencies !");
     }
 }
 ```
@@ -95,11 +99,13 @@ For running a module, let's try this little example :
 ```java
 public class Main {
     public static void main() {
-        // Register the source first ...
+        // Register the source first
         ModularSource mainSource = new ModularSource("e3640e55");
-        // And the Module ...
+        
+        // and the Module ...
         ModuleTest testMod = new ModuleTest();
-        // ... And then let's run it !
+        
+        // ... and then let's run it !
         mainSource.getModuleManager().runModule(testMod);
     }
 }
@@ -107,7 +113,7 @@ public class Main {
 
 For ModSource and Module you need to generate a new uuid (Group 1).
 
-#### Unix/MacOS/Linux
+#### MacOS/Linux and others unix systems
 
 ```shell
 ~$ uuidgen
@@ -119,7 +125,7 @@ For ModSource and Module you need to generate a new uuid (Group 1).
 
 You can use **https://www.uuidgenerator.net/**
 
-**You need to copy the group 1 (*)**
+**You need to copy the group 1 (**)**
 
 #### You can find the full documentation on the directory : **[Docs/](https://github.com/NutDevs-org/ModularKit/tree/main/Docs/)**
 
@@ -130,4 +136,4 @@ Project-Page !**
 
 # Social links
 
-***Soon***
+**Telegram Channel :** [ModularKit Dev Channel](https://t.me/ModularKit)
