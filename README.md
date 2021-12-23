@@ -125,7 +125,7 @@ For ModSource and Module you need to generate a new uuid (Group 1).
 
 You can use **https://www.uuidgenerator.net/**
 
-**You need to copy the group 1 (**)**
+**You need to copy the group 1 (*)**
 
 #### You can find the full documentation on the directory : **[Docs/](https://github.com/NutDevs-org/ModularKit/tree/main/Docs/)**
 
