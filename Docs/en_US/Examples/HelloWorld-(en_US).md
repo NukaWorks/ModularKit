@@ -1,22 +1,24 @@
 # In the family of examples, I call the HelloWorld!    
 
-### For creating a modular-based app : 
+Let's create a new project (maven recomended) and add the ModularKit dependency : 
+
+### For creating a modular-based app (Client side) : 
 
 ```xml
 <dependency>
     <groupId>org.nutdevs</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>v1.4.11-nightly_e67ab56</version>
+    <version>{check the mvn.nutdevs.org badge}</version>
 </dependency>
 ```
 
-### For external module : 
+### For external module (Module side) : 
 
 ```xml
 <dependency>
     <groupId>org.nutdevs</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>v1.4.11-nightly_e67ab56</version>
+    <version>{check the mvn.nutdevs.org badge}</version>
     <scope>provided</scope>
 </dependency>
 ```
@@ -42,25 +44,39 @@ public class ModuleTest extends ModularModule {
 ```
 This example is really simple, it doesn't use any module dependencies, if you want to add dependent modules, do it like this:
 ```java
-public ModuleTest() throws Exception {
+package com.example;
+
+import org.nutdevs.modularkit.core.ModularModule;
+
+public class ModuleTest extends ModularModule {
+    public ModuleTest() {
         AnotherModule anotherMod = new AnotherModule();
         AnotherModule anotherMod2 = new AnotherModule();
+        
         super("ModuleTest", "81f9ab59", "Sundev79", "1.0.0", anotherMod, anotherMod2);
-        // You can use many dependencies !
+        // You can use Module dependencies !
+    }
+    
+    @Override
+    public void runEvent() {
+        System.out.println("Hello World with module-dependencies !");
+    }
 }
 ```
 
 ### To register and run a module : 
-To launch a module, try this small example 😉:
+To running a module, try this small example 😉:
 ```java
 public class Main {
     public static void main() {
-        // Register the source first ...
+        // Register the source first
         ModularSource mainSource = new ModularSource("e3640e55");
-        // And the Module ...
+        
+        // and the Module ...
         ModuleTest testMod = new ModuleTest();
-        // ... And then let's run it !
-        mainSource.getModuleManager().findModuleByUuID("Dug40M90").runModule();
+        
+        // ... and then let's run it !
+        mainSource.getModuleManager().runModule(testMod);
     }
 }
 ```
@@ -73,4 +89,4 @@ For a module source and a module itself, you need to assign a unique UuID to it!
 ```
 #### UUIDGEN Online : 
 You can use **https://www.uuidgenerator.net/** which works fine.
-**You must copy only group 1 (*).    
+**You must copy only group 1 of the uuid.**    
