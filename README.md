@@ -1,9 +1,9 @@
 <h1><div align=center><span style="color:orange;">Modular</span>Framework</div></h1>
 
-### Warning : Version ``2.x`` is depreciated !
+### Warning : Version ``0.99`` is depreciated !
 
 
-**Project STATUS:** ⚠️ **DEPRECIATED** ``2.x-BETA`` | **SNAPSHOT**   
+**Project STATUS:** ⚠️ **DEPRECIATED** ``0.99-BETA`` | **SNAPSHOT**   
 
 <div align=center><h3><code><b>(fr_FR)</b></code></h3></div>
 
@@ -15,4 +15,4 @@ internes et externes dans des archives **.modlr** (.jar).
 **ModularFramework** is a micro-framework allowing to create modular applications, with the notions of "modules", internal and external in **. modlr ** (.jar) archives.  
 
 Join-US :  
-**Discord : (Modular MC)** https://discord.com/invite/zm2evFZ9FS
+**Discord : (Modular MC)** https://discord.com/invite/zm2evFZ9FS (link dead :/)
