@@ -15,7 +15,7 @@ For a module source and a module itself, you must assign a unique UuID to it! Lo
 #### UUIDGEN Online: 
 You can use **https://www.uuidgenerator.net/** which works really well!
 
-**You have to copy only the group 1 (*).**    
+**You have to copy only the group 1 of the uuid.**    
 
 # But why and how ?
 
@@ -27,4 +27,3 @@ ModularModule obtainedModuleByUuID = modSource.getModuleManager().findModuleByUu
 ```
 
 And the tadaaa ! you have access to the whole module ! 
-
