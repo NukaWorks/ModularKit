@@ -11,4 +11,4 @@
 758ad8e8=com.example.ModuleTest
 ```
 
-- And done !
+#### Checkout the other example which contains a ModuleTest demo module : https://github.com/NutDevs-org/ModuleTest
