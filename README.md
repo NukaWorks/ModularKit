@@ -1,7 +1,7 @@
 # ModularFramework
 The ModularFramework.
 
-**Project STATUS:** ``2.x-BETA``  
+**Project STATUS:** ``0.99-BETA``  
 **Project Todo Page :** https://github.com/sundev79/Modular-TODOProject/projects/1  
 
 ``(fr)``
@@ -16,4 +16,4 @@ internes et externes dans des archives **.modlr** (.jar).
 Compiling guide, documentation here : https://github.com/SunProject-org/ModularFramework/wiki
 
 Join-US :  
-**Discord :** https://discord.gg/rkQ5cyfUP7
+**Discord :** https://discord.gg/rkQ5cyfUP7 (link dead :/)
