@@ -6,7 +6,9 @@
 ![GitHub Licence](https://img.shields.io/github/license/NutDevs-org/ModularKit)
 
 <h1 align="center">ModularKit</h1>
+
 <hr/>
+
 ## What is ModularKit ?
 
 **ModularKit**, a lightweight but powerful Java micro-framework for creating
