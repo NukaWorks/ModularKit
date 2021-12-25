@@ -5,8 +5,8 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/NutDevs-org/KawiBot)
 ![GitHub Licence](https://img.shields.io/github/license/NutDevs-org/ModularKit)
 
-# ModularKit
-
+<h1 align="center">ModularKit</h1>
+<hr/>
 ## What is ModularKit ?
 
 **ModularKit**, a lightweight but powerful Java micro-framework for creating
