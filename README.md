@@ -36,7 +36,7 @@ First, you need to create a new project (maven recommended) and add **ModularKit
 ```
 
 ### For external module (Module side) : 
-
+#### Create manualy
 ```xml
 <dependency>
     <groupId>org.nutdevs</groupId>
@@ -45,7 +45,8 @@ First, you need to create a new project (maven recommended) and add **ModularKit
     <scope>provided</scope>
 </dependency>
 ```
-
+#### Or use the ModuleTemplate
+Use this ModuleTemplate : https://github.com/NutDevs-org/ModuleTest
 
 ## Examples
 
