@@ -25,7 +25,7 @@ jobs:
         shell: bash
         env:
           GTOKEN: ${{ secrets.TOKEN }}
-        run: python .github/workflows/pre-nightly.py ${GTOKEN}
+        run: python Tools/Github_Workflows-Scripts/prebuild-nightly.py ${GTOKEN}
         
       - name: Set up NutDevs.org Maven Repo
         uses: actions/setup-java@v2
