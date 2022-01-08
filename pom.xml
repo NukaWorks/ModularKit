@@ -6,15 +6,15 @@
 
     <groupId>org.nutdevs</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>v1.4.11</version>
+    <version>1.4.20</version>
     <name>ModularKit</name>
     <description>
-        A minimal and powerful Java Framework for creating modular apps.
+         ModularKit, a lightweight but powerful Java micro-framework for creating modular apps.
     </description>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -34,8 +34,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>11</source>
-                    <target>11</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
 
