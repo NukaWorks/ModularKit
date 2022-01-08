@@ -123,7 +123,8 @@ public class ModularSource {
                             }
 
                             assert modClass != null;
-                            if (modClass.getSuperclass().getName().equals(ModularModule.class.getSimpleName())) {
+
+                            if (modClass.getSuperclass().getName().equals(ModularModule.class.getName())) {
                                 ModularModule newModule = null;
                                 try {
                                     newModule = (ModularModule) modClass.getDeclaredConstructor().newInstance();
