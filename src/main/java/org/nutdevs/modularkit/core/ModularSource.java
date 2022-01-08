@@ -113,7 +113,6 @@ public class ModularSource {
                         }
 
                         for (Map.Entry<Object, Object> entry : extModRegistrationFile.entrySet()) {
-                            String[] className = entry.getValue().toString().split("\\.");
                             Class<?> modClass = null;
 
                             try {
