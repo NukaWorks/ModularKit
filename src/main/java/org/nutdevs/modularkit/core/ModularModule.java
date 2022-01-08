@@ -12,12 +12,14 @@ import java.util.ArrayList;
 
 public abstract class ModularModule implements RunEvent {
 
-    private final String uuid; // The Module UuID, needed for find a unique Module.
-    private final String moduleName; // The Module names.
-    private final String author; // The Module Author name.
-    private final String version; // The Module Version Number.
-    private final ArrayList<ModularModule> tmpModDepsList = new ArrayList<>(); // (BETA) Temp ModuleDeps
-                                                                               // ArrayList<ModularModule>.
+    private final String uuid; // The Module UuID, needed for find a unique module.
+    private final String moduleName; // module name.
+    private final String author; // module vuthor name.
+    private final String version; // module version number.
+    
+    // (WIP) Temp ModuleDeps ArrayList<ModularModule>.
+    private final ArrayList<ModularModule> tmpModDepsList = new ArrayList<>(); 
+    
     private ModuleStatus modStatus = ModuleStatus.STOPPED; // Default Module Execution Status.
     private ModularSource modSource;
 
