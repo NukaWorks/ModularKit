@@ -21,17 +21,18 @@ import java.util.Properties;
 @SuppressWarnings("unused")
 public class ModularSource {
 
-    private static final HashMap<String, ModularSource> sourceMap = new HashMap<>();
+    private static final Map<String, ModularSource> sourceMap = new HashMap<>();
     private final Map<String, ModularModule> moduleMap = new HashMap<>();
     private final String uuid;
     private ModuleManager moduleManager;
 
     /**
-     * ModularSource - Create a collections cf Modules.
+     * ModularSource - Create a collections of Modules.
      *
      * @param _uuid - UuID of the ModularSource.
      * @throws ModUuidEx Returns a ModUuidEx if the UuiD is incorrect or null.
      */
+
     public ModularSource(String _uuid) throws ModUuidEx {
         try {
             this.moduleManager = new ModuleManager(this);
@@ -41,12 +42,14 @@ public class ModularSource {
 
         if (_uuid == null)
             throw new ModUuidEx("uuid cannot be null.");
+
         if (_uuid.length() != 8)
             try {
                 throw new ModUuidEx("uuid is incorrect !");
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
         uuid = _uuid;
         registerSource();
     }
@@ -62,6 +65,7 @@ public class ModularSource {
     public ModularSource(String _uuid, File path, String fileExtension) throws ModUuidEx, ModSourceEx {
         if (_uuid == null)
             throw new ModUuidEx("uuid cannot be null.");
+
         if (_uuid.length() != 8)
             try {
                 throw new ModUuidEx("uuid is incorrect !"); // Grab only the group 1 of the uuid eg :
@@ -80,11 +84,14 @@ public class ModularSource {
         }
 
         uuid = _uuid;
+
         if (path.exists() && path.canRead()) {
             try {
                 Files.walk(path.toPath()).forEach(e -> {
-                    if (e.toFile().isFile() && e.toFile().getName().endsWith(fileExtension)) {
+                    if (e.toFile().isFile() &&
+                            (fileExtension.isEmpty() || e.toFile().getName().endsWith(fileExtension))) {
                         URLClassLoader classLoader = null;
+
                         try {
                             classLoader = new URLClassLoader(
                                     new URL[] { new URL("file", null, e.toFile().getAbsolutePath()) });
