@@ -100,8 +100,9 @@ public class ModularSource {
                         }
 
                         Properties modlrFile = new Properties();
+
                         try {
-                            assert classLoader != null;
+                            assert classLoader != null; // Safe check if classLoader is null.
                             InputStream inModlr = classLoader.getResourceAsStream(".modlr");
                             if (inModlr != null) {
                                 modlrFile.load(inModlr);
