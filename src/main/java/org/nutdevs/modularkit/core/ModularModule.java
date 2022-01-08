@@ -16,7 +16,8 @@ public abstract class ModularModule implements RunEvent {
     private final String moduleName; // The Module names.
     private final String author; // The Module Author name.
     private final String version; // The Module Version Number.
-    private final ArrayList<ModularModule> tmpModDepsList = new ArrayList<>(); // (BETA) Temp ModuleDeps ArrayList<ModularModule>.
+    private final ArrayList<ModularModule> tmpModDepsList = new ArrayList<>(); // (BETA) Temp ModuleDeps
+                                                                               // ArrayList<ModularModule>.
     private ModuleStatus modStatus = ModuleStatus.STOPPED; // Default Module Execution Status.
     private ModularSource modSource;
 
@@ -36,31 +37,38 @@ public abstract class ModularModule implements RunEvent {
      * @since 1.0
      */
 
-    public ModularModule(String _name, String _uuid, String author, String version, ModularModule... modDeps) throws ModUuidEx {
+    public ModularModule(String _name, String _uuid, String author, String version, ModularModule... modDeps)
+            throws ModUuidEx {
         this.author = author;
         this.version = version;
 
-        if (_uuid == null) throw new ModUuidEx("uuid cannot be null.");
+        if (_uuid == null)
+            throw new ModUuidEx("uuid cannot be null.");
         else if (_uuid.length() != 8)
             throw new ModUuidEx("uuid is incorrect !");
         uuid = _uuid;
-        if (_name.isEmpty()) moduleName = "I Have a no-name !";
-        else moduleName = _name;
+        if (_name.isEmpty())
+            moduleName = "I Have a no-name !";
+        else
+            moduleName = _name;
         if (modDeps != null) {
             for (ModularModule mod : modDeps)
-                if (!tmpModDepsList.contains(mod)) tmpModDepsList.add(mod);
+                if (!tmpModDepsList.contains(mod))
+                    tmpModDepsList.add(mod);
         }
     }
 
     protected void setModuleSource(ModularSource source) throws ModSourceEx, ModUuidEx {
-        if (source != null) modSource = source;
-        else throw new ModSourceEx("ModSource cannot be null !");
+        if (source != null)
+            modSource = source;
+        else
+            throw new ModSourceEx("ModSource cannot be null !");
         if (modSource.getModuleManager().findModuleByUuiD(uuid) != null)
             throw new ModUuidEx("Module already instantiated !");
-        if (!tmpModDepsList.isEmpty()) for (ModularModule mod : tmpModDepsList)
-            getModSource().getModuleManager().setDepends(mod);
+        if (!tmpModDepsList.isEmpty())
+            for (ModularModule mod : tmpModDepsList)
+                getModSource().getModuleManager().setDepends(mod);
     }
-
 
     protected void exec() {
         modStatus = ModuleStatus.RUNNING;

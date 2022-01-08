@@ -1,6 +1,5 @@
 package org.nutdevs.modularkit.core;
 
-
 import org.nutdevs.modularkit.core.events.ModuleStatus;
 import org.nutdevs.modularkit.core.ex.ModRegisterEx;
 import org.nutdevs.modularkit.core.ex.ModSourceEx;
@@ -27,7 +26,6 @@ public class ModularSource {
     private final String uuid;
     private ModuleManager moduleManager;
 
-
     /**
      * ModularSource - Create a collections cf Modules.
      *
@@ -41,32 +39,39 @@ public class ModularSource {
             modSourceEx.printStackTrace();
         }
 
-        if (_uuid == null) throw new ModUuidEx("uuid cannot be null.");
-        if (_uuid.length() != 8) try {
-            throw new ModUuidEx("uuid is incorrect !");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        if (_uuid == null)
+            throw new ModUuidEx("uuid cannot be null.");
+        if (_uuid.length() != 8)
+            try {
+                throw new ModUuidEx("uuid is incorrect !");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         uuid = _uuid;
         registerSource();
     }
 
     /**
-     * ModularSource - Create a collections of Modules with External ModularModule Repository.
+     * ModularSource - Create a collections of Modules with External ModularModule
+     * Repository.
      *
      * @param _uuid - UuID of the ModularSource.
      * @param path  - File Path of the Modules Repository.
      * @throws ModUuidEx - Can return a ModUuidEx if UuID is incorrect or null.
      */
     public ModularSource(String _uuid, File path, String fileExtension) throws ModUuidEx, ModSourceEx {
-        if (_uuid == null) throw new ModUuidEx("uuid cannot be null.");
-        if (_uuid.length() != 8) try {
-            throw new ModUuidEx("uuid is incorrect !"); // Grab only the group 1 of the uuid eg : "**f3eafee8**-2419-4a58-b8fe-fe72d6f4019b"
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        if (_uuid == null)
+            throw new ModUuidEx("uuid cannot be null.");
+        if (_uuid.length() != 8)
+            try {
+                throw new ModUuidEx("uuid is incorrect !"); // Grab only the group 1 of the uuid eg :
+                                                            // "**f3eafee8**-2419-4a58-b8fe-fe72d6f4019b"
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-        if (fileExtension.isEmpty()) throw new ModSourceEx("You need to set a custom file extension !");
+        if (fileExtension.isEmpty())
+            throw new ModSourceEx("You need to set a custom file extension !");
 
         try {
             this.moduleManager = new ModuleManager(this);
@@ -81,7 +86,8 @@ public class ModularSource {
                     if (e.toFile().isFile() && e.toFile().getName().endsWith(fileExtension)) {
                         URLClassLoader classLoader = null;
                         try {
-                            classLoader = new URLClassLoader(new URL[]{new URL("file", null, e.toFile().getAbsolutePath())});
+                            classLoader = new URLClassLoader(
+                                    new URL[] { new URL("file", null, e.toFile().getAbsolutePath()) });
                         } catch (MalformedURLException malformedURLException) {
                             malformedURLException.printStackTrace();
                         }
@@ -114,7 +120,8 @@ public class ModularSource {
                                 ModularModule newModule = null;
                                 try {
                                     newModule = (ModularModule) modClass.getDeclaredConstructor().newInstance();
-                                } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException ex) {
+                                } catch (InstantiationException | IllegalAccessException | InvocationTargetException
+                                        | NoSuchMethodException ex) {
                                     ex.printStackTrace();
                                 }
                                 try {
@@ -123,11 +130,12 @@ public class ModularSource {
                                 } catch (ModRegisterEx | ModUuidEx | ModSourceEx ex) {
                                     ex.printStackTrace();
                                 }
-                            } else try {
-                                throw new ModSourceEx("The module doesn't extends ModularModule.");
-                            } catch (ModSourceEx ex) {
-                                ex.printStackTrace();
-                            }
+                            } else
+                                try {
+                                    throw new ModSourceEx("The module doesn't extends ModularModule.");
+                                } catch (ModSourceEx ex) {
+                                    ex.printStackTrace();
+                                }
                         }
                     }
                 });
@@ -148,8 +156,10 @@ public class ModularSource {
      */
     public static ModularSource findSourceByUuiD(String uuid) throws ModUuidEx {
         if (uuid.length() == 8) {
-            if (sourceMap.containsKey(uuid)) return sourceMap.get(uuid);
-        } else throw new ModUuidEx("uuid is incorrect");
+            if (sourceMap.containsKey(uuid))
+                return sourceMap.get(uuid);
+        } else
+            throw new ModUuidEx("uuid is incorrect");
         return null;
     }
 
@@ -170,7 +180,6 @@ public class ModularSource {
     public static HashMap<String, ModularSource> getUnmodifiableSourceMap() {
         return (HashMap<String, ModularSource>) Collections.unmodifiableMap(sourceMap);
     }
-
 
     private synchronized boolean registerSource() {
         if (!sourceMap.containsKey(uuid)) {
@@ -215,7 +224,8 @@ public class ModularSource {
      *
      * @param module - Module Object
      * @return - Return true if the module registration will success.
-     * @throws ModRegisterEx - Can returns a ModRegisterEx if the Module registration will fail.
+     * @throws ModRegisterEx - Can returns a ModRegisterEx if the Module
+     *                       registration will fail.
      * @throws ModUuidEx     - If the uuid is incorrect or uuid is null.
      * @throws ModSourceEx   - Can fail if the ModSource is null.
      * @since 1.0
@@ -224,7 +234,8 @@ public class ModularSource {
         if (!moduleMap.containsKey(module.getUuid())) {
             module.setModuleSource(this);
             moduleMap.put(module.getUuid(), module);
-        } else throw new ModRegisterEx("Module already instantiated !");
+        } else
+            throw new ModRegisterEx("Module already instantiated !");
         return true;
     }
 
@@ -236,8 +247,10 @@ public class ModularSource {
      * @throws ModUuidEx              - Can fail if null of incorrect.
      * @throws ModRegisterEx          - Can fail if null of incorrect.
      * @throws ModSourceEx            - Can fail if null of incorrect.
-     * @throws InstantiationException - Can return an error if the module is already instanced.
-     * @throws IllegalAccessException - Can return a Ex if Illegal Access violation subsist.
+     * @throws InstantiationException - Can return an error if the module is already
+     *                                instanced.
+     * @throws IllegalAccessException - Can return a Ex if Illegal Access violation
+     *                                subsist.
      * @since 1.0
      */
     public boolean registerModule(Class<?> module)

@@ -8,12 +8,11 @@ import org.nutdevs.modularkit.core.ex.ModUuidEx;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-@SuppressWarnings({"UnusedReturnValue", "unused"})
+@SuppressWarnings({ "UnusedReturnValue", "unused" })
 
 public class ModuleManager {
     private final ModularSource modSource;
     private final ArrayList<ModularModule> modulesDependencies = new ArrayList<>();
-
 
     /**
      * The ModuleManager - Manage your Modules !
@@ -23,8 +22,10 @@ public class ModuleManager {
      * @since 1.0
      */
     public ModuleManager(ModularSource source) throws ModSourceEx {
-        if (source != null) modSource = source;
-        else throw new ModSourceEx("Source cannot be null.");
+        if (source != null)
+            modSource = source;
+        else
+            throw new ModSourceEx("Source cannot be null.");
     }
 
     /**
@@ -48,13 +49,14 @@ public class ModuleManager {
                 });
 
                 runThread.setName("Mod_" + module.getModuleName() + "_" + module.getUuid());
-                //Starting the module...
+                // Starting the module...
                 runThread.start();
                 return true;
-            } else throw new ModRegisterEx("Module not registered !");
-        } else throw new ModRegisterEx("Module not found !");
+            } else
+                throw new ModRegisterEx("Module not registered !");
+        } else
+            throw new ModRegisterEx("Module not found !");
     }
-
 
     /**
      * Stop the Module
@@ -66,9 +68,9 @@ public class ModuleManager {
      */
     public void stopModule(ModularModule module, @Deprecated boolean forceStop) throws ModRunEx {
         module.stop();
-        if (forceStop) module.kill();
+        if (forceStop)
+            module.kill();
     }
-
 
     /**
      * Finds and Return a ModularModule Object by UuID
@@ -82,7 +84,8 @@ public class ModuleManager {
         if (uuid.length() == 8) {
             if (modSource.getModuleMap().containsKey(uuid))
                 return modSource.getModuleMap().get(uuid);
-        } else throw new ModUuidEx("uuid is incorrect");
+        } else
+            throw new ModUuidEx("uuid is incorrect");
         return null;
     }
 
