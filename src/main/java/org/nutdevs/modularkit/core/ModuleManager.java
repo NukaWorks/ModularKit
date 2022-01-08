@@ -17,15 +17,16 @@ public class ModuleManager {
     /**
      * The ModuleManager - Manage your Modules !
      *
-     * @param source - Give the ModularSource which contains all modules.
+     * @param source - Give a ModularSource which contains all modules.
      * @throws ModSourceEx - Cause a ModSourceEx if the source is null.
      * @since 1.0
      */
-    public ModuleManager(ModularSource source) throws ModSourceEx {
+
+     public ModuleManager(ModularSource source) throws ModSourceEx {
         if (source != null)
             modSource = source;
         else
-            throw new ModSourceEx("Source cannot be null.");
+            throw new ModSourceEx("a ModularSource cannot be null.");
     }
 
     /**
@@ -36,6 +37,7 @@ public class ModuleManager {
      * @throws ModRegisterEx - Return a ModRegisterEx if Module Registration fails.
      * @since 1.0
      */
+
     public synchronized boolean runModule(ModularModule module) throws ModRegisterEx {
         HashMap<String, ModularModule> runMap = (HashMap<String, ModularModule>) modSource.getModuleMap();
         if (!runMap.isEmpty()) {
@@ -53,9 +55,9 @@ public class ModuleManager {
                 runThread.start();
                 return true;
             } else
-                throw new ModRegisterEx("Module not registered !");
+                throw new ModRegisterEx("the module is not registered !");
         } else
-            throw new ModRegisterEx("Module not found !");
+            throw new ModRegisterEx("Module not found :/");
     }
 
     /**
@@ -66,6 +68,7 @@ public class ModuleManager {
      * @throws ModRunEx - Return a ModRunEx if an error occur.
      * @since 1.0
      */
+
     public void stopModule(ModularModule module, @Deprecated boolean forceStop) throws ModRunEx {
         module.stop();
         if (forceStop)
@@ -80,26 +83,27 @@ public class ModuleManager {
      * @throws ModUuidEx - Return a ModUuidEx if the Module-UuID is incorrect.
      * @since 1.0
      */
-    public ModularModule findModuleByUuiD(String uuid) throws ModUuidEx {
+    
+     public ModularModule findModuleByUuiD(String uuid) throws ModUuidEx {
         if (uuid.length() == 8) {
             if (modSource.getModuleMap().containsKey(uuid))
                 return modSource.getModuleMap().get(uuid);
         } else
-            throw new ModUuidEx("uuid is incorrect");
+            throw new ModUuidEx("The uuid is incorrect !");
         return null;
     }
 
     /**
-     * Set the Module Dependencies
+     * Set module dependencies
      *
      * @param modDeps - Give an array of ModularModule Objects.
      * @since 1.3
      */
+
     public void setDepends(ModularModule... modDeps) {
         for (ModularModule mod : modDeps)
             if (!modulesDependencies.contains(mod)) {
                 modulesDependencies.add(mod);
-                System.out.println(mod.getModuleName());
             }
     }
 }
