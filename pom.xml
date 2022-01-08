@@ -6,7 +6,7 @@
 
     <groupId>org.nutdevs</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>1.4.20</version>
+    <version>1.4.21</version>
     <name>ModularKit</name>
     <description>
          ModularKit, a lightweight but powerful Java micro-framework for creating modular apps.
