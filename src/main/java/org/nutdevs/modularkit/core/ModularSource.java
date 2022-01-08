@@ -21,7 +21,7 @@ import java.util.Properties;
 @SuppressWarnings("unused")
 public class ModularSource {
 
-    private static final Map<String, ModularSource> sourceMap = new HashMap<>();
+    private static final HashMap<String, ModularSource> sourceMap = new HashMap<>();
     private final Map<String, ModularModule> moduleMap = new HashMap<>();
     private final String uuid;
     private ModuleManager moduleManager;
@@ -123,7 +123,7 @@ public class ModularSource {
                             }
 
                             assert modClass != null;
-                            if (!modClass.getSuperclass().getName().equals(ModularModule.class.getSimpleName())) {
+                            if (modClass.getSuperclass().getName().equals(ModularModule.class.getSimpleName())) {
                                 ModularModule newModule = null;
                                 try {
                                     newModule = (ModularModule) modClass.getDeclaredConstructor().newInstance();
@@ -139,7 +139,7 @@ public class ModularSource {
                                 }
                             } else
                                 try {
-                                    throw new ModSourceEx("The module doesn't extends ModularModule.");
+                                    throw new ModSourceEx("The module doesn't extends to ModularModule.");
                                 } catch (ModSourceEx ex) {
                                     ex.printStackTrace();
                                 }
@@ -151,6 +151,7 @@ public class ModularSource {
             }
         }
 
+        // Finally, register the source !
         registerSource();
     }
 
