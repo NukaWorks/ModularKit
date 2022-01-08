@@ -99,20 +99,20 @@ public class ModularSource {
                             malformedURLException.printStackTrace();
                         }
 
-                        Properties modlrFile = new Properties();
+                        Properties extModRegistrationFile = new Properties();
 
                         try {
                             assert classLoader != null; // Safe check if classLoader is null.
                             InputStream inModlr = classLoader.getResourceAsStream(".modlr");
                             if (inModlr != null) {
-                                modlrFile.load(inModlr);
+                                extModRegistrationFile.load(inModlr);
                             } else
                                 throw new IOException("File .modlr not found !");
                         } catch (IOException ioException) {
                             ioException.printStackTrace();
                         }
 
-                        for (Map.Entry<Object, Object> entry : modlrFile.entrySet()) {
+                        for (Map.Entry<Object, Object> entry : extModRegistrationFile.entrySet()) {
                             String[] className = entry.getValue().toString().split("\\.");
                             Class<?> modClass = null;
 
