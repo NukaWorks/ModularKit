@@ -216,15 +216,16 @@ public class ModularSource {
     public boolean destroy(@Deprecated boolean forceDestroy) {
         for (Map.Entry<String, ModularModule> moduleEntry : moduleMap.entrySet()) {
             moduleEntry.getValue().stop();
+
             if (forceDestroy) {
                 try {
-                    moduleEntry.getValue().kill();
+                    moduleEntry.getValue().kill(); // Force stop the module
                 } catch (Exception e) {
-                    System.err.println("Thread Killed !");
                     e.printStackTrace();
                 }
             }
         }
+
         return unregisterSource();
     }
 
@@ -243,8 +244,10 @@ public class ModularSource {
         if (!moduleMap.containsKey(module.getUuid())) {
             module.setModuleSource(this);
             moduleMap.put(module.getUuid(), module);
+
         } else
             throw new ModRegisterEx("Module already instantiated !");
+
         return true;
     }
 
@@ -286,6 +289,7 @@ public class ModularSource {
                 return true;
             }
         }
+        
         return false;
     }
 
