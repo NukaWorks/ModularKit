@@ -19,7 +19,7 @@ With ModularKit, you can create modular apps with increased flexibility and
 stability, designed to create projects without server shutdown and a good
 maintainability.
 
-Checkout the documentation on the documentation folder: **[Docs/](https://github.com/NutDevs-org/ModularKit/tree/main/Docs/).**
+Checkout the documentation on the documentation folder: **[Docs/](https://github.com/NukaWorks/ModularKit/tree/main/Docs/).**
 
 
 ## Getting started
@@ -30,9 +30,9 @@ First, you need to create a new project (maven recommended) and add **ModularKit
 
 ```xml
 <dependency>
-    <groupId>org.nutdevs</groupId>
+    <groupId>works.nuka</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>{check the mvn.nutdevs.org badge}</version>
+    <version>{ Soon }</version>
 </dependency>
 ```
 
@@ -40,14 +40,14 @@ First, you need to create a new project (maven recommended) and add **ModularKit
 #### Create manualy
 ```xml
 <dependency>
-    <groupId>org.nutdevs</groupId>
+    <groupId>works.nuka</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>{check the mvn.nutdevs.org badge}</version>
+    <version>{ Soon }</version>
     <scope>provided</scope>
 </dependency>
 ```
 #### Or use the ModuleTemplate
-Use this ModuleTemplate : https://github.com/NutDevs-org/ModuleTest
+Use this ModuleTemplate : https://github.com/NukaWorks/ModuleTest
 
 ## Examples
 
@@ -131,7 +131,7 @@ You can use **https://www.uuidgenerator.net/**
 
 ⚠ **You need to copy the group 1 of the uuid.**
 
-#### You can find the full documentation on the directory : **[Docs/](https://github.com/NutDevs-org/ModularKit/tree/main/Docs/)**
+#### You can find the full documentation on the directory : **[Docs/](https://github.com/NukaWorks/ModularKit/tree/main/Docs/)**
 
 # Many thanks to
 
