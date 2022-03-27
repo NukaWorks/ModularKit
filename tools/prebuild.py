@@ -23,14 +23,22 @@ def get_commit_id() -> str:
 
 
 def main() -> None:
-    """Entry point for the program."""
+    print(sys.argv[2])
     file: str = 'pom.xml'
-    file_dest: str = "nightly-pom.xml"
+    file_dest: str = ".buildconfig-pom.xml"
 
     xml_root = get_root(file)
-    xml_root[3].text += f"-nightly_{get_commit_id()}"
-    xml_root[13][0][4].clear()
-    xml_root[13][0].remove(xml_root[13][0][4])
+    
+    if sys.argv[2] == "devel":
+        xml_root[3].text += f"-nightly_{get_commit_id()}"
+
+
+    """ Remove GPG-Sign Maven Plugin if not a release build. """
+
+    if not sys.argv[2] == "release":
+        xml_root[13][0][4].clear()
+        xml_root[13][0].remove(xml_root[13][0][4])
+
 
     save_pom(file_dest, xml_root)
 
