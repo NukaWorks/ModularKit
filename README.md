@@ -1,7 +1,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4eff78558cbc47c0b929dd1c45d12bda)](https://www.codacy.com/gh/NukaWorks/ModularKit/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=NukaWorks/ModularKit&amp;utm_campaign=Badge_Grade)
 [![Nightly Builder](https://github.com/NukaWorks/ModularKit/actions/workflows/prebuild-nightly.yml/badge.svg?branch=main)](https://github.com/NutDevs-org/ModularKit/actions/workflows/prebuild-nightly.yml)
 [![CodeQL](https://github.com/NukaWorks/ModularKit/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/NukaWorks/ModularKit/actions/workflows/codeql-analysis.yml)
-![Maven metadata URL](https://img.shields.io/maven-metadata/v?label=mvn.nutdevs.org&metadataUrl=https%3A%2F%2Fmvn.nutdevs.org%2FNutDevs-org%2FModularKit%2Fnightly-builds%2Forg%2Fnutdevs%2FModularKit%2Fmaven-metadata.xml)
+![Maven Central](https://img.shields.io/maven-central/v/works.nuka/ModularKit)
 ![Lines of code](https://img.shields.io/tokei/lines/github/NukaWorks/ModularKit?label=Total%20Lines%20Of%20Codes%20%3A)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/NukaWorks/ModularKit)
 ![GitHub Licence](https://img.shields.io/github/license/NutDevs-org/ModularKit)
