@@ -31,4 +31,4 @@ jobs:
           java-version: '8.0'
           distribution: 'adopt'
       - name: Build ModularKit
-        run: ls -hal && make clean build-nightly
+        run: ls -hal /home/runner && make clean build-nightly
