@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ec91216010dc45c38ced351040a3cc0d)](https://app.codacy.com/gh/NukaWorks/ModularKit?utm_source=github.com&utm_medium=referral&utm_content=NukaWorks/ModularKit&utm_campaign=Badge_Grade_Settings)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7524371023014522906b1a8f0c5354d2)](https://app.codacy.com/gh/NukaWorks/ModularKit?utm_source=github.com&utm_medium=referral&utm_content=NutDevs-org/ModularKit&utm_campaign=Badge_Grade_Settings)
 [![Nightly Builder](https://github.com/NukaWorks/ModularKit/actions/workflows/prebuild-nightly.yml/badge.svg?branch=main)](https://github.com/NutDevs-org/ModularKit/actions/workflows/prebuild-nightly.yml)
 [![CodeQL](https://github.com/NukaWorks/ModularKit/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/NukaWorks/ModularKit/actions/workflows/codeql-analysis.yml)
