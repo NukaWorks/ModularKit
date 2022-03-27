@@ -1,9 +1,9 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7524371023014522906b1a8f0c5354d2)](https://app.codacy.com/gh/NutDevs-org/ModularKit?utm_source=github.com&utm_medium=referral&utm_content=NutDevs-org/ModularKit&utm_campaign=Badge_Grade_Settings)
-[![Nightly Builder](https://github.com/NutDevs-org/ModularKit/actions/workflows/prebuild-nightly.yml/badge.svg?branch=main)](https://github.com/NutDevs-org/ModularKit/actions/workflows/prebuild-nightly.yml)
-[![CodeQL](https://github.com/NutDevs-org/ModularKit/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/NutDevs-org/ModularKit/actions/workflows/codeql-analysis.yml)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7524371023014522906b1a8f0c5354d2)](https://app.codacy.com/gh/NukaWorks/ModularKit?utm_source=github.com&utm_medium=referral&utm_content=NutDevs-org/ModularKit&utm_campaign=Badge_Grade_Settings)
+[![Nightly Builder](https://github.com/NukaWorks/ModularKit/actions/workflows/prebuild-nightly.yml/badge.svg?branch=main)](https://github.com/NutDevs-org/ModularKit/actions/workflows/prebuild-nightly.yml)
+[![CodeQL](https://github.com/NukaWorks/ModularKit/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/NukaWorks/ModularKit/actions/workflows/codeql-analysis.yml)
 ![Maven metadata URL](https://img.shields.io/maven-metadata/v?label=mvn.nutdevs.org&metadataUrl=https%3A%2F%2Fmvn.nutdevs.org%2FNutDevs-org%2FModularKit%2Fnightly-builds%2Forg%2Fnutdevs%2FModularKit%2Fmaven-metadata.xml)
-![Lines of code](https://img.shields.io/tokei/lines/github/NutDevs-org/ModularKit?label=Total%20Lines%20Of%20Codes%20%3A)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/NutDevs-org/KawiBot)
+![Lines of code](https://img.shields.io/tokei/lines/github/NukaWorks/ModularKit?label=Total%20Lines%20Of%20Codes%20%3A)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/NukaWorks/ModularKit)
 ![GitHub Licence](https://img.shields.io/github/license/NutDevs-org/ModularKit)
 
 <h1 align="center">ModularKit</h1>
