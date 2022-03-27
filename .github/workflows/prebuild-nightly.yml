@@ -18,14 +18,12 @@ jobs:
         with:
           python-version: 3.9
           
-      - name: Install Python dependencies
-        run: python -m pip install PyGithub
+      - name: Install dependencies
+        run: sudo apt install git -y
         
-      - name: Launch Pre-Build Nightly Prep Script
+      - name: Launch Prebuild Script
         shell: bash
-        env:
-          GTOKEN: ${{ secrets.TOKEN }}
-        run: python Tools/Github_Workflows-Scripts/prebuild-nightly.py ${GTOKEN}
+        run: python tools/prebuild.py $(git rev-parse --short HEAD) devel
         
       - name: Prepare Build ModularKit
         uses: actions/setup-java@v2
@@ -33,4 +31,4 @@ jobs:
           java-version: '8.0'
           distribution: 'adopt'
       - name: Build ModularKit
-        run: mvn -f nightly-pom.xml --batch-mode clean install
+        run: make clean build-nightly
