@@ -25,6 +25,6 @@ fi
 
 # Launch the build process
 rm -rvf target/
-python3 $TOOLS_DIR/prebuild-nightly.py && \
+python3 $TOOLS_DIR/prebuild-nightly.py $(git rev-parse --short HEAD) && \
 mvn -f ./nightly-pom.xml clean install && \
-rm -v nightly-pom.xml
+rm -rf nightly-pom.xml

@@ -1,14 +1,6 @@
 """Replace version in pom.xml for server backups."""
-
-import os
+import sys
 import xml.etree.ElementTree as Et
-
-from github import Github, Branch
-
-REPO_ID: int = 385764384
-BRANCH: str = "main"
-
-g: Branch = Github(os.environ["GTOKEN"]).get_repo(REPO_ID).get_branch(BRANCH)
 
 
 def get_root(file_path: str) -> Et.Element:
@@ -27,7 +19,7 @@ def save_pom(file_path: str, tree_root: Et.Element) -> None:
 
 def get_commit_id() -> str:
     """Retrieve the repository id."""
-    return g.commit.sha[:7]
+    return sys.argv[1]
 
 
 def main() -> None:
