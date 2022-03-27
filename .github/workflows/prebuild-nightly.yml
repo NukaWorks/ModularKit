@@ -27,16 +27,10 @@ jobs:
           GTOKEN: ${{ secrets.TOKEN }}
         run: python Tools/Github_Workflows-Scripts/prebuild-nightly.py ${GTOKEN}
         
-      - name: Set up NutDevs.org Maven Repo
+      - name: Prepare Build ModularKit
         uses: actions/setup-java@v2
         with:
           java-version: '8.0'
           distribution: 'adopt'
-          server-id: mvn-nutdevs
-          server-username: MAVEN_USERNAME
-          server-password: MAVEN_PASSWORD
-      - name: Publish package to mvn.nutdevs.org
-        run: mvn -f nightly-pom.xml --batch-mode clean deploy
-        env:
-          MAVEN_USERNAME: ${{ secrets.MVN_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.MVN_PASSWORD }}
+      - name: Build ModularKit
+        run: mvn -f nightly-pom.xml --batch-mode clean install
