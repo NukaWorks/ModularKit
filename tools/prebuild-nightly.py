@@ -37,14 +37,10 @@ def main() -> None:
 
     xml_root = get_root(file)
     xml_root[3].text += f"-nightly_{get_commit_id()}"
-    xml_root[7][0][1].text = xml_root[7][0][1].text.replace(
-        "stable-builds", "nightly-builds"
-    )
+    xml_root[13][0][4].clear()
+    xml_root[13][0].remove(xml_root[13][0][4])
 
     save_pom(file_dest, xml_root)
-
-def update_readme() -> None:
-    print("Coming soon")
 
 
 if __name__ == '__main__':
