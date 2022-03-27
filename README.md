@@ -32,7 +32,7 @@ First, you need to create a new project (maven recommended) and add **ModularKit
 <dependency>
     <groupId>works.nuka</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>{ Soon }</version>
+    <version>{ Check maven-central badge }</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ First, you need to create a new project (maven recommended) and add **ModularKit
 <dependency>
     <groupId>works.nuka</groupId>
     <artifactId>ModularKit</artifactId>
-    <version>{ Soon }</version>
+    <version>{ Check maven-central badge }</version>
     <scope>provided</scope>
 </dependency>
 ```
@@ -140,4 +140,4 @@ Project-Page !**
 
 # Social links
 
-**Telegram Channel :** [ModularKit Dev Channel](https://t.me/ModularKit)
+***Soon.***
