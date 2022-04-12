@@ -4,7 +4,7 @@
 TOOLS_DIR := tools
 REV := $(shell git rev-parse --short HEAD)
 
-.PHONY : clean build build-nightly deploy deploy-nightly default
+.PHONY : clean build build-nightly deploy deploy-nightly docs default
 
 define clean_buildconfig 
 	rm -rf .buildconfig-pom.xml
@@ -29,6 +29,10 @@ deploy-nightly:
 build:
 	python3 $(TOOLS_DIR)/prebuild.py $(REV) release
 	mvn -f ./.buildconfig-pom.xml install
+
+docs:
+	cd docs/
+	npm i && npm run build
 
 default: clean build-nightly
 
