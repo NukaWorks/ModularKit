@@ -7,3 +7,4 @@
 /venv/
 *.iml
 .buildconfig-pom.xml
+package-lock.json
