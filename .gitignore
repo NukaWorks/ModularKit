@@ -1,4 +1,5 @@
 ﻿.gradle/
+*node_modules*
 .vscode/
 .idea/
 /build/
