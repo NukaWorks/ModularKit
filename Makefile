@@ -31,8 +31,8 @@ build:
 	mvn -f ./.buildconfig-pom.xml install
 
 docs:
-	cd docs/
-	npm i && npm run build
+	mkdir -p target && cd docs && \
+	npm i && npm run build && cp -rv src/.vuepress/dist/ ../target
 
 default: clean build-nightly
 
