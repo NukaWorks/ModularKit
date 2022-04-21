@@ -133,7 +133,7 @@ You can use **https://www.uuidgenerator.net/**
 
 #### You can find the full documentation on the directory : **[docs/](https://github.com/NukaWorks/ModularKit/tree/main/docs/)**
 
-# Many thanks to
+# Acknowledgments
 
 **- [@Sigmanificient](https://github.com/Sigmanificient) for the
 Project-Page !**  
