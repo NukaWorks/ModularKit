@@ -15,19 +15,19 @@ clean:
 	$(call clean_buildconfig)
 
 build-nightly:
-	python $(TOOLS_DIR)/prebuild.py $(REV) devel
+	python3 $(TOOLS_DIR)/prebuild.py $(REV) devel
 	mvn -f ./.buildconfig-pom.xml install
 
 deploy:
-	python $(TOOLS_DIR)/prebuild.py $(REV) release
+	python3 $(TOOLS_DIR)/prebuild.py $(REV) release
 	mvn -f ./.buildconfig-pom.xml deploy
 
 deploy-nightly:
-	python $(TOOLS_DIR)/prebuild.py $(REV) devel
+	python3 $(TOOLS_DIR)/prebuild.py $(REV) devel
 	mvn -f ./.buildconfig-pom.xml deploy
 
 build:
-	python $(TOOLS_DIR)/prebuild.py $(REV) release
+	python3 $(TOOLS_DIR)/prebuild.py $(REV) release
 	mvn -f ./.buildconfig-pom.xml install
 
 docs:
