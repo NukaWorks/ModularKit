@@ -28,7 +28,7 @@ First example : **HelloWorld** !
 ```java
 package com.example;
 
-import xyz.sunproject.modularkit.core.ModularModule;
+import works.nuka.modularkit.ModularModule;
 
 public class ModuleTest extends ModularModule {
 
@@ -43,20 +43,21 @@ public class ModuleTest extends ModularModule {
 }
 ```
 This example is really simple, it doesn't use any module dependencies, if you want to add dependent modules, do it like this:
+
 ```java
 package com.example;
 
-import org.nutdevs.modularkit.core.ModularModule;
+import works.nuka.modularkit.ModularModule;
 
 public class ModuleTest extends ModularModule {
     public ModuleTest() {
         AnotherModule anotherMod = new AnotherModule();
         AnotherModule anotherMod2 = new AnotherModule();
-        
+
         super("ModuleTest", "81f9ab59", "Sundev79", "1.0.0", anotherMod, anotherMod2);
         // You can use Module dependencies !
     }
-    
+
     @Override
     public void runEvent() {
         System.out.println("Hello World with module-dependencies !");
@@ -67,6 +68,9 @@ public class ModuleTest extends ModularModule {
 ### To register and run a module : 
 To running a module, try this small example 😉:
 ```java
+import works.nuka.modularkit.ModularSource;
+import ModuleTest;
+
 public class Main {
     public static void main() {
         // Register the source first

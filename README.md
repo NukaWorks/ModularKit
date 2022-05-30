@@ -58,7 +58,7 @@ First example : **HelloWorld** !
 ```java
 package com.example;
 
-import org.nutdevs.modularkit.core.ModularModule;
+import works.nuka.modularkit.ModularModule;
 
 public class ModuleTest extends ModularModule {
 
@@ -78,7 +78,7 @@ An another example with module-dependencies : you can add others dependant modul
 ```java
 package com.example;
 
-import org.nutdevs.modularkit.core.ModularModule;
+import works.nuka.modularkit.ModularModule;
 
 public class ModuleTest extends ModularModule {
     public ModuleTest() {
@@ -101,6 +101,9 @@ public class ModuleTest extends ModularModule {
 For running a module, let's try this little example :
 
 ```java
+import works.nuka.modularkit.ModularSource;
+import ModuleTest;
+
 public class Main {
     public static void main() {
         // Register the source first
