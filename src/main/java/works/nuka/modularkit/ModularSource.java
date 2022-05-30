@@ -1,9 +1,9 @@
-package org.nutdevs.modularkit.core;
+package works.nuka.modularkit;
 
-import org.nutdevs.modularkit.core.events.ModuleStatus;
-import org.nutdevs.modularkit.core.ex.ModRegisterEx;
-import org.nutdevs.modularkit.core.ex.ModSourceEx;
-import org.nutdevs.modularkit.core.ex.ModUuidEx;
+import works.nuka.modularkit.events.ModuleStatus;
+import works.nuka.modularkit.ex.ModRegisterEx;
+import works.nuka.modularkit.ex.ModSourceEx;
+import works.nuka.modularkit.ex.ModUuidEx;
 
 import java.io.File;
 import java.io.IOException;

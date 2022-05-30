@@ -1,4 +1,4 @@
-package org.nutdevs.modularkit.core.events;
+package works.nuka.modularkit.events;
 
 public enum ModuleStatus {
 

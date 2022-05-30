@@ -1,4 +1,4 @@
-package org.nutdevs.modularkit;
+package works.nuka.modularkit;
 
 import org.nutdevs.modularkit.core.ModularModule;
 

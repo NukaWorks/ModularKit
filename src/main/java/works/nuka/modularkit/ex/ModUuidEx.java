@@ -1,4 +1,4 @@
-package org.nutdevs.modularkit.core.ex;
+package works.nuka.modularkit.ex;
 
 @SuppressWarnings("unused")
 public class ModUuidEx extends ModEx {

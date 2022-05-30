@@ -1,10 +1,10 @@
-package org.nutdevs.modularkit.core;
+package works.nuka.modularkit;
 
-import org.nutdevs.modularkit.core.events.ModuleStatus;
-import org.nutdevs.modularkit.core.events.RunEvent;
-import org.nutdevs.modularkit.core.ex.ModRunEx;
-import org.nutdevs.modularkit.core.ex.ModSourceEx;
-import org.nutdevs.modularkit.core.ex.ModUuidEx;
+import works.nuka.modularkit.events.ModuleStatus;
+import works.nuka.modularkit.events.RunEvent;
+import works.nuka.modularkit.ex.ModRunEx;
+import works.nuka.modularkit.ex.ModSourceEx;
+import works.nuka.modularkit.ex.ModUuidEx;
 
 import java.util.ArrayList;
 
