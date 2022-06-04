@@ -15,8 +15,8 @@
 
 <licenses>
   <license>
-    <name>GNU General Public Licence, Version 3</name>
-    <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+    <name>BSD 3-Clause License</name>
+    <url>https://raw.githubusercontent.com/NukaWorks/ModularKit/main/LICENSE</url>
     <distribution>repo</distribution>
   </license>
 </licenses>
