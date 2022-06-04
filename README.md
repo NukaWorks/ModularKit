@@ -143,4 +143,4 @@ Project-Page !**
 
 # Social links
 
-***Soon.***
+***[See on Powerm1nt Profile](https://github.com/Powerm1nt#--lets-talk-with-me-on)***
