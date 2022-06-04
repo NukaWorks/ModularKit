@@ -6,9 +6,7 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/NukaWorks/ModularKit)
 ![GitHub Licence](https://img.shields.io/github/license/NutDevs-org/ModularKit)
 
-<h1 align="center">ModularKit</h1>
-
-<hr/>
+#ModularKit
 
 ## What is ModularKit ?
 
