@@ -19,7 +19,7 @@ With ModularKit, you can create modular apps with increased flexibility and
 stability, designed to create projects without server shutdown and a good
 maintainability.
 
-Checkout the documentation on the documentation folder: **[docs/](https://github.com/NukaWorks/ModularKit/tree/main/docs/).**
+Checkout the documentation on the documentation folder: **[docs](https://github.com/NukaWorks/ModularKit/tree/main/docs/).**
 
 
 ## Getting started
@@ -134,12 +134,7 @@ You can use **https://www.uuidgenerator.net/**
 
 ⚠ **You need to copy the group 1 of the uuid.**
 
-#### You can find the full documentation on the directory : **[docs/](https://github.com/NukaWorks/ModularKit/tree/main/docs/)**
-
-# Acknowledgments
-
-**- [@Sigmanificient](https://github.com/Sigmanificient) for the
-Project-Page !**  
+#### You can find the full documentation on the directory : **[docs](https://github.com/NukaWorks/ModularKit/tree/main/docs/)**
 
 # Social links
 
