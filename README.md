@@ -6,6 +6,8 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/NukaWorks/ModularKit)
 ![GitHub Licence](https://img.shields.io/github/license/NutDevs-org/ModularKit)
 
+[aller vers le readme Français](README-FR.md)
+
 # ModularKit
 
 ## What is ModularKit ?
