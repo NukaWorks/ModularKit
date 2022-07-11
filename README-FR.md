@@ -6,27 +6,27 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/NukaWorks/ModularKit)
 ![GitHub Licence](https://img.shields.io/github/license/NutDevs-org/ModularKit)
 
-[aller vers le readme Français](README-FR.md)
+[go to English readme](README.md)
 
 # ModularKit
 
-## What is ModularKit ?
+# fr
+## Qu'est-ce que ModularKit ?
 
-**ModularKit**, a lightweight but powerful Java micro-framework for creating
-modular apps.
+**ModularKit**, un micro-framework Java léger mais puissant pour la création de
+d'applications modulaires.
 
-With ModularKit, you can create modular apps with increased flexibility and
-stability, designed to create projects without server shutdown and a good
-maintainability.
+Avec ModularKit, vous pouvez créer des applications modulaires avec une flexibilité et une stabilité accrues.
+stabilité, conçues pour créer des projets sans arrêt du serveur et une bonne
+maintenabilité.
 
-Checkout the documentation on the documentation folder: **[docs](https://github.com/NukaWorks/ModularKit/tree/main/docs/).**
+Consultez la documentation dans le dossier de documentation : **[docs](https://github.com/NukaWorks/ModularKit/tree/main/docs/).** 
 
+## Pour commencer
 
-## Getting started
+Tout d'abord, vous devez créer un nouveau projet (maven recommandé) et ajouter la dépendance **ModularKit** : 
 
-First, you need to create a new project (maven recommended) and add **ModularKit** dependency : 
-
-### For creating a modular-based app (Client side) : 
+### Pour créer une application modulaire (côté client) :
 
 ```xml
 <dependency>
@@ -35,9 +35,9 @@ First, you need to create a new project (maven recommended) and add **ModularKit
     <version>{ Check maven-central badge }</version>
 </dependency>
 ```
+### Pour le module externe (côté module) : 
+#### Créer manuellement
 
-### For external module (Module side) : 
-#### Create manualy
 ```xml
 <dependency>
     <groupId>works.nuka</groupId>
@@ -46,14 +46,14 @@ First, you need to create a new project (maven recommended) and add **ModularKit
     <scope>provided</scope>
 </dependency>
 ```
-#### Or use the ModuleTemplate
-Use this ModuleTemplate : https://github.com/NukaWorks/ModuleTest
+#### Ou utilisez le ModuleTemplate
+Utilisez ce ModuleTemplate : https://github.com/NukaWorks/ModuleTest
 
-## Examples
+## Exemples
 
-### How to create a Modular hello-world
+### Comment créer un hello-world modulaire
 
-First example : **HelloWorld** !
+Premier exemple : **HelloWorld** !
 
 ```java
 package com.example;
@@ -72,8 +72,7 @@ public class ModuleTest extends ModularModule {
     }
 }
 ```
-
-An another example with module-dependencies : you can add others dependant module by this way :
+Un autre exemple avec les dépendances de modules : vous pouvez ajouter d'autres modules dépendants de cette manière :
 
 ```java
 package com.example;
@@ -96,9 +95,8 @@ public class ModuleTest extends ModularModule {
 }
 ```
 
-### For registering and run a module
-
-For running a module, let's try this little example :
+### Pour enregistrer et exécuter un module
+Pour exécuter un module, essayons ce petit exemple :
 
 ```java
 import works.nuka.modularkit.ModularSource;
@@ -118,9 +116,8 @@ public class Main {
 }
 ```
 
-For ModSource and Module you need to generate a new uuid (Group 1).
-
-#### MacOS/Linux and others unix systems
+Pour ModSource et Module, vous devez générer un nouvel uuid (Groupe 1).
+#### MacOS/Linux et autres systèmes unix
 
 ```shell
 ~$ uuidgen
@@ -128,14 +125,14 @@ For ModSource and Module you need to generate a new uuid (Group 1).
 ~$
 ```
 
-#### UUIDGEN Online
+#### UUIDGEN en ligne
 
-You can use **https://www.uuidgenerator.net/**
+Vous pouvez utiliser **https://www.uuidgenerator.net/**
 
-⚠ **You need to copy the group 1 of the uuid.**
+⚠ **Vous devez copier le groupe 1 de l'uuid.**
 
-#### You can find the full documentation on the directory : **[docs](https://github.com/NukaWorks/ModularKit/tree/main/docs/)**
+#### Vous pouvez trouver la documentation complète sur le répertoire : **[docs](https://github.com/NukaWorks/ModularKit/tree/main/docs/)**
 
-# Social links
+# Liens sociaux
 
-***[See on Powerm1nt Profile](https://github.com/Powerm1nt#--lets-talk-with-me-on)***
+***[Voir sur Powerm1nt Profile](https://github.com/Powerm1nt#--lets-talk-with-me-on)***
