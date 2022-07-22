@@ -8,7 +8,7 @@ steps:
   image: ubuntu
   commands:
   - apt update && apt install git python3 -y
-  - python tools/prebuild.py $(git rev-parse --short HEAD) devel
+  - python3 tools/prebuild.py $(git rev-parse --short HEAD) devel
 
 - name: Build ModularKit
   image: ubuntu
