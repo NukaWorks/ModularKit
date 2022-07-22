@@ -8,6 +8,7 @@ steps:
   image: ubuntu
   commands:
   - apt update && apt install git maven openjdk-11-jdk make -y
+  - export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
   - make clean build-nightly
 
 trigger:
