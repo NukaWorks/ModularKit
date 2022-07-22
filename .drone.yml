@@ -7,13 +7,13 @@ steps:
 - name: Launch Prebuild Script
   image: ubuntu
   commands:
-  - sudo apt install git python3 -y
+  - apt install git python3 -y
   - python tools/prebuild.py $(git rev-parse --short HEAD) devel
 
 - name: Build ModularKit
   image: ubuntu
   commands:
-  - sudo apt install openjdk-8-jdk make -y
+  - apt install openjdk-8-jdk make -y
   - make clean build-nightly
 
 trigger:
