@@ -1,0 +1,10 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: List file
+  image: ubuntu
+  commands:
+  - ls -hal
