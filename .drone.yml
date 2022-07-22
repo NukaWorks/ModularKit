@@ -7,7 +7,7 @@ steps:
 - name: Build ModularKit
   image: ubuntu
   commands:
-  - apt update && apt install git apache-maven openjdk-8-jdk make -y
+  - apt update && apt install git maven openjdk-11-jdk make -y
   - make clean build-nightly
 
 trigger:
