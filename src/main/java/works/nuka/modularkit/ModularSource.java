@@ -89,7 +89,7 @@ public class ModularSource {
             try {
                 Files.walk(path.toPath()).forEach(e -> {
                     if (e.toFile().isFile() &&
-                            (fileExtension.isEmpty() || e.toFile().getName().endsWith(fileExtension))) {
+                            (!fileExtension.isEmpty() || e.toFile().getName().endsWith(fileExtension))) {
                         URLClassLoader classLoader = null;
 
                         try {
@@ -289,7 +289,7 @@ public class ModularSource {
                 return true;
             }
         }
-        
+
         return false;
     }
 
