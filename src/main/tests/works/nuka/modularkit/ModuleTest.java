@@ -1,7 +1,5 @@
 package works.nuka.modularkit;
 
-import org.nutdevs.modularkit.core.ModularModule;
-
 public class ModuleTest extends ModularModule {
 
     public ModuleTest() throws Exception {

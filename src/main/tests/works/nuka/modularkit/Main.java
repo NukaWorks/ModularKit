@@ -1,7 +1,5 @@
 package works.nuka.modularkit;
 
-import org.nutdevs.modularkit.core.ModularSource;
-
 public class Main {
 
     public static void main(String[] args) throws Exception {
