@@ -10,7 +10,7 @@
 
 ## What is ModularKit ?
 
-**ModularKit**, a lightweight and powerful Java micro-framework for creating
+**ModularKit**, an alternative to the OSGi framework, more lightweight  and powerful Java toolkit for creating
 modular apps.
 
 With ModularKit, you can create modular apps with increased flexibility and
