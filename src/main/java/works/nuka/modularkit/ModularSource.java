@@ -22,7 +22,7 @@ import java.util.Properties;
 public class ModularSource {
 
     private static final HashMap<String, ModularSource> sourceMap = new HashMap<>();
-    private final Map<String, ModularModule> moduleMap = new HashMap<>();
+    private final HashMap<String, ModularModule> moduleMap = new HashMap<>();
     private final String uuid;
     private ModuleManager moduleManager;
 
@@ -69,7 +69,7 @@ public class ModularSource {
         if (_uuid.length() != 8)
             try {
                 throw new ModUuidEx("uuid is incorrect !"); // Grab only the group 1 of the uuid eg :
-                                                            // "**f3eafee8**-2419-4a58-b8fe-fe72d6f4019b"
+                // "**f3eafee8**-2419-4a58-b8fe-fe72d6f4019b"
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -94,7 +94,7 @@ public class ModularSource {
 
                         try {
                             classLoader = new URLClassLoader(
-                                    new URL[] { new URL("file", null, e.toFile().getAbsolutePath()) });
+                                    new URL[]{new URL("file", null, e.toFile().getAbsolutePath())});
                         } catch (MalformedURLException malformedURLException) {
                             malformedURLException.printStackTrace();
                         }
@@ -129,7 +129,7 @@ public class ModularSource {
                                 try {
                                     newModule = (ModularModule) modClass.getDeclaredConstructor().newInstance();
                                 } catch (InstantiationException | IllegalAccessException | InvocationTargetException
-                                        | NoSuchMethodException ex) {
+                                         | NoSuchMethodException ex) {
                                     ex.printStackTrace();
                                 }
                                 try {
@@ -215,6 +215,7 @@ public class ModularSource {
      */
     public boolean destroy(@Deprecated boolean forceDestroy) {
         for (Map.Entry<String, ModularModule> moduleEntry : moduleMap.entrySet()) {
+            moduleEntry.getValue().setModuleStatus(ModuleStatus.STOPPING);
             moduleEntry.getValue().stop();
 
             if (forceDestroy) {
@@ -280,9 +281,9 @@ public class ModularSource {
      * @throws ModRegisterEx - Can fail if the module is null.
      */
     public boolean unregisterModule(ModularModule module) throws ModRegisterEx {
-        System.out.println(module.getModuleState());
+        System.out.println(module.getModuleStatus());
         if (moduleMap.containsKey(module.getUuid())) {
-            if (module.getModuleState() == ModuleStatus.RUNNING)
+            if (module.getModuleStatus() == ModuleStatus.RUNNING)
                 throw new ModRegisterEx("Failed to unregister the module : the module is running.");
             else {
                 moduleMap.remove(module.getUuid(), module);
