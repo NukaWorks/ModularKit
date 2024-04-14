@@ -10,23 +10,24 @@
 
 ## What is ModularKit ?
 
-**ModularKit**, an alternative to the OSGi framework, more lightweight  and powerful Java toolkit for creating
+**ModularKit**, an alternative to the OSGi framework, more lightweight and powerful Java toolkit for creating
 modular apps.
 
 With ModularKit, you can create modular apps with increased flexibility and
 stability, designed to create projects without server shutdown and a good
 maintainability.
 
-Checkout the documentation on the documentation folder: **[docs](https://github.com/NukaWorks/ModularKit/tree/main/docs/).**
-
+Checkout the documentation on the documentation folder: *
+*[docs](https://github.com/NukaWorks/ModularKit/tree/main/docs/).**
 
 ## Getting started
 
-First, you need to create a new project (maven recommended) and add **ModularKit** dependency : 
+First, you need to create a new project (maven recommended) and add **ModularKit** dependency :
 
-### For creating a modular-based app (Client side) : 
+### For creating a modular-based app (Client side) :
 
 ```xml
+
 <dependency>
     <groupId>works.nuka</groupId>
     <artifactId>ModularKit</artifactId>
@@ -34,9 +35,12 @@ First, you need to create a new project (maven recommended) and add **ModularKit
 </dependency>
 ```
 
-### For external module (Module side) : 
+### For external module (Module side) :
+
 #### Create manualy
+
 ```xml
+
 <dependency>
     <groupId>works.nuka</groupId>
     <artifactId>ModularKit</artifactId>
@@ -44,7 +48,9 @@ First, you need to create a new project (maven recommended) and add **ModularKit
     <scope>provided</scope>
 </dependency>
 ```
+
 #### Or use the ModuleTemplate
+
 Use this ModuleTemplate : https://github.com/NukaWorks/ModuleTest
 
 ## Examples
@@ -71,7 +77,7 @@ public class ModuleTest extends ModularModule {
 }
 ```
 
-An another example with module-dependencies : you can add others dependant module by this way :
+An example with module-dependencies : you can add others dependant module by this way :
 
 ```java
 package com.example;
@@ -82,11 +88,11 @@ public class ModuleTest extends ModularModule {
     public ModuleTest() {
         AnotherModule anotherMod = new AnotherModule();
         AnotherModule anotherMod2 = new AnotherModule();
-        
+
         super("ModuleTest", "81f9ab59", "Sundev79", "1.0.0", anotherMod, anotherMod2);
         // You can use Module dependencies !
     }
-    
+
     @Override
     public void runEvent() {
         System.out.println("Hello World with module-dependencies !");
@@ -106,10 +112,10 @@ public class Main {
     public static void main() {
         // Register the source first
         ModularSource mainSource = new ModularSource("e3640e55");
-        
+
         // and the Module ...
         ModuleTest testMod = new ModuleTest();
-        
+
         // ... and then let's run it !
         mainSource.getModuleManager().runModule(testMod);
     }
@@ -132,7 +138,8 @@ You can use **https://www.uuidgenerator.net/**
 
 ⚠ **You need to copy the group 1 of the uuid.**
 
-#### You can find the full documentation on the directory : **[docs](https://github.com/NukaWorks/ModularKit/tree/main/docs/)**
+#### You can find the full documentation on the directory : *
+*[docs](https://github.com/NukaWorks/ModularKit/tree/main/docs/)**
 
 # Social links
 
