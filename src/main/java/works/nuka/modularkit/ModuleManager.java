@@ -1,5 +1,6 @@
 package works.nuka.modularkit;
 
+import works.nuka.modularkit.events.ModuleStatus;
 import works.nuka.modularkit.ex.ModRegisterEx;
 import works.nuka.modularkit.ex.ModRunEx;
 import works.nuka.modularkit.ex.ModSourceEx;
@@ -8,7 +9,7 @@ import works.nuka.modularkit.ex.ModUuidEx;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-@SuppressWarnings({ "UnusedReturnValue", "unused" })
+@SuppressWarnings({"UnusedReturnValue", "unused"})
 
 public class ModuleManager {
     private final ModularSource modSource;
@@ -22,7 +23,7 @@ public class ModuleManager {
      * @since 1.0
      */
 
-     public ModuleManager(ModularSource source) throws ModSourceEx {
+    public ModuleManager(ModularSource source) throws ModSourceEx {
         if (source != null)
             modSource = source;
         else
@@ -70,9 +71,22 @@ public class ModuleManager {
      */
 
     public void stopModule(ModularModule module, @Deprecated boolean forceStop) throws ModRunEx {
+        module.setModuleStatus(ModuleStatus.STOPPING);
         module.stop();
         if (forceStop)
             module.kill();
+    }
+
+    public void stopModule(String uuid, @Deprecated boolean forceStop) throws ModRunEx {
+        try {
+            ModularModule mod = findModuleByUuiD(uuid);
+            if (mod == null)
+                throw new ModRunEx("Module not found !");
+
+            stopModule(mod, forceStop);
+        } catch (ModUuidEx e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -83,8 +97,8 @@ public class ModuleManager {
      * @throws ModUuidEx - Return a ModUuidEx if the Module-UuID is incorrect.
      * @since 1.0
      */
-    
-     public ModularModule findModuleByUuiD(String uuid) throws ModUuidEx {
+
+    public ModularModule findModuleByUuiD(String uuid) throws ModUuidEx {
         if (uuid.length() == 8) {
             if (modSource.getModuleMap().containsKey(uuid))
                 return modSource.getModuleMap().get(uuid);

@@ -1,7 +1,6 @@
 package works.nuka.modularkit;
 
 import works.nuka.modularkit.events.ModuleStatus;
-import works.nuka.modularkit.events.RunEvent;
 import works.nuka.modularkit.ex.ModRunEx;
 import works.nuka.modularkit.ex.ModSourceEx;
 import works.nuka.modularkit.ex.ModUuidEx;
@@ -10,16 +9,16 @@ import java.util.ArrayList;
 
 @SuppressWarnings("unused")
 
-public abstract class ModularModule implements RunEvent {
+public abstract class ModularModule {
 
     private final String uuid; // The Module UuID, needed for find a unique module.
     private final String moduleName; // module name.
     private final String author; // module vuthor name.
     private final String version; // module version number.
-    
+
     // (WIP) Temp ModuleDeps ArrayList<ModularModule>.
-    private final ArrayList<ModularModule> tmpModDepsList = new ArrayList<>(); 
-    
+    private final ArrayList<ModularModule> tmpModDepsList = new ArrayList<>();
+
     private ModuleStatus modStatus = ModuleStatus.STOPPED; // Default module execution status.
     private ModularSource modSource;
 
@@ -45,7 +44,7 @@ public abstract class ModularModule implements RunEvent {
             String author,
             String version,
             ModularModule... modDeps
-        ) throws ModUuidEx {
+    ) throws ModUuidEx {
         this.author = author;
         this.version = version;
 
@@ -79,7 +78,7 @@ public abstract class ModularModule implements RunEvent {
 
         if (modSource.getModuleManager().findModuleByUuiD(uuid) != null)
             throw new ModUuidEx("Module already instantiated !");
-            
+
         if (!tmpModDepsList.isEmpty())
             for (ModularModule mod : tmpModDepsList)
                 getModSource().getModuleManager().setDepends(mod);
@@ -90,24 +89,22 @@ public abstract class ModularModule implements RunEvent {
         modThread = Thread.currentThread();
         threadName = modThread.getName();
 
-        runEvent();
+        start();
         modStatus = ModuleStatus.STOPPED;
     }
 
     /**
      * Stop the module
      */
+    protected abstract void stop();
 
-    protected void stop() {
-        modStatus = ModuleStatus.STOPPING;
-    }
+    protected abstract void start();
 
     @SuppressWarnings("deprecation") // Because modThread.stop() is deprecated.
     protected void kill() throws ModRunEx {
         if (modStatus != ModuleStatus.STOPPING)
             throw new ModRunEx("Please try with stop() before call kill() !");
         modThread.stop();
-        modStatus = ModuleStatus.STOPPED;
     }
 
     public String getUuid() {
@@ -116,10 +113,6 @@ public abstract class ModularModule implements RunEvent {
 
     public String getModuleName() {
         return moduleName;
-    }
-
-    public ModuleStatus getModuleState() {
-        return modStatus;
     }
 
     public String getAuthor() {
@@ -132,6 +125,14 @@ public abstract class ModularModule implements RunEvent {
 
     public String getThreadName() {
         return threadName;
+    }
+
+    public ModuleStatus getModuleStatus() {
+        return modStatus;
+    }
+
+    protected void setModuleStatus(ModuleStatus modStatus) {
+        this.modStatus = modStatus;
     }
 
     private ModularSource getModSource() {
