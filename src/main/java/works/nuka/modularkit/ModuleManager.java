@@ -61,6 +61,18 @@ public class ModuleManager {
             throw new ModRegisterEx("Module not found :/");
     }
 
+    public void runModule(String uuid) throws ModRunEx {
+        try {
+            ModularModule mod = findModuleByUuiD(uuid);
+            if (mod == null)
+                throw new ModRunEx("Module not found !");
+
+            runModule(mod);
+        } catch (ModUuidEx | ModRegisterEx e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Stop the Module
      *
