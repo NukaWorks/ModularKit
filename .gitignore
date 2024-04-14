@@ -9,3 +9,4 @@
 .buildconfig-pom.xml
 package-lock.json
 *pnpm-lock.yaml*
+/out/
