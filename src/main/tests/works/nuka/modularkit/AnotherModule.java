@@ -7,7 +7,13 @@ public class AnotherModule extends ModularModule {
     }
 
     @Override
-    public void runEvent() {
+    public void stop() {
+        System.out.println("Bye " + this.getModuleName() + " !");
+    }
+
+
+    @Override
+    public void start() {
         System.out.println("Hello " + this.getModuleName() + " !");
     }
 }

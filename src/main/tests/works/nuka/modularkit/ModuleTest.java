@@ -7,7 +7,17 @@ public class ModuleTest extends ModularModule {
     }
 
     @Override
-    public void runEvent() {
-        System.out.println("Hello World !");
+    protected void stop() {
+        System.out.println("Bye " + this.getModuleName() + " !");
+    }
+
+    @Override
+    protected void start() {
+        System.out.println("Hello " + this.getModuleName() + " !");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
