@@ -43,15 +43,7 @@ public class ModuleManager {
         HashMap<String, ModularModule> runMap = (HashMap<String, ModularModule>) modSource.getModuleMap();
         if (!runMap.isEmpty()) {
             if (runMap.containsKey(module.getUuid())) {
-                Thread runThread = new Thread(() -> {
-                    try {
-                        module.exec();
-                    } catch (Throwable e) {
-                        e.printStackTrace();
-                    }
-                });
-
-                runThread.setName("Mod_" + module.getModuleName() + "_" + module.getUuid());
+                Thread runThread = getRunThread(module);
                 // Starting the module...
                 runThread.start();
                 return true;
@@ -59,6 +51,27 @@ public class ModuleManager {
                 throw new ModRegisterEx("the module is not registered !");
         } else
             throw new ModRegisterEx("Module not found :/");
+    }
+
+    private Thread getRunThread(ModularModule module) {
+        Thread runThread = new Thread(() -> {
+            try {
+                module.exec();
+            } catch (Throwable e) {
+                e.printStackTrace();
+            } finally {
+                module.setModuleStatus(ModuleStatus.STOPPING);
+                try {
+                    this.stopModule(module, false);
+                    module.setModuleStatus(ModuleStatus.STOPPED);
+                } catch (ModRunEx e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
+        runThread.setName("Mod_" + module.getModuleName() + "_" + module.getUuid());
+        return runThread;
     }
 
     public void runModule(String uuid) throws ModRunEx {
